@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -25,9 +26,20 @@ class SessionForm extends React.Component {
         )
     }
 
+    renderErrors() {
+        return (
+            <ul>
+                {this.props.errors.map((error, i) => (
+                    <li key={`error-${i}`}>
+                        {error}
+                    </li>
+                ))}
+            </ul>
+        );
+    }
+
     render() {
-        
-        const names = this.props.formType === "sign up" ? (
+        const names = this.props.formType === "Sign up" ? (
         <>
             <label>
                 First name
@@ -41,16 +53,31 @@ class SessionForm extends React.Component {
         </>            
             ) : (null)
 
-        const location = this.props.formType === "sign up" ? (
+        const location = this.props.formType === "Sign up" ? (
             <label>
                 Zip Code
                 <input type="number" value={this.state.location} onChange={this.handleChange("location")} required/>
             </label>
         ) : (null)
 
+        const topPart = this.props.formType === "Sign up" ? (
+            <label>
+                <h3>Sign Up for Yuup</h3>
+                <h4>Connect with great local businesses</h4>
+                <p>By continuing, you agree to Yuup's Terms of Service and acknowledge Yuup's Privacy Policy.</p>
+            </label>
+        ) : (
+            <label>
+                <h3>Log In to Yuup</h3>
+                <h4>New to Yuup? sign up!</h4>
+                <p>By logging in, you agree to Yuups Terms of Service and Privacy Policy</p>
+            </label>
+        )
+
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
+                <form className="entryform" onSubmit={this.handleSubmit}>
+                    {topPart}
                     {names}
                     <label>
                         email
@@ -62,8 +89,11 @@ class SessionForm extends React.Component {
                         <input type="password" value={this.state.password} onChange={this.handleChange("password")} required />
                     </label>
                     {location}
+                    <br/>
                     <input type="submit" value={this.props.formType} />
+                    {/* {loginLink} */}
                 </form>
+                {this.renderErrors()}
             </div>
         )
     }

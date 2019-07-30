@@ -3,7 +3,7 @@ import SignupFormContainer from "./loginsignin/signup_form_contain";
 import React from 'react';
 import {Route} from 'react-router-dom';
 
-export const loggedInLoggedout = (props) => {
+const loggedInLoggedout = (props) => {
     
     const loggedIn = this.props.currentUser ? (
         <div>
@@ -18,8 +18,10 @@ export const loggedInLoggedout = (props) => {
     );
 
     render() {
-        return (
-            ()
+        return ( 
+            <>
+                {loggedIn}
+            </>
         )
     }
 }

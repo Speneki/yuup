@@ -7,7 +7,7 @@ import React from 'react';
 const msp = (state) => ({
     nav: <Link to="/signup">sign up</Link>,
     errors: state.errors.session,
-    formType: "sign up"
+    formType: "Sign up"
 })
 
 const mdp = dispatch => ({

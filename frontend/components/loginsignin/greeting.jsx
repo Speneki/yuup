@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 
 const Greeting = (props) => {
+    debugger
     const signedIn = () => (
         <div>
             <h3>Heyooo, {props.currentUser}</h3>
