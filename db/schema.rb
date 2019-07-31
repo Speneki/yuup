@@ -16,7 +16,6 @@ ActiveRecord::Schema.define(version: 2019_07_29_225410) do
   enable_extension "plpgsql"
 
   create_table "users", force: :cascade do |t|
-    
     t.string "firstName", null: false
     t.string "lastName", null: false
     t.string "password_digest", null: false
@@ -27,7 +26,6 @@ ActiveRecord::Schema.define(version: 2019_07_29_225410) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
-
   end
 
 end

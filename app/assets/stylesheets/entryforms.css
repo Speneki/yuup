@@ -1,3 +1,96 @@
-.entryform label{
+.entryform input {
+    margin: 6px 2px;
+    padding: 6px 0;
+    padding-left: 6px;
+    width: 143px;
+    border-radius: 3px;
+    border: 1px solid #999999;
+}
+
+.entryform input[type="submit"] {
+    background-color: #D32323;
+    text-decoration: none;
+    border: 1px solid black;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    color: white;
+    width: 97%;
+    height: 45px;
+    padding: 5px 10px;
+    border: 0;
+    margin: 0;
+}
+
+.entryform {
+    width: 320px;
+    text-align: center;
     padding: 15px;
+    margin: 35px;
+}
+
+.entryform .bottomPart {
+    text-align: left;
+    color: #333;
+    font-size: 12px;
+    line-height: 1.5em;
+    width: 95%;
+    padding-left: 10px;
+}
+
+.entryform .password {
+    width: 94%;
+}
+.entryform .email {
+    width: 94%;
+}
+
+.entryform .location {
+    width: 94%;
+}
+
+.entryform h3 {
+    font-weight: 600;
+    font-family: sans-serif;
+    margin-bottom: 6px;
+    font-size: 21px;
+    color: #d32323;
+}
+
+.wholepage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagecontainer{
+    height: 342px;
+    width: 382px;
+    padding: 45px;
+    display: block;
+}
+
+.loginLink {
+    text-align: right;
+    color: #999;
+    font-weight: normal;
+    font-size: 12px;
+    padding: 3px;
+}
+
+.entryform h4 {
+    font-weight: 600;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.aboveText {
+    font-size: 13px;
+    padding: 10px;
+    line-height: 1.5em;
+    color: #333;
+} 
+
+.errors {
+    padding: 10px;
 }

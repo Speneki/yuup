@@ -1,0 +1,41 @@
+.navBar {
+    background-color: #d32323;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+.login {
+    text-decoration: none;
+    color: white;
+    padding: 15px;
+    background: transparent;
+}
+
+.login:hover {
+    border-bottom: #fff
+}
+
+.signup {
+    padding: 15px;
+    color: white;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 4px;
+    border: 2px solid #fff;
+    margin-top: -2px;
+    padding: 7px 24px 8px;
+    text-decoration: none;
+}
+
+.signup:hover, .signup:visited, .signup:hover, .signup:visited {
+    color: #fff;
+    background: white;
+}
+
+.signup:hover {
+    color: #666
+}
+
+.buttons {
+
+}

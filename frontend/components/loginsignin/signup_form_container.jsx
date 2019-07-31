@@ -11,7 +11,8 @@ const msp = (state) => ({
 })
 
 const mdp = dispatch => ({
-    processForm: user => dispatch(signup(user))
+    processForm: user => dispatch(signup(user)),
+    // clearErrors: () => dispatch(clearErrors())
 })
 
 export default connect(msp, mdp)(SessionForm)
