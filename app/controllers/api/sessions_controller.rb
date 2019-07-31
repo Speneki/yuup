@@ -7,9 +7,9 @@ class Api::SessionsController < ApplicationController
 
     if @user
       login(@user)
-      render :show
+      render '/api/users/show'
     else
-      render json: ["Invalid email or Password too short"], status: 401
+      render json: ["invalid email or password"], status: 401
     end
   end
 

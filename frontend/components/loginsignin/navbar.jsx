@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 
-const Greeting = (props) => {
+const Navbar = (props) => {
     const propToLoad = props.currentUser ? (
         (
             <div className="navBar">
@@ -27,4 +27,4 @@ const Greeting = (props) => {
     return propToLoad
 }
 
-export default Greeting;
+export default Navbar;

@@ -68,7 +68,7 @@ class SessionForm extends React.Component {
         ) : (
             <label>
                 <h3>Log In to Yuup</h3>
-                <h4>New to Yuup? sign up!</h4>
+                <h4>New to Yuup? <Link to="/signup">Sign Up!</Link></h4>
                 <p className="aboveText">By logging in, you agree to Yuups Terms of Service and Privacy Policy</p>
             </label>
         )
@@ -93,7 +93,7 @@ class SessionForm extends React.Component {
             </div>
         ) : (
             <div className='loginLink'>
-                <p>New to Yuup? <Link to="/signup">Sign In</Link></p>
+                <p>New to Yuup? <Link to="/signup">Sign Up</Link></p>
             </div>
         )
 

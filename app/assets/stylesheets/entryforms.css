@@ -23,10 +23,12 @@
 }
 
 .entryform {
+    height: 450px;
     width: 320px;
     text-align: center;
     padding: 15px;
     margin: 35px;
+    align-items: center;
 }
 
 .entryform .bottomPart {
