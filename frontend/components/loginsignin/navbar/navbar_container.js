@@ -4,7 +4,7 @@ import { logout } from "../../../actions/session_actions"
 
 const msp = state => {
     return ({
-    currentUser: state.users[state.session.id]
+    currentUser: state.entities.users[state.session.id]
 })}
 
 const mdp = dispatch => ({

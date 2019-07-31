@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import UserNav from './usernav'
 
 class Navbar extends React.Component {
     constructor(props) {
@@ -10,11 +11,11 @@ class Navbar extends React.Component {
     render() {    
         const propToLoad = this.props.currentUser ? (
         (
-            <div className="navBar">
-                <div className="buttons">
-                    <h3>Heyooo, {this.props.currentUser.firstName}</h3>
-                    <button onClick={this.props.logout}>LOGOUT</button>
-                </div>
+            <div>
+                    < UserNav 
+                        currentUser={this.props.currentUser}
+                        logout={this.props.logout}
+                    />
             </div>
         )
     )
@@ -22,6 +23,7 @@ class Navbar extends React.Component {
         (
             <div className="navBar">
                 <h3>Yuup</h3>
+                {/* LINKS TO PERSONAL PAGES */}
                 <div className='buttons'>
                     <Link className="login" to="/login">Log In</Link>
                     <Link className="signup" to="/signup">Sign Up</Link>

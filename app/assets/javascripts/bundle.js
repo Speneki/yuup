@@ -262,6 +262,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _usernav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./usernav */ "./frontend/components/loginsignin/navbar/usernav.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -279,6 +280,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -301,13 +303,10 @@ function (_React$Component) {
   _createClass(Navbar, [{
     key: "render",
     value: function render() {
-      var propToLoad = this.props.currentUser ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "navBar"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "buttons"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Heyooo, ", this.props.currentUser.firstName), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: this.props.logout
-      }, "LOGOUT"))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      var propToLoad = this.props.currentUser ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_usernav__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        currentUser: this.props.currentUser,
+        logout: this.props.logout
+      })) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "navBar"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Yuup"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "buttons"
@@ -347,7 +346,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var msp = function msp(state) {
   return {
-    currentUser: state.users[state.session.id]
+    currentUser: state.entities.users[state.session.id]
   };
 };
 
@@ -360,6 +359,38 @@ var mdp = function mdp(dispatch) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(msp, mdp)(_navbar__WEBPACK_IMPORTED_MODULE_1__["default"]));
+
+/***/ }),
+
+/***/ "./frontend/components/loginsignin/navbar/usernav.jsx":
+/*!************************************************************!*\
+  !*** ./frontend/components/loginsignin/navbar/usernav.jsx ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var UserNav = function UserNav(props) {
+  debugger;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "navBar"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "links to my stuff")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "user-nav"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "profile-icon",
+    src: "yelp icon",
+    alt: "default icon"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: props.logout
+  }, " \u25BE ")));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (UserNav);
 
 /***/ }),
 
@@ -619,6 +650,25 @@ var Root = function Root(_ref) {
 
 /***/ }),
 
+/***/ "./frontend/reducers/enriries_reducer.js":
+/*!***********************************************!*\
+  !*** ./frontend/reducers/enriries_reducer.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
+
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
+  users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+}));
+
+/***/ }),
+
 /***/ "./frontend/reducers/errors_reducer.js":
 /*!*********************************************!*\
   !*** ./frontend/reducers/errors_reducer.js ***!
@@ -649,7 +699,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _session_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./session_reducer */ "./frontend/reducers/session_reducer.js");
-/* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
+/* harmony import */ var _enriries_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./enriries_reducer */ "./frontend/reducers/enriries_reducer.js");
 /* harmony import */ var _errors_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./errors_reducer */ "./frontend/reducers/errors_reducer.js");
 
 
@@ -657,7 +707,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   session: _session_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
-  users: _users_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
+  entities: _enriries_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
   errors: _errors_reducer__WEBPACK_IMPORTED_MODULE_3__["default"]
 }));
 
