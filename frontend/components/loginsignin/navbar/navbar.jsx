@@ -1,14 +1,19 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 
-const Navbar = (props) => {
-    const propToLoad = props.currentUser ? (
+class Navbar extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state
+    }
+
+    render() {    
+        const propToLoad = this.props.currentUser ? (
         (
             <div className="navBar">
-                <h3>Yuup</h3>
                 <div className="buttons">
-                    <h3>Heyooo, {props.currentUser.firstName}</h3>
-                    <button onClick={props.logout}>LOGOUT</button>
+                    <h3>Heyooo, {this.props.currentUser.firstName}</h3>
+                    <button onClick={this.props.logout}>LOGOUT</button>
                 </div>
             </div>
         )
@@ -23,8 +28,8 @@ const Navbar = (props) => {
                 </div>
             </div>
         )
-
-    return propToLoad
+        return propToLoad
+    }
 }
 
 export default Navbar;

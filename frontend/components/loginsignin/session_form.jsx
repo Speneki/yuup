@@ -97,9 +97,17 @@ class SessionForm extends React.Component {
             </div>
         )
 
+        const demoUser = (
+            <div>
+                <button onClick={this.props.demologin} className="demo">Demo User</button>
+                <p className="or">------------------ OR ------------------</p>
+            </div>
+        ) 
+
         return (
             <div className="wholepage">
                 <div className="entryform">
+                        {demoUser}
                     <form onSubmit={this.handleSubmit}>
                         {topPart}
                         {names}
