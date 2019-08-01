@@ -75,10 +75,10 @@ button:focus {
     border: 1px solid black;
 }
 
-.middle-business-show img {
-    transition: all .2s ease-in-out;
+.biz-pix img {
+    transition: .2s ease-in-out;
 }
-.middle-business-show img:hover {
+.biz-pix img:hover {
     transform: scale(1.3);
 }
 
@@ -86,4 +86,16 @@ button:focus {
     display:flex;
     height: 200px;
     /* margin-left: 10px; */
+}
+
+.bizMap {
+    height: 200px;
+    width: 200px;
+    overflow: visible;
+}
+
+.map-container {
+    height: 200px;
+    width: 200px;
+    overflow: visible;
 }

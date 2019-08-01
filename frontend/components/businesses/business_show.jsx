@@ -1,4 +1,5 @@
 import React from 'react';
+import Map from '../maps/map'
 
 class Business extends React.Component {
 
@@ -26,6 +27,9 @@ class Business extends React.Component {
                         </div>
                     </div>
                     <div className="middle-business-show">
+                        <div id="map-container" ref='map'>
+                            <Map business={this.props.business}/>
+                        </div>
                         <p><i className="fas fa-external-link-alt"></i> {this.props.business.website}</p>
                         <div className="biz-pix">
                             <img src="https://picsum.photos/200" alt="restaurant"/>
