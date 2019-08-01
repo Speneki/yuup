@@ -9,7 +9,7 @@
 Business.destroy_all
 User.destroy_all
 
-5.times do 
+100.times do 
     Business.create(
         business_name: Faker::Restaurant.name,
         address: Faker::Address.full_address,

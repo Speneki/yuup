@@ -6,6 +6,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Navbar from "./loginsignin/navbar/navbar_container"
 import Footer from "./footer/footer"
 import Splash from "./splash/splash_container"
+import BusinessShow from './businesses/business_show_container'
 
 const App = () => (
     <div>
@@ -16,7 +17,9 @@ const App = () => (
             < AuthRoute exact path="/login" component={LoginFormContainer} />
             < AuthRoute exact path="/signup" component={SignupFormContainer} />
             < Route to="/" component={Splash} />
+            {/* < Route path='/businesses/:id' component={BusinessShow} /> */}
         </Switch>
+        < BusinessShow />
         < Footer />
     </div>
 );
