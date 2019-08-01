@@ -19,4 +19,8 @@ class Business < ApplicationRecord
     validates :business_name, :address, :longitude, :latitude, :price, presence: true
 
     has_many :reviews
+
+    def avg_rating
+        reviews.average(:rating)
+    end
 end

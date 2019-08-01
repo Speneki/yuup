@@ -1,4 +1,5 @@
 import React from 'react';
+import Businesses from '../businesses/businesses_container'
 
 class Splash extends React.Component {
     constructor(props) {
@@ -8,9 +9,12 @@ class Splash extends React.Component {
     render() {
 
         return (
-        <div className='splish-splash'> 
-            <p className="title-icon">Yuup</p>
-            <input className="food-search" type="text"/>
+        <div>
+            <div className='splish-splash'> 
+                <p className="title-icon">Yuup</p>
+                <input className="food-search" type="text"/>
+            </div>
+            < Businesses />
         </div>
         )
     }

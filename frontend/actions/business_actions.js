@@ -18,7 +18,6 @@ const receiveBusinesses = (businesses) => {
 };
 
 
-
 export const fetchBusinesses = () => (dispatch) => (
     BusinessApiUtil.indexBusinesses().then(bizez => dispatch(receiveBusinesses(bizez)))
 );

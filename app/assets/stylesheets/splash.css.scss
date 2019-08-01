@@ -24,3 +24,19 @@
     font-weight: bold;
     font-size: 45px;
 }
+
+.splash-biz-list-item {
+    padding: 10px;
+    width: 100px;
+}
+
+.splash-biz-list-item p {
+    padding: 10px;
+}
+
+.splash-biz-list {
+    display:flex;
+    justify-content: space-between;
+    margin-left: 40px;
+    margin-right: 40px;
+}
