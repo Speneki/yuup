@@ -24,8 +24,12 @@
     font-family: sans-serif;
 }
 
-.footer-info p {
+.footer-info ul {
     width: 300px;
+}
+
+.footer-info ul li {
+    text-decoration: none;
 }
 
 .copythat {

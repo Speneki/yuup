@@ -6,10 +6,11 @@ class Splash extends React.Component {
     }
 
     render() {
+
         return (
-        <div>
-            <img className='splish-splash' src="assets/splash1.jpg" alt="splash"/>
-            <input className="food-search" type="search"/>
+        <div className='splish-splash'> 
+            <p className="title-icon">Yuup</p>
+            <input className="food-search" type="text"/>
         </div>
         )
     }

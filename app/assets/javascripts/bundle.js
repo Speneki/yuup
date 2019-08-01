@@ -86,6 +86,55 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./frontend/actions/business_actions.js":
+/*!**********************************************!*\
+  !*** ./frontend/actions/business_actions.js ***!
+  \**********************************************/
+/*! exports provided: RECEIVE_BUSINESS, RECEIVE_BUSINESSES, fetchBusinesses, fetchBusiness */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_BUSINESS", function() { return RECEIVE_BUSINESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_BUSINESSES", function() { return RECEIVE_BUSINESSES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchBusinesses", function() { return fetchBusinesses; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchBusiness", function() { return fetchBusiness; });
+/* harmony import */ var _util_business_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/business_util */ "./frontend/util/business_util.jsx");
+
+var RECEIVE_BUSINESS = 'RECEIVE_BUSINESS';
+var RECEIVE_BUSINESSES = 'RECEIVE_BUSINESSES';
+
+var receiveBusiness = function receiveBusiness(business) {
+  return {
+    type: RECEIVE_BUSINESS,
+    payload: business
+  };
+};
+
+var receiveBusinesses = function receiveBusinesses(businesses) {
+  return {
+    type: RECEIVE_BUSINESSES,
+    payload: businesses
+  };
+};
+
+var fetchBusinesses = function fetchBusinesses() {
+  return function (dispatch) {
+    return _util_business_util__WEBPACK_IMPORTED_MODULE_0__["indexBusinesses"]().then(function (bizez) {
+      return dispatch(receiveBusinesses(bizez));
+    });
+  };
+};
+var fetchBusiness = function fetchBusiness(id) {
+  return function (dispatch) {
+    return _util_business_util__WEBPACK_IMPORTED_MODULE_0__["showBusiness"](id).then(function (biz) {
+      return dispatch(receiveBusiness(biz));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/session_actions.js":
 /*!*********************************************!*\
   !*** ./frontend/actions/session_actions.js ***!
@@ -257,7 +306,9 @@ function (_React$Component) {
         className: "footer-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "footer-info"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "About"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Discover"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Other"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Stuff")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, "About", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://github.com/Speneki/yuup"
+      }, "About Yuup"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, "Discover"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, "Other"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, "Stuff")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "footer",
         src: "assets/footer.png"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -377,15 +428,21 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       var appearOrNah = this.props.location.pathname === '/login' || this.props.location.pathname === '/signup' ? "makeItRed" : "keepItClear";
-      var propToLoad = this.props.currentUser ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "buttons"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_usernav__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      var propToLoad = this.props.currentUser ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_usernav__WEBPACK_IMPORTED_MODULE_2__["default"], {
         currentUser: this.props.currentUser,
-        logout: this.props.logout // onClick={}
+        logout: this.props.logout // onClick={dropdown}
 
       }))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "navBar ".concat(appearOrNah)
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Yuup"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "buttons"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#"
+      }, "My Site"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://github.com/Speneki"
+      }, "Git Hub"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://www.linkedin.com/in/spencer-tassone-80a6218b/"
+      }, "LinkedIn")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "buttons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "login",
@@ -457,15 +514,34 @@ __webpack_require__.r(__webpack_exports__);
 var UserNav = function UserNav(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "navBar"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "links to my stuff")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "buttons"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#"
+  }, "My Site"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "https://github.com/Speneki"
+  }, "Git Hub"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "https://www.linkedin.com/in/spencer-tassone-80a6218b/"
+  }, "LinkedIn")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "rightSide"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: ""
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-comment-alt"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: ""
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-bell"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     className: "user-nav"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "profile-icon",
     src: "https://ask.libreoffice.org/m/default/media/images/nophoto.png?v=20",
     alt: "default icon"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "profile-button",
     onClick: props.logout
-  }, " \u25BE ")));
+  }, " \u25BE "))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (UserNav);
@@ -773,13 +849,13 @@ function (_React$Component) {
   _createClass(Splash, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "splish-splash",
-        src: "assets/splash1.jpg",
-        alt: "splash"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "splish-splash"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "title-icon"
+      }, "Yuup"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "food-search",
-        type: "search"
+        type: "text"
       }));
     }
   }]);
@@ -1018,6 +1094,37 @@ var configureStore = function configureStore() {
 
 /***/ }),
 
+/***/ "./frontend/util/business_util.jsx":
+/*!*****************************************!*\
+  !*** ./frontend/util/business_util.jsx ***!
+  \*****************************************/
+/*! exports provided: indexBusinesses, showBusiness */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "indexBusinesses", function() { return indexBusinesses; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showBusiness", function() { return showBusiness; });
+var indexBusinesses = function indexBusinesses() {
+  return $.ajax({
+    type: 'GET',
+    url: "/api/businesses"
+  });
+};
+var showBusiness = function showBusiness(id) {
+  return $.ajax({
+    type: 'GET',
+    url: "/api/businesses/".concat(id),
+    data: {
+      business: {
+        id: id
+      }
+    }
+  });
+};
+
+/***/ }),
+
 /***/ "./frontend/util/route_util.jsx":
 /*!**************************************!*\
   !*** ./frontend/util/route_util.jsx ***!
@@ -1134,7 +1241,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
+/* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./actions/business_actions */ "./frontend/actions/business_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -1156,7 +1265,13 @@ document.addEventListener("DOMContentLoaded", function () {
     delete window.currentUser;
   } else {
     store = Object(_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])();
-  }
+  } // TESTIN
+
+
+  window.dispatch = store.dispatch;
+  window.getState = store.getState;
+  window.fetchBusiness = _actions_business_actions__WEBPACK_IMPORTED_MODULE_4__["fetchBusiness"];
+  window.fetchBusinesses = _actions_business_actions__WEBPACK_IMPORTED_MODULE_4__["fetchBusinesses"]; // TESTIN 
 
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_2__["default"], {
     store: store

@@ -14,11 +14,11 @@ class Navbar extends React.Component {
         const propToLoad = this.props.currentUser ? (
         (
             <div>
-                <div className="buttons">
+                <div>
                     < UserNav 
                         currentUser={this.props.currentUser}
                         logout={this.props.logout}
-                        // onClick={}
+                        // onClick={dropdown}
                     />
                 </div>
             </div>
@@ -27,8 +27,11 @@ class Navbar extends React.Component {
     :
         (
             <div className={`navBar ${appearOrNah}`}>
-                <h3>Yuup</h3>
-                {/* LINKS TO PERSONAL PAGES */}
+                <div className="buttons">
+                    <a href="#">My Site</a>
+                    <a href="https://github.com/Speneki">Git Hub</a>
+                    <a href="https://www.linkedin.com/in/spencer-tassone-80a6218b/">LinkedIn</a>
+                </div>
                 <div className='buttons'>
                     <Link className="login" to="/login">Log In</Link>
                     <Link className="signup" to="/signup">Sign Up</Link>
