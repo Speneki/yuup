@@ -380,6 +380,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "showBizSearch"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        placeholder: "thisll be a searchbar in time   ",
         type: "text"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "business-with-buttons"
@@ -393,11 +394,32 @@ function (_React$Component) {
         className: "review-button"
       }, "\u2605 Write a review"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "secondary-buttons"
-      }, "Add Photo"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-camera"
+      }), "  Add Photo"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "secondary-buttons"
-      }, "Share"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-share-square"
+      }), "  Share"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "secondary-buttons"
-      }, "Save"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.business.address), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.business.number), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.business.url), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.business.price)));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-bookmark"
+      }), "  Save"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "middle-business-show"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-external-link-alt"
+      }), " ", this.props.business.website), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "biz-pix"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://picsum.photos/200",
+        alt: "restaurant"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://picsum.photos/200",
+        alt: "restaurant"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://picsum.photos/200",
+        alt: "restaurant"
+      })))));
     }
   }]);
 

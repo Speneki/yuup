@@ -15,7 +15,7 @@ User.destroy_all
         address: Faker::Address.full_address,
         longitude: Faker::Address.longitude,
         latitude: Faker::Address.latitude,
-        number: Faker::PhoneNumber.phone_number,
+        number: Faker::PhoneNumber.cell_phone,
         website: Faker::Internet.url,
         price: Faker::Number.between(from: 1, to: 4),
         category: 'food'
