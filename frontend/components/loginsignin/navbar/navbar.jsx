@@ -8,9 +8,13 @@ class Navbar extends React.Component {
         this.state
         //todo set up dropdown
     }
+    
+    componentDidMount() {
+
+    }
 
     render() {    
-        const appearOrNah = (this.props.location.pathname === '/login') || (this.props.location.pathname === '/signup') ? ("makeItRed") : ("keepItClear")
+        const appearOrNah = (this.props.location.pathname != '/') ? ("makeItRed") : ("keepItClear")
         const propToLoad = this.props.currentUser ? (
         (
             <div>

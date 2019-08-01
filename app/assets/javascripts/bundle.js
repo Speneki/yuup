@@ -250,9 +250,13 @@ var App = function App() {
     path: "/signup",
     component: _loginsignin_signup_form_container__WEBPACK_IMPORTED_MODULE_2__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+    path: "/api/businesses/:id",
+    component: _businesses_business_show_container__WEBPACK_IMPORTED_MODULE_8__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+    exact: true,
     to: "/",
     component: _splash_splash_container__WEBPACK_IMPORTED_MODULE_7__["default"]
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_businesses_business_show_container__WEBPACK_IMPORTED_MODULE_8__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_footer_footer__WEBPACK_IMPORTED_MODULE_6__["default"], null));
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_footer_footer__WEBPACK_IMPORTED_MODULE_6__["default"], null));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
@@ -364,9 +368,36 @@ function (_React$Component) {
   }
 
   _createClass(Business, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchBusiness(this.props.match.params.id);
+    }
+  }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "hey");
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "showPageNav"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "showBizSearch"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "business-with-buttons"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "top-of-business-show"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "business-name"
+      }, this.props.business.business_name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "businessButtons"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "review-button"
+      }, "\u2605 Write a review"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "secondary-buttons"
+      }, "Add Photo"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "secondary-buttons"
+      }, "Share"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "secondary-buttons"
+      }, "Save"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.business.address), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.business.number), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.business.url), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.business.price)));
     }
   }]);
 
@@ -396,7 +427,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var msp = function msp(state, ownProps) {
-  return {// business: state.enteties.businesses[ownProps.match.params.business.id]
+  return {
+    business: state.entities.businesses[ownProps.match.params.id] || {
+      business_name: "",
+      address: "",
+      longitude: "",
+      latitude: "",
+      number: "",
+      website: "",
+      price: "",
+      category: ""
+    }
   };
 };
 
@@ -688,9 +729,12 @@ function (_React$Component) {
   }
 
   _createClass(Navbar, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {}
+  }, {
     key: "render",
     value: function render() {
-      var appearOrNah = this.props.location.pathname === '/login' || this.props.location.pathname === '/signup' ? "makeItRed" : "keepItClear";
+      var appearOrNah = this.props.location.pathname != '/' ? "makeItRed" : "keepItClear";
       var propToLoad = this.props.currentUser ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_usernav__WEBPACK_IMPORTED_MODULE_2__["default"], {
         currentUser: this.props.currentUser,
         logout: this.props.logout // onClick={dropdown}
@@ -1116,12 +1160,15 @@ function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "splish-splash"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "title-icon"
-      }, "Yuup"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "title-icon",
+        src: "assets/logo-1.png",
+        alt: "logo"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " Food", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "food-search",
-        type: "text"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_businesses_businesses_container__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+        type: "text",
+        placeholder: "food"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_businesses_businesses_container__WEBPACK_IMPORTED_MODULE_1__["default"], null));
     }
   }]);
 

@@ -5,8 +5,17 @@ import {fetchBusiness} from '../../actions/business_actions'
 
 const msp = (state, ownProps) => {
     return ({
-    // business: state.enteties.businesses[ownProps.match.params.business.id]
-})}
+        business: state.entities.businesses[ownProps.match.params.id] || {
+            business_name:  "",
+            address: "",
+            longitude: "",
+            latitude: "",
+            number: "",
+            website: "",
+            price: "",
+            category: ""
+        }
+    })}
 
 const mdp = dispatch => ({
     fetchBusiness: id => dispatch(fetchBusiness(id))

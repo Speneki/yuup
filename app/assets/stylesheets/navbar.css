@@ -1,11 +1,10 @@
 .navBar {
     position: absolute;
     display: flex;
-    width: 98vw;
+    width: 100vw;
     height: 65px; 
     justify-content: space-between;
     z-index: 1;
-    /* margin: 15px; */
 }
 
 .makeItRed {

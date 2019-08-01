@@ -1,0 +1,42 @@
+.top-of-business-show {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.business-name {
+   font-weight: bold;
+    font-size: 30px;
+    line-height: 1.2em;
+    color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.business-with-buttons {
+}
+
+
+.showPageNav {
+    height: 65px;
+    background-color: #d32323;
+}
+
+.showBizSearch {
+    margin-left: 40%;
+    top: 10px;
+}
+
+.review-button {
+    color: white;
+    background: #d32323;
+    border: 1px solid #d32323;
+    margin-right: 15px;
+    padding: 5px 15px;
+    font-size: 20px;
+    border-radius: 3px;
+}
+
+.secondary-buttons {
+    border: 1px solid #ccc;
+    padding: 5px;
+}

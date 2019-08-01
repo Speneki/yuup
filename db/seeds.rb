@@ -9,9 +9,9 @@
 Business.destroy_all
 User.destroy_all
 
-100.times do 
+3.times do 
     Business.create(
-        business_name: Faker::Restaurant.name,
+        business_name: Faker::TvShows::Seinfeld.business,
         address: Faker::Address.full_address,
         longitude: Faker::Address.longitude,
         latitude: Faker::Address.latitude,

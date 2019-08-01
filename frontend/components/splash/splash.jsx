@@ -11,8 +11,10 @@ class Splash extends React.Component {
         return (
         <div>
             <div className='splish-splash'> 
-                <p className="title-icon">Yuup</p>
-                <input className="food-search" type="text"/>
+                <img className="title-icon" src="assets/logo-1.png" alt="logo"/>
+                <label> Food
+                    <input className="food-search" type="text" placeholder="food"/>    
+                </label>
             </div>
             < Businesses />
         </div>
