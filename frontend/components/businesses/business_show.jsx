@@ -35,21 +35,23 @@ class Business extends React.Component {
                     {/* from here down should also be a container */}
 
                     <div className="middle-business-show">
-                        <div id="map-container" ref='map'>
+                        <div className="map-container" ref='map'>
                             <Map 
                                 business={this.props.business} 
                                 fetchBusiness={this.props.fetchBusiness}
                                 />
 
-                        <p><i className="fas fa-external-link-alt"></i> {this.props.business.website}</p>
+                            <p className="mid-part-title"><i className="fas fa-map-pin"></i>  {this.props.business.address}</p>
+                            <p><i className="fas fa-phone"></i>  {this.props.business.number}</p>
+                            <p><i className="fas fa-external-link-alt"></i>  <a href={this.props.business.website}>{this.props.business.website}</a></p>
                         </div>
+                    </div>
                         <div className="biz-pix">
                             <img src="https://picsum.photos/200" alt="restaurant"/>
                             <img src="https://picsum.photos/200" alt="restaurant"/>
                             <img src="https://picsum.photos/200" alt="restaurant"/>
                         </div>
 
-                    </div>
                 </div>
             </div>
         )

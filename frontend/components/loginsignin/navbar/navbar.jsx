@@ -24,7 +24,7 @@ class Navbar extends React.Component {
                         logout={this.props.logout}
                         // onClick={dropdown}
                     />
-                </div>
+                </div>  
             </div>
         )
     )

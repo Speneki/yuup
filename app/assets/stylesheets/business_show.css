@@ -15,7 +15,7 @@
 
 .business-with-buttons {
     background: #eee;
-    height: 450px;
+    height: 350px;
 }
 
 
@@ -65,41 +65,71 @@ button:focus {
 .middle-business-show {
     display: flex;
     position: absolute;
-    width: 250px;
+    width: 238px;
     justify-items: center;
     margin-left: 175px; 
-    margin-top: 85px;   
+    margin-top: 30px;   
     padding: 15px;
+    padding-bottom: 175px;
     border: 1px solid black;
     background: #fff;
 }
 
 .biz-pix img {
     transition: .2s ease-in-out;
+    height: 220px;
 }
-.biz-pix img:hover {
+
+.biz-pix:hover img:nth-child(2) {
+    transition: .1s ease-out;
+    transform: scale(1.0);
+}
+.biz-pix:hover img:hover {
+    transform: scale(1.3);
+    z-index: 3;
+}
+
+
+.biz-pix img:nth-child(2) {
     transform: scale(1.3);
 }
 
+
 .biz-pix {
     display:flex;
+    position: absolute;
+    margin-top: 53px;
     height: 200px;
-    /* margin-left: 70px; */
+    margin-left: 445px;
+
 }
 
 .biz-map {
-    height: 240px;
+    height: 135px;
     width: 240px;
     overflow: visible;
 }
 
 .map-container {
-    height: 200px;
+    height: 100px;
     width: 200px;
+    font-family: Helvetica;
+}
 
+.map-container p {
+    font-family: Helvetica;
+    line-height: 1.5;
+    font-size: 14px;
+    padding-top: 3px;
 }
 
 .fa-check-circle {
     color: hsl(240, 100%, 66%);
     font-size: 14px;
+}
+
+.mid-part-title {
+    font-weight: 600;
+    font-style: normal;
+
 }

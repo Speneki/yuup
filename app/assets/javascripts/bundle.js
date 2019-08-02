@@ -411,14 +411,22 @@ function (_React$Component) {
       }), "  Save"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "middle-business-show"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "map-container",
+        className: "map-container",
         ref: "map"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_maps_map__WEBPACK_IMPORTED_MODULE_1__["default"], {
         business: this.props.business,
         fetchBusiness: this.props.fetchBusiness
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "mid-part-title"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-map-pin"
+      }), "  ", this.props.business.address), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-phone"
+      }), "  ", this.props.business.number), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-external-link-alt"
-      }), " ", this.props.business.website)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), "  ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: this.props.business.website
+      }, this.props.business.website)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "biz-pix"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "https://picsum.photos/200",
@@ -429,7 +437,7 @@ function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "https://picsum.photos/200",
         alt: "restaurant"
-      })))));
+      }))));
     }
   }]);
 
