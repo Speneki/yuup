@@ -13,7 +13,8 @@ const msp = (state, ownProps) => {
             number: "",
             website: "",
             price: "",
-            category: ""
+            category: "",
+            photoUrls: ""
         }
     })}
 

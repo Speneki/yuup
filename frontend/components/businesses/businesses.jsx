@@ -13,6 +13,7 @@ class Businesses extends React.Component {
     render() {
         const businesses = this.props.businesses.map(business => {
             return (
+
                 <BusinessItem 
                     key={business.id}
                     business={business}
@@ -20,10 +21,12 @@ class Businesses extends React.Component {
             )
         })
         return(
-        <div>
+        <div className="under-splash">
+            <h3>Hot & New Businesses</h3>
             <ul className="splash-biz-list">
                 {businesses}
             </ul>
+            <a href="">See more hot and new businesses</a>
         </div>)
     }
 }

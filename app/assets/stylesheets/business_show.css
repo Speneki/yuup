@@ -100,8 +100,8 @@ button:focus {
     position: absolute;
     margin-top: 53px;
     height: 200px;
-    margin-left: 445px;
-
+    margin-left: 254px;
+    top: -30px;
 }
 
 .biz-map {
@@ -132,4 +132,13 @@ button:focus {
     font-weight: 600;
     font-style: normal;
 
+}
+
+.actual-biz-content {
+    position: relative;
+    width: 1000px;
+    margin-top: 80px;
+
+    margin-left: auto;
+    margin-right: auto;
 }
