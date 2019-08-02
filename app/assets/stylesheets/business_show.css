@@ -15,6 +15,7 @@
 
 .business-with-buttons {
     background: #eee;
+    height: 450px;
 }
 
 
@@ -63,16 +64,14 @@ button:focus {
 
 .middle-business-show {
     display: flex;
-    width: 150px;
+    position: absolute;
+    width: 250px;
     justify-items: center;
-    margin: 75px;
-}
-
-.middle-business-show p {
+    margin-left: 175px; 
+    margin-top: 85px;   
     padding: 15px;
-    width: 400px;
-    margin: 0px 15px 0px 15px;
     border: 1px solid black;
+    background: #fff;
 }
 
 .biz-pix img {
@@ -85,17 +84,22 @@ button:focus {
 .biz-pix {
     display:flex;
     height: 200px;
-    /* margin-left: 10px; */
+    /* margin-left: 70px; */
 }
 
-.bizMap {
-    height: 200px;
-    width: 200px;
+.biz-map {
+    height: 240px;
+    width: 240px;
     overflow: visible;
 }
 
 .map-container {
     height: 200px;
     width: 200px;
-    overflow: visible;
+
+}
+
+.fa-check-circle {
+    color: hsl(240, 100%, 66%);
+    font-size: 14px;
 }

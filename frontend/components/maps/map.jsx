@@ -6,10 +6,9 @@ class Map extends React.Component {
     }
 
     componentDidMount() {
-        debugger
         const mapOptions = {
-            center: { lat: 40.7128, lng: 74.0060 },
-            zoom: 5
+            center: { lat: 40.730610, lng: -73.935242},
+            zoom: 11    
         };
         this.map = new google.maps.Map(this.mapNode, mapOptions);
     }
@@ -17,7 +16,7 @@ class Map extends React.Component {
     render() {
         // debugger 
         return (
-            <div ref={map => this.mapNode = map} className="bizMap" />
+            <div ref={map => this.mapNode = map} className="biz-map" />
         )
     }
 }

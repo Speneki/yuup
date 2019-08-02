@@ -388,9 +388,11 @@ function (_React$Component) {
         className: "business-with-buttons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "top-of-business-show"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "business-name"
-      }, this.props.business.business_name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.business.business_name, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-check-circle"
+      }), " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "businessButtons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "review-button"
@@ -412,10 +414,11 @@ function (_React$Component) {
         id: "map-container",
         ref: "map"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_maps_map__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        business: this.props.business
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        business: this.props.business,
+        fetchBusiness: this.props.fetchBusiness
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-external-link-alt"
-      }), " ", this.props.business.website), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), " ", this.props.business.website)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "biz-pix"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "https://picsum.photos/200",
@@ -1155,13 +1158,12 @@ function (_React$Component) {
   _createClass(Map, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      debugger;
       var mapOptions = {
         center: {
-          lat: 40.7128,
-          lng: 74.0060
+          lat: 40.730610,
+          lng: -73.935242
         },
-        zoom: 5
+        zoom: 11
       };
       this.map = new google.maps.Map(this.mapNode, mapOptions);
     }
@@ -1175,7 +1177,7 @@ function (_React$Component) {
         ref: function ref(map) {
           return _this.mapNode = map;
         },
-        className: "bizMap"
+        className: "biz-map"
       });
     }
   }]);
