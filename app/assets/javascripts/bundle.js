@@ -304,7 +304,7 @@ function (_React$Component) {
   function BusinessItem(props) {
     _classCallCheck(this, BusinessItem);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(BusinessItem).call(this, props));
+    return _possibleConstructorReturn(this, _getPrototypeOf(BusinessItem).call(this, props)); // console.log(this.props.business.photoUrl)
   }
 
   _createClass(BusinessItem, [{
@@ -313,7 +313,7 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "splash-biz-list-item"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: "https://picsum.photos/200",
+        src: this.props.business.photoUrl,
         alt: ""
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "api/businesses/".concat(this.props.business.id)
@@ -340,6 +340,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _maps_map__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../maps/map */ "./frontend/components/maps/map.jsx");
+/* harmony import */ var _reviews_rating_stars__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./reviews/rating-stars */ "./frontend/components/businesses/reviews/rating-stars.jsx");
+/* harmony import */ var _reviews_reviews__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./reviews/reviews */ "./frontend/components/businesses/reviews/reviews.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -357,6 +359,8 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
 
 
 
@@ -385,9 +389,13 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "showBizSearch"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        placeholder: "thisll be a searchbar in time   ",
+        placeholder: "thisll be a searchbar in time",
         type: "text"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "whole-top"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "whole-top-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "business-with-buttons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "top-of-business-show"
@@ -395,7 +403,9 @@ function (_React$Component) {
         className: "business-name"
       }, this.props.business.business_name, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-check-circle"
-      }), " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_rating_stars__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        business: this.props.business
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "businessButtons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "review-button"
@@ -407,11 +417,7 @@ function (_React$Component) {
         className: "secondary-buttons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-share-square"
-      }), "  Share"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "secondary-buttons"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-bookmark"
-      }), "  Save"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), "  Share"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "middle-business-show"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "map-container",
@@ -432,17 +438,22 @@ function (_React$Component) {
       }, this.props.business.website))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "biz-pix"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: "https://picsum.photos/200",
+        className: "biz_pic",
+        src: this.props.business.photos[1],
         alt: "restaurant"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: "https://picsum.photos/200",
+        className: "biz_pic",
+        src: this.props.business.photos[2],
         alt: "restaurant"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: "https://picsum.photos/200",
+        className: "biz_pic",
+        src: this.props.business.photos[3],
         alt: "restaurant"
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "actual-biz-content"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Heyo!")));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_reviews__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        reviews: this.props.business.reviews
+      })));
     }
   }]);
 
@@ -476,13 +487,16 @@ var msp = function msp(state, ownProps) {
     business: state.entities.businesses[ownProps.match.params.id] || {
       business_name: "",
       address: "",
-      longitude: "",
-      latitude: "",
+      longitude: 0,
+      latitude: 0,
       number: "",
       website: "",
       price: "",
       category: "",
-      photoUrls: ""
+      photoUrl: "".concat(window.logo),
+      rating: '',
+      photos: ['', ''],
+      reviews: {}
     }
   };
 };
@@ -611,6 +625,195 @@ var mdp = function mdp(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/components/businesses/reviews/rating-stars.jsx":
+/*!*****************************************************************!*\
+  !*** ./frontend/components/businesses/reviews/rating-stars.jsx ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var RatingStars =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(RatingStars, _React$Component);
+
+  function RatingStars(props) {
+    _classCallCheck(this, RatingStars);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(RatingStars).call(this, props));
+  }
+
+  _createClass(RatingStars, [{
+    key: "avgRating",
+    value: function avgRating() {
+      var avg = Math.floor(this.props.business.avg_rating * 2) / 2;
+
+      switch (avg) {
+        case 1:
+          return 'avg-one';
+
+        case 1.5:
+          return 'avg-one-half';
+
+        case 2:
+          return 'avg-two';
+
+        case 2.5:
+          return 'avg-two-half';
+
+        case 3:
+          return 'avg-three';
+
+        case 3.5:
+          return 'avg-three-half';
+
+        case 4:
+          return 'avg-four';
+
+        case 4.5:
+          return 'avg-four-half';
+
+        case 5:
+          return 'avg-five';
+
+        default:
+          return 'avg-zero';
+      }
+    }
+  }, {
+    key: "price",
+    value: function price() {
+      switch (this.props.business.price) {
+        case "1":
+          return "$";
+
+        case "2":
+          return "$$";
+
+        case "3":
+          return "$$$";
+
+        case "4":
+          return "$$$$";
+
+        default:
+          return "";
+      }
+    }
+  }, {
+    key: "reviewsCount",
+    value: function reviewsCount() {
+      return Object.keys(this.props.business.reviews).length;
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: this.avgRating(),
+        className: "stars"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "price"
+      }, this.price()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "reviews-count"
+      }, this.reviewsCount(), " reviews"));
+    }
+  }]);
+
+  return RatingStars;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (RatingStars);
+
+/***/ }),
+
+/***/ "./frontend/components/businesses/reviews/reviews.jsx":
+/*!************************************************************!*\
+  !*** ./frontend/components/businesses/reviews/reviews.jsx ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var ReviewsShow =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(ReviewsShow, _React$Component);
+
+  function ReviewsShow(props) {
+    _classCallCheck(this, ReviewsShow);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(ReviewsShow).call(this, props));
+  }
+
+  _createClass(ReviewsShow, [{
+    key: "reviews",
+    value: function reviews() {
+      debugger;
+      return Object.values(this.props.reviews);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.reviews().map(function (review) {
+        return review.body;
+      })));
+    }
+  }]);
+
+  return ReviewsShow;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (ReviewsShow);
+
+/***/ }),
+
 /***/ "./frontend/components/footer/footer.jsx":
 /*!***********************************************!*\
   !*** ./frontend/components/footer/footer.jsx ***!
@@ -640,7 +843,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-
+ // import footer from '../../../app/assets/images/footer.png';
 
 var Footer =
 /*#__PURE__*/
@@ -656,7 +859,7 @@ function (_React$Component) {
   _createClass(Footer, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "footer-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "footer-info"
@@ -664,7 +867,7 @@ function (_React$Component) {
         href: "https://github.com/Speneki/yuup"
       }, "About Yuup"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, "Discover"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, "Other"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, "Stuff")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "footer",
-        src: "https://yuup-dev.s3.us-east-2.amazonaws.com/footer.png?response-content-disposition=inline&X-Amz-Security-Token=AgoJb3JpZ2luX2VjEF8aCXVzLWVhc3QtMSJHMEUCIBD%2F6ALY4QwexWBVr7BvdoHGpRGvAT%2BjNbCieZSSP6WCAiEAw3NKwED%2BkSH3Lsbv5z%2FrTmpHD7WX0Jn10pEMa5X1QWAq5AMI2P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw1MzY2MjI4NjIyMDEiDAChdpaYMkMo1%2FKfkCq4A12sj95TNpTeQtoxiRlLxsFeXFpX7fNTSm9HKQW7ZPEiYH2HjbrGDkf6kzw%2B5YwoikNt35TOrFP1DBnnjh7sZA6rsea%2FDfZgKQviYC6%2Bi5UqxmAF%2Fn%2BnfMt0V70j6mNtqy%2BgYOsBwu%2F3t0YDnkkTwYdI%2FL9hFJioeKmgGTysVQR4RPV0AsRKlSz9iQ23mZLN%2F7H17FS%2FaU2sF5sa7foEGF2I3xDX38wN%2FCpB806%2Frk%2B%2BTmzhmXK4N%2FkRp3Bn7gsVy5XIgUG0iRQ6ZcqM7AO1wl3wLmJPZbDdzJbIVZftAm3pOYrqKwKob0brL2V2fssmVRECF8olSRT454VPAlJt2%2B8jUAJArNBc1%2BysoSXEg2RR8IzBR1tCW7JyC0pCXXJUdfZzHXwgkG2ZCNi8%2FcdTBNQCiS5LozOBp1%2FMNnY%2Fj986pAhmOklMzNguXkBhKLDFfdjRl1b%2B%2FwSpq01LDIqd8DD0StK7H6gJgrKseXG3x4GUhY8wy9xbyofIY7ITiLbFHCgP27y%2BWuep0bgeAvjPfk6yDAha40l%2BJESwkYJhDjxMKvjdos1ea7w8SfIBzf8UpXLPKcv%2BE1FUMJmWkeoFOrQBkS7yvcTvOkXlrZl07p3pyZONcbIZBR3KhAZgFudRjLCWQWZGkwjs0%2FGLp0RP3v0n7SkQ1XlzSvbEytJBALNjhdtnoExDMBtU6Qi90sw6%2Bqhs3D%2BWj10uOS1%2B%2B%2BLurk0ZOsACd2UONeiOPyivZA99nhDZI1bdPzb3kBW2aJTz4KEjfaNST4WkOX1n%2BechY4Q4FgZaza2VMr23k53XfnjJbEnOyWCJQvq6MlMGciy%2FaK%2BdaMlY&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20190802T193745Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAXZ4JXB54T4UU7TFU%2F20190802%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Signature=90d1c851e4bbf5e17cac4500f7d38fbda8faee17bcd443120e4fd9a582da04a9"
+        src: window.footer
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "copythat"
       }, "Many things on this site are inspired by or registered trademarks of Yelp \xA9.")));
@@ -785,7 +988,9 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       var appearOrNah = this.props.location.pathname != '/' ? "makeItRed" : "keepItClear";
-      var propToLoad = this.props.currentUser ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_usernav__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      var propToLoad = this.props.currentUser ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "nav-bar-objects"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_usernav__WEBPACK_IMPORTED_MODULE_2__["default"], {
         currentUser: this.props.currentUser,
         logout: this.props.logout // onClick={dropdown}
 
@@ -893,7 +1098,7 @@ var UserNav = function UserNav(props) {
     className: "user-nav"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "profile-icon",
-    src: "https://ask.libreoffice.org/m/default/media/images/nophoto.png?v=20",
+    src: props.currentUser.photoUrl,
     alt: "default icon"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "profile-button",
@@ -1175,22 +1380,41 @@ function (_React$Component) {
 
   _createClass(Map, [{
     key: "componentDidMount",
-    value: function componentDidMount() {
-      var mapOptions = {
-        center: {
-          lat: 40.730610,
-          lng: -73.935242
-        },
-        zoom: 11
-      };
-      this.map = new google.maps.Map(this.mapNode, mapOptions);
+    value: function componentDidMount() {// const mapOptions = {
+      //     center: { lat: this.props.business.latitude, lng: this.props.business.longitude},
+      //     zoom: 15
+      // };
+      // this.map = new google.maps.Map(this.mapNode, mapOptions);
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      if (this.props.business.latitude !== prevProps.business.latitude) {
+        var mapOptions = {
+          center: {
+            lat: this.props.business.latitude,
+            lng: this.props.business.longitude
+          },
+          zoom: 15
+        };
+        var map = this.map = new google.maps.Map(this.mapNode, mapOptions);
+        debugger;
+        var marker = new google.maps.Marker({
+          position: {
+            lat: this.props.business.latitude,
+            lng: this.props.business.longitude
+          },
+          map: map,
+          icon: window.logo
+        });
+        marker.setMap(map);
+      }
     }
   }, {
     key: "render",
     value: function render() {
       var _this = this;
 
-      // debugger 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         ref: function ref(map) {
           return _this.mapNode = map;
@@ -1288,7 +1512,7 @@ function (_React$Component) {
         className: "splish-splash"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "title-icon",
-        src: "https://yuup-dev.s3.us-east-2.amazonaws.com/logo-1.png?response-content-disposition=inline&X-Amz-Security-Token=AgoJb3JpZ2luX2VjEF8aCXVzLWVhc3QtMSJHMEUCIBD%2F6ALY4QwexWBVr7BvdoHGpRGvAT%2BjNbCieZSSP6WCAiEAw3NKwED%2BkSH3Lsbv5z%2FrTmpHD7WX0Jn10pEMa5X1QWAq5AMI2P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw1MzY2MjI4NjIyMDEiDAChdpaYMkMo1%2FKfkCq4A12sj95TNpTeQtoxiRlLxsFeXFpX7fNTSm9HKQW7ZPEiYH2HjbrGDkf6kzw%2B5YwoikNt35TOrFP1DBnnjh7sZA6rsea%2FDfZgKQviYC6%2Bi5UqxmAF%2Fn%2BnfMt0V70j6mNtqy%2BgYOsBwu%2F3t0YDnkkTwYdI%2FL9hFJioeKmgGTysVQR4RPV0AsRKlSz9iQ23mZLN%2F7H17FS%2FaU2sF5sa7foEGF2I3xDX38wN%2FCpB806%2Frk%2B%2BTmzhmXK4N%2FkRp3Bn7gsVy5XIgUG0iRQ6ZcqM7AO1wl3wLmJPZbDdzJbIVZftAm3pOYrqKwKob0brL2V2fssmVRECF8olSRT454VPAlJt2%2B8jUAJArNBc1%2BysoSXEg2RR8IzBR1tCW7JyC0pCXXJUdfZzHXwgkG2ZCNi8%2FcdTBNQCiS5LozOBp1%2FMNnY%2Fj986pAhmOklMzNguXkBhKLDFfdjRl1b%2B%2FwSpq01LDIqd8DD0StK7H6gJgrKseXG3x4GUhY8wy9xbyofIY7ITiLbFHCgP27y%2BWuep0bgeAvjPfk6yDAha40l%2BJESwkYJhDjxMKvjdos1ea7w8SfIBzf8UpXLPKcv%2BE1FUMJmWkeoFOrQBkS7yvcTvOkXlrZl07p3pyZONcbIZBR3KhAZgFudRjLCWQWZGkwjs0%2FGLp0RP3v0n7SkQ1XlzSvbEytJBALNjhdtnoExDMBtU6Qi90sw6%2Bqhs3D%2BWj10uOS1%2B%2B%2BLurk0ZOsACd2UONeiOPyivZA99nhDZI1bdPzb3kBW2aJTz4KEjfaNST4WkOX1n%2BechY4Q4FgZaza2VMr23k53XfnjJbEnOyWCJQvq6MlMGciy%2FaK%2BdaMlY&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20190802T193910Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAXZ4JXB54T4UU7TFU%2F20190802%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Signature=8b5746101c83a4c243ba7f35455699676564adde7a996061a2357a89f4fe7d82",
+        src: window.logo,
         alt: "logo"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " Food", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "food-search",

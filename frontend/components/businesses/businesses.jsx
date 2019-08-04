@@ -12,8 +12,7 @@ class Businesses extends React.Component {
 
     render() {
         const businesses = this.props.businesses.map(business => {
-            return (
-
+            return (    
                 <BusinessItem 
                     key={business.id}
                     business={business}

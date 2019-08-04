@@ -18,7 +18,7 @@ class Navbar extends React.Component {
         const propToLoad = this.props.currentUser ? (
         (
             <div>
-                <div>
+                <div className="nav-bar-objects"> 
                     < UserNav 
                         currentUser={this.props.currentUser}
                         logout={this.props.logout}

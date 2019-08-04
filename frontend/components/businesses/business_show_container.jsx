@@ -8,13 +8,16 @@ const msp = (state, ownProps) => {
         business: state.entities.businesses[ownProps.match.params.id] || {
             business_name:  "",
             address: "",
-            longitude: "",
-            latitude: "",
+            longitude: 0,
+            latitude: 0,
             number: "",
             website: "",
             price: "",
             category: "",
-            photoUrls: ""
+            photoUrl: `${window.logo}`,
+            rating: '',
+            photos: ['', ''],
+            reviews: {}
         }
     })}
 

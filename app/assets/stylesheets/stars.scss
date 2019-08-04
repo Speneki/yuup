@@ -1,0 +1,52 @@
+.stars {
+    position: relative;
+    background-image: image-url("stars.png");
+    overflow: hidden;
+    background-repeat: no-repeat;
+    height: 48px;
+    margin-top: 12px;
+    margin-left: 30px;
+}
+
+#avg-one  {
+    background-position: 0 -48px;
+}
+
+#avg-one-half {
+    background-position: 0 -96px;
+}
+
+#avg-two  {
+    background-position: 0 -144px;
+}
+
+#avg-two-half {
+    background-position: 0 -192px;
+}
+
+#avg-three {
+    background-position: 0 -240px;
+}
+
+#avg-three-half {
+    background-position: 0 -288px;
+}
+
+#avg-four {
+    background-position: 0 -336px;
+}
+
+#avg-four-half {
+    background-position: 0 -384px;
+}
+
+#avg-five {
+    background-position: 0 -432px;
+}
+
+.price {
+    position: absolute;
+    margin-top: 16px;
+    margin-left: 35px;
+    font-size: 22px;
+}

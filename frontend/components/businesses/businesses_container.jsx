@@ -6,9 +6,10 @@ const msp = state => ({
     businesses: Object.values(state.entities.businesses)
 })
 
-const mdp = dispatch => ({
-    fetchBusinesses: () => dispatch(fetchBusinesses()),
-    fetchBusiness: (id) => dispatch(fetchBusiness(id))
-})
+const mdp = dispatch => {
+    return ({
+        fetchBusinesses: () => dispatch(fetchBusinesses()),
+        fetchBusiness: (id) => dispatch(fetchBusiness(id))
+    })}
 
 export default connect(msp, mdp)(Businesses)
