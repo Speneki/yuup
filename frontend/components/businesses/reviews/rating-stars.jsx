@@ -51,6 +51,8 @@ class RatingStars extends React.Component {
     }
 
     render() {
+        console.log(this.avgRating())
+        console.log(this.reviewsCount())
         return (
             <>
                 <div id={this.avgRating()} className="stars" />

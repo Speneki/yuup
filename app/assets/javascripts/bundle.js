@@ -732,6 +732,8 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      console.log(this.avgRating());
+      console.log(this.reviewsCount());
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: this.avgRating(),
         className: "stars"
@@ -794,16 +796,13 @@ function (_React$Component) {
 
   _createClass(ReviewsShow, [{
     key: "reviews",
-    value: function reviews() {
-      debugger;
-      return Object.values(this.props.reviews);
+    value: function reviews() {// debugger
+      // return (Object.values(this.props.reviews))
     }
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.reviews().map(function (review) {
-        return review.body;
-      })));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null));
     }
   }]);
 
@@ -1399,13 +1398,14 @@ function (_React$Component) {
         };
         var map = this.map = new google.maps.Map(this.mapNode, mapOptions);
         debugger;
+        var icon = "https://imgur.com/DGOp75n";
         var marker = new google.maps.Marker({
           position: {
             lat: this.props.business.latitude,
             lng: this.props.business.longitude
           },
-          map: map,
-          icon: window.logo
+          map: map // icon: icon
+
         });
         marker.setMap(map);
       }

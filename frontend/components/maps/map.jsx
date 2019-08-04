@@ -22,10 +22,11 @@ class Map extends React.Component {
             const map = this.map = new google.maps.Map(this.mapNode, mapOptions);
             
             debugger
+            const icon = "https://imgur.com/DGOp75n"
             const marker = new google.maps.Marker({
                 position: { lat: this.props.business.latitude, lng: this.props.business.longitude },
                 map: map,
-                icon: window.logo
+                // icon: icon
             });
 
             marker.setMap(map);
