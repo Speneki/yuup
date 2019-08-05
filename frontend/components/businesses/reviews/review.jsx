@@ -29,7 +29,6 @@ class Review extends React.Component {
     }
 
     render() {
-        debugger
         return (
             <div className="rating-container">
                 <p>{this.props.review.user_id}</p>

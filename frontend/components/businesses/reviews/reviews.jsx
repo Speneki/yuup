@@ -25,13 +25,16 @@ class ReviewsShow extends React.Component {
     }
 
     render() {
+        debugger
         if (this.props.reviews=== "undefined") return  (null)
         const reviews = this.props.reviews.map(review => {
             return (
-                <Review
-                    key={review.id}
-                    review={review}
-                    />
+                <li>
+                    <Review
+                        key={review.id}
+                        review={review}
+                        />
+                </li>
             )
         })
 

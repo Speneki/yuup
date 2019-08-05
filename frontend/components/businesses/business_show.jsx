@@ -25,7 +25,7 @@ class Business extends React.Component {
                                 Near
                                 <input type="text" className="top-search-location" placeholder="New York, NY"/>
                             </label>
-                            <button type="submit" className="top-search-button"><i class="fas fa-search"></i></button>
+                            <button type="submit" className="top-search-button"><i className="fas fa-search"></i></button>
                         </form>
                     </div>
                 </div>

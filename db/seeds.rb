@@ -57,7 +57,7 @@ Review.create!(user_id: user1.id, business_id: biz3.id, rating: Faker::Number.be
 Review.create!(user_id: user1.id, business_id: biz3.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::TvShows::Seinfeld.quote)
 Review.create!(user_id: user1.id, business_id: biz3.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::TvShows::Seinfeld.quote)
 
-Review.create!(user_id: user2.id, business_id: biz1.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::TvShows::Seinfeld.quote)
+Review.create!(user_id: user2.id, business_id: biz1.id, rating: Faker::Number.between(from: 3, to: 5), body: "I had a dream last night that a hamburger was eating me.")
 Review.create!(user_id: user2.id, business_id: biz2.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::TvShows::Seinfeld.quote)
 Review.create!(user_id: user2.id, business_id: biz2.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::TvShows::Seinfeld.quote)
 Review.create!(user_id: user2.id, business_id: biz2.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::TvShows::Seinfeld.quote)

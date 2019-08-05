@@ -151,7 +151,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _util_review_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/review_util */ "./frontend/util/review_util.jsx");
 
 var RECEIVE_REVIEWS = "RECEIVE_REVIEWS";
-var RECEIVE_REVIEW = "RECEIVE_REVIEW";
+var RECEIVE_REVIEW = "RECEIVE_REVIEW"; // export const CREATE_REVIEW = "CREATE_REVIEW"
 
 var recieveReviews = function recieveReviews(reviews) {
   return {
@@ -165,7 +165,13 @@ var recieveReview = function recieveReview(review) {
     type: RECEIVE_REVIEW,
     payload: review
   };
-};
+}; // const makeReview = (review) => {
+//     return ({
+//         type: CREATE_REVIEW,
+//         payload: {review}
+//     })
+// }
+
 
 var fetchReviews = function fetchReviews() {
   return function (dispatch) {
@@ -180,7 +186,15 @@ var fetchReview = function fetchReview(id) {
       return dispatch(recieveReview(review));
     });
   };
-};
+}; // export const createReview = (review) => dispatch => (
+//     ReviewApiUtil.postReview(review).then(review => dispatch(recieveReview(review)))
+// )
+// export const editReview = (review) => dispatch => (
+//     ReviewApiUtil.editReview(review).then(review => dispatch(recieveReview(review)))
+// )
+// export const deleteReview = (reviewId) => dispatch => (
+//     ReviewApiUtil.deleteReview(reviewId).then(review => dispatch(recieveReview(reviewId)))
+// )
 
 /***/ }),
 
@@ -456,7 +470,7 @@ function (_React$Component) {
         type: "submit",
         className: "top-search-button"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        "class": "fas fa-search"
+        className: "fas fa-search"
       }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "whole-top"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -899,7 +913,6 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      debugger;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "rating-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.review.user_id), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1003,12 +1016,13 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      debugger;
       if (this.props.reviews === "undefined") return null;
       var reviews = this.props.reviews.map(function (review) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review__WEBPACK_IMPORTED_MODULE_3__["default"], {
           key: review.id,
           review: review
-        });
+        }));
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "reviews-container-container"
@@ -1208,6 +1222,8 @@ function (_React$Component) {
         logout: this.props.logout // onClick={dropdown}
 
       }))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "nav-bar-objects"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "navBar ".concat(appearOrNah)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "buttons"
@@ -1225,7 +1241,7 @@ function (_React$Component) {
       }, "Log In"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "signup",
         to: "/signup"
-      }, "Sign Up")));
+      }, "Sign Up"))));
       return propToLoad;
     }
   }]);
@@ -1601,26 +1617,25 @@ function (_React$Component) {
     }
   }, {
     key: "componentDidUpdate",
-    value: function componentDidUpdate(prevProps) {
-      if (this.props.business.latitude !== prevProps.business.latitude) {
-        var mapOptions = {
-          center: {
-            lat: this.props.business.latitude,
-            lng: this.props.business.longitude
-          },
-          zoom: 15
-        };
-        var map = this.map = new google.maps.Map(this.mapNode, mapOptions);
-        var marker = new google.maps.Marker({
-          position: {
-            lat: this.props.business.latitude,
-            lng: this.props.business.longitude
-          },
-          map: map // icon: icon
+    value: function componentDidUpdate() {
+      // if (this.props.business.latitude !== prevProps.business.latitude) {
+      var mapOptions = {
+        center: {
+          lat: this.props.business.latitude,
+          lng: this.props.business.longitude
+        },
+        zoom: 15
+      };
+      var map = this.map = new google.maps.Map(this.mapNode, mapOptions);
+      var marker = new google.maps.Marker({
+        position: {
+          lat: this.props.business.latitude,
+          lng: this.props.business.longitude
+        },
+        map: map // icon: icon
 
-        });
-        marker.setMap(map);
-      }
+      });
+      marker.setMap(map); // }
     }
   }, {
     key: "render",
@@ -1725,7 +1740,6 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      debugger;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "splish-splash"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -1746,7 +1760,7 @@ function (_React$Component) {
       }, " Near", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "location-search",
         type: "text",
-        placeholder: "".concat(this.props.currentUser === 'undefined' ? '' : 'this.props.currentUser.location')
+        placeholder: "".concat(window.currentUser === 'undefined' ? '' : "New York, NY")
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
         className: "splash-search"
@@ -2101,13 +2115,16 @@ var showBusiness = function showBusiness(id) {
 /*!***************************************!*\
   !*** ./frontend/util/review_util.jsx ***!
   \***************************************/
-/*! exports provided: showReviews, showReview */
+/*! exports provided: showReviews, showReview, postReview, patchReview, deleteReview */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showReviews", function() { return showReviews; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showReview", function() { return showReview; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "postReview", function() { return postReview; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "patchReview", function() { return patchReview; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteReview", function() { return deleteReview; });
 var showReviews = function showReviews() {
   return $.ajax({
     type: "get",
@@ -2124,27 +2141,34 @@ var showReview = function showReview(id) {
       }
     }
   });
-}; // export const postReview = (review) => {
-//     return $.ajax({
-//         type: 'POST',
-//         url: '/api/reviews',
-//         data: { review }
-//     });
-// };
-// export const patchReview = (review) => (
-//     $.ajax({
-//         type: 'PATCH',
-//         url: `/api/reviews/${review.id}`,
-//         data: { review }
-//     })
-// );
-// export const deleteReview = (id) => (
-//     $.ajax({
-//         type: 'DELETE',
-//         url: `/api/reviews/${id}`,
-//         data: { id }
-//     })
-// );
+};
+var postReview = function postReview(review) {
+  return $.ajax({
+    type: 'POST',
+    url: '/api/reviews',
+    data: {
+      review: review
+    }
+  });
+};
+var patchReview = function patchReview(review) {
+  return $.ajax({
+    type: 'PATCH',
+    url: "/api/reviews/".concat(review.id),
+    data: {
+      review: review
+    }
+  });
+};
+var deleteReview = function deleteReview(id) {
+  return $.ajax({
+    type: 'DELETE',
+    url: "/api/reviews/".concat(id),
+    data: {
+      id: id
+    }
+  });
+};
 
 /***/ }),
 

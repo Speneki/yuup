@@ -13,8 +13,8 @@ class Map extends React.Component {
         // this.map = new google.maps.Map(this.mapNode, mapOptions);
     }
 
-    componentDidUpdate (prevProps) {
-        if (this.props.business.latitude !== prevProps.business.latitude) {
+    componentDidUpdate () {
+        // if (this.props.business.latitude !== prevProps.business.latitude) {
             const mapOptions = {
                 center: { lat: this.props.business.latitude, lng: this.props.business.longitude },
                 zoom: 15
@@ -28,7 +28,7 @@ class Map extends React.Component {
             });
 
             marker.setMap(map);
-        }
+        // }
     }
     
     render() {

@@ -2,6 +2,7 @@ import * as ReviewApiUtil from '../util/review_util'
 
 export const RECEIVE_REVIEWS = "RECEIVE_REVIEWS"
 export const RECEIVE_REVIEW = "RECEIVE_REVIEW"
+// export const CREATE_REVIEW = "CREATE_REVIEW"
 
 const recieveReviews = (reviews) => {
     return ({
@@ -17,6 +18,13 @@ const recieveReview = (review) => {
     })
 }
 
+// const makeReview = (review) => {
+//     return ({
+//         type: CREATE_REVIEW,
+//         payload: {review}
+//     })
+// }
+
 export const fetchReviews = () => dispatch => (
     ReviewApiUtil.showReviews().then(reviews => dispatch(recieveReviews(reviews)))
 )
@@ -24,3 +32,15 @@ export const fetchReviews = () => dispatch => (
 export const fetchReview = (id) => dispatch => (
     ReviewApiUtil.showReview(id).then(review => dispatch(recieveReview(review)))
 )
+
+// export const createReview = (review) => dispatch => (
+//     ReviewApiUtil.postReview(review).then(review => dispatch(recieveReview(review)))
+// )
+
+// export const editReview = (review) => dispatch => (
+//     ReviewApiUtil.editReview(review).then(review => dispatch(recieveReview(review)))
+// )
+
+// export const deleteReview = (reviewId) => dispatch => (
+//     ReviewApiUtil.deleteReview(reviewId).then(review => dispatch(recieveReview(reviewId)))
+// )

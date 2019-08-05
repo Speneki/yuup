@@ -30,6 +30,7 @@ class Navbar extends React.Component {
     )
     :
         (
+        <div className="nav-bar-objects">
             <div className={`navBar ${appearOrNah}`}>
                 <div className="buttons">
                     <a href="#">My Site</a>
@@ -41,6 +42,7 @@ class Navbar extends React.Component {
                     <Link className="signup" to="/signup">Sign Up</Link>
                 </div>
             </div>
+        </div>
         )
         return propToLoad
     }
