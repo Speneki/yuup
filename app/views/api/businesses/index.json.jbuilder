@@ -7,6 +7,7 @@ json.business do
                 json.photoUrl url_for(business.photos.first)
             end
 
+            
         end
     end
 end

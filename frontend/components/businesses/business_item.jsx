@@ -13,7 +13,7 @@ class BusinessItem extends React.Component {
             <img src={this.props.business.photoUrl} alt=""/>
             <p><Link to={`api/businesses/${this.props.business.id}`}>{this.props.business.business_name}</Link></p>
             <p>{this.props.business.address}</p>
-            <p>{this.props.business.rating} stars, {this.props.business.reviews} reviews</p>
+            <p>{this.props.business.rating} stars, {this.props.business.review_ids.length} reviews</p>
         </li>
         )
     }

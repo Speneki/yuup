@@ -47,17 +47,18 @@ class RatingStars extends React.Component {
     }
 
     reviewsCount() {
-        return (Object.keys(this.props.business.reviews).length)
+        return (this.props.business.review_ids) ? (this.props.business.review_ids).length : 0
     }
 
     render() {
-        console.log(this.avgRating())
-        console.log(this.reviewsCount())
+        // if (!this.props.business) {return null}
+        // console.log(this.avgRating())
+        // console.log(this.reviewsCount())
         return (
             <>
                 <div id={this.avgRating()} className="stars" />
                 <p className="price">{this.price()}</p>
-                <p className="reviews-count">{this.reviewsCount()} reviews</p>
+                <p className="reviews-count"> {this.reviewsCount()} reviews</p>
             </>
         )
     }

@@ -7,16 +7,26 @@ class Business extends React.Component {
 
     componentDidMount() {
         this.props.fetchBusiness(this.props.match.params.id)
+        window.scrollTo(0, 0)
     }
 
-    
     render() {
         return(
             <div>
                 {/* from here --- */}
                 <div className="showPageNav">
                     <div className="showBizSearch">
-                        <input placeholder="thisll be a searchbar in time" type="text"/>
+                        <form className="top-search">
+                            <label className="top-search-find">
+                                Find
+                                <input type="text" className="top-search-food" id=""/>
+                            </label>
+                            <label className="top-search-near">
+                                Near
+                                <input type="text" className="top-search-location" placeholder="New York, NY"/>
+                            </label>
+                            <button type="submit" className="top-search-button"><i class="fas fa-search"></i></button>
+                        </form>
                     </div>
                 </div>
                 {/* to here will be a container */}
@@ -62,7 +72,9 @@ class Business extends React.Component {
 
                 {/* Biz content */}
                 <div className="actual-biz-content">
-                    <ReviewsShow reviews={this.props.business.reviews} />
+                    <ReviewsShow 
+                        reviews={this.props.business.review_ids} 
+                        />
                 </div>
             </div>
         )

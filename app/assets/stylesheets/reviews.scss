@@ -1,0 +1,66 @@
+.ask-the-community {
+    border-bottom: 1px solid #ccc;
+    color: #d32323;
+    font-size: 21px;
+    font-weight: bold;
+    padding: 10px;
+    width: 80%;
+    position: flex;
+}
+
+.review-ratings {
+    background-image: image-url("all_stars.png");
+    height: 28px;
+    width: 166px;
+}
+
+#uno {
+    background-position: 0 -868px;
+}
+#uno-half {
+    background-position: 0 -896px;
+}
+#dos {
+    background-position: 0 -924px;
+}
+#dos-half {
+    background-position: 0 -952px;
+}
+#tres {
+    background-position: 0 -980px;
+}
+#tres-half {
+    background-position: 0 -1008px;
+}
+#quatro {
+    background-position: 0 -1036px;
+}
+#quatro-half {
+    background-position: 0 -1064px;
+}
+#cinco {
+    background-position: 0 -1092px;
+}
+#zero {
+    background-position: 0 -840px;
+}
+
+.rating-container {
+    margin-top: 15px;
+    display:flex;
+}
+
+.review-body {
+    margin-top: 10px
+}
+
+.stars-and-body {
+    margin-left: 20px;
+    width: 70%;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}   
+
+.reviews-container-container{
+    display: flex;
+}

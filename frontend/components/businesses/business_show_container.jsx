@@ -5,7 +5,8 @@ import {fetchBusiness} from '../../actions/business_actions'
 
 const msp = (state, ownProps) => {
     return ({
-        business: state.entities.businesses[ownProps.match.params.id] || {
+        business: state.entities.businesses[ownProps.match.params.id] || 
+        {
             business_name:  "",
             address: "",
             longitude: 0,
