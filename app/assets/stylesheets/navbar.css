@@ -18,6 +18,7 @@
 
 .makeItRed {
     background-color: #d32323;
+    width: 100% !important;
 }
 
 

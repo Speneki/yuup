@@ -1,4 +1,5 @@
-import { RECEIVE_REVIEWS, RECEIVE_REVIEW } from '../actions/review_actions'
+import { RECEIVE_REVIEWS, RECEIVE_REVIEW , } from '../actions/review_actions'
+import { RECEIVE_BUSINESS } from '../actions/business_actions'
 import { merge } from 'lodash'
 
 export default (state={}, action) => {
@@ -6,6 +7,8 @@ export default (state={}, action) => {
     switch(action.type) {
         case RECEIVE_REVIEWS:
             return merge({}, state, action.payload.reviews)
+        case RECEIVE_BUSINESS: 
+            return merge({}, action.payload.reviews)
         case RECEIVE_REVIEW: 
             return merge({}, state, {[action.payload.id]: action.payload})
         default: 

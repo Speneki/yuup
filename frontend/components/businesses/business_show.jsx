@@ -2,6 +2,8 @@ import React from 'react';
 import Map from '../maps/map'
 import RatingStars from "./reviews/rating-stars"
 import ReviewsShow from './reviews/reviews'
+import { Link } from 'react-router-dom';
+import ReviewForm from '../businesses/reviews/create_review_container'
 
 class Business extends React.Component {
 
@@ -11,6 +13,7 @@ class Business extends React.Component {
     }
 
     render() {
+        const {business} = this.props
         return(
             <div>
                 {/* from here --- */}
@@ -39,7 +42,12 @@ class Business extends React.Component {
                                     <RatingStars business={this.props.business}/>
                                 </div>
                                 <div className="businessButtons">
-                                    <button className="review-button">★ Write a review</button>
+                                  <Link to={{pathname: "/reviews",
+                                            state: {
+                                                business: business
+                                            } }}
+                                        bizId={this.props.match.params.id} ><button className="review-button"> ★ Write a review</button>
+                                        </Link>
                                     <button className="secondary-buttons"><i className="fas fa-camera"></i>  Add Photo</button>
                                     <button className="secondary-buttons"><i className="fas fa-share-square"></i>  Share</button>
                                 </div>
@@ -73,7 +81,7 @@ class Business extends React.Component {
                 {/* Biz content */}
                 <div className="actual-biz-content">
                     <ReviewsShow 
-                        reviews={this.props.business.review_ids} 
+                        review_ids = {this.props.business.review_ids} 
                         />
                 </div>
             </div>

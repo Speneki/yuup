@@ -20,7 +20,7 @@ const recieveReview = (review) => {
 
 // const makeReview = (review) => {
 //     return ({
-//         type: CREATE_REVIEW,
+//         type: RECEIVE_REVIEW,
 //         payload: {review}
 //     })
 // }
@@ -33,9 +33,9 @@ export const fetchReview = (id) => dispatch => (
     ReviewApiUtil.showReview(id).then(review => dispatch(recieveReview(review)))
 )
 
-// export const createReview = (review) => dispatch => (
-//     ReviewApiUtil.postReview(review).then(review => dispatch(recieveReview(review)))
-// )
+export const createReview = (review) => dispatch => (
+    ReviewApiUtil.postReview(review).then(review => dispatch(recieveReview(review)))
+)
 
 // export const editReview = (review) => dispatch => (
 //     ReviewApiUtil.editReview(review).then(review => dispatch(recieveReview(review)))
