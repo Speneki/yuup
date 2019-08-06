@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import BusinessIndexItem from './buisiness-index-item'
-import IndexMap from '../maps/indexMap'
+import IndexMap from '../maps/index_map_container'
 class BusinessIndex extends React.Component {
     componentDidMount() {
         this.props.fetchBusinesses()
@@ -36,13 +36,16 @@ class BusinessIndex extends React.Component {
                     </form>
                 </div>
             </div>
+            <div>
+                <p></p>
+            </div>
             <div className="biz-and-map">
                 <div>
                     {allBusinesses}
                 </div>
                 <div>
                     <div className="index-map">
-                        
+                        <IndexMap />
                     </div>
                 </div>
             </div>

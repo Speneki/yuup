@@ -1,4 +1,17 @@
 import React from 'react';
+import { connect } from 'react-redux';
+// import {withRouter} from 'react-router-dom';
+
+const msp = (state, ownProps) => {
+    // debugger
+    const reviews = Object.values(state.entities.reviews)
+    const reviewCount = reviews.filter(review => {
+        debugger
+        return review.business_id === ownProps.business.id
+    }).length
+    return {reviewCount}
+}
+
 
 class RatingStars extends React.Component {
     constructor(props){
@@ -58,10 +71,10 @@ class RatingStars extends React.Component {
             <>
                 <div id={this.avgRating()} className="stars" />
                 <p className="price">{this.price()}</p>
-                <p className="reviews-count"> {this.reviewsCount()} reviews</p>
+                <p className="reviews-count"> {this.props.reviewCount} reviews</p>
             </>
         )
     }
 }
 
-export default RatingStars;
+export default (connect(msp)(RatingStars)); 

@@ -35,12 +35,12 @@ class BusinessItem extends React.Component {
     render() {
         return (
             <li className="index-biz-list-item">
-                <Link to={`api/businesses/${this.props.business.id}`}><img src={this.props.business.photoUrl} /></Link>
+                <Link to={`/businesses/${this.props.business.id}`}><img src={this.props.business.photoUrl} /></Link>
                 <div className='splash-biz-reviews'>
                     <p id={this.stars()} className="splash-review-ratings"></p>
                     <p className="splash-reviews-count">{this.props.business.review_ids.length} reviews</p>
                 </div>
-                <p><Link to={`api/businesses/${this.props.business.id}`}>{this.props.business.business_name}</Link></p>
+                <p><Link to={`/businesses/${this.props.business.id}`}>{this.props.business.business_name}</Link></p>
                 <p className="biz-address-splash" >{this.props.business.address}</p>
             </li>
         )

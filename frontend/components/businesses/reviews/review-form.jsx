@@ -20,7 +20,7 @@ class ReviewForm extends React.Component {
             user_id: this.props.currentUser.id,
             business_id: this.props.location.biz.id
         }
-        this.props.action(newReview).then(this.props.history.push(`api/businesses/${this.props.location.biz.id}`))
+        this.props.action(newReview).then(this.props.history.push(`businesses/${this.props.location.biz.id}`))
     }
 
     mouseEnter() {
@@ -57,7 +57,7 @@ class ReviewForm extends React.Component {
 
             <div>   
                 <div className="reviewForm">
-                <Link to={`api/businesses/${this.props.location.biz.id}`} className="bizTitle">{this.props.location.biz.business_name}</Link>
+                <Link to={`/businesses/${this.props.location.biz.id}`} className="bizTitle">{this.props.location.biz.business_name}</Link>
                     <form className="reviewFormfillout" onSubmit={this.handleSubmit}>
                             <div>
                                 <ul className="rating-stars">

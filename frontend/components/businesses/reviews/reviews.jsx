@@ -26,7 +26,7 @@ class ReviewsShow extends React.Component {
         if (this.props.reviews.length === 0) return  (null)
         const reviews = this.props.reviews.map(review => {
             return (
-                <li>
+                <li key={review.id}>
                     <Review
                         key = {review.id}
                         review={review} />
