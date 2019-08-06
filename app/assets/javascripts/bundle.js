@@ -572,7 +572,9 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      debugger;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        key: this.props.business.id,
         className: "index-biz-list-item"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "businesses/".concat(this.props.business.id)
@@ -2185,20 +2187,15 @@ function (_React$Component) {
         },
         zoom: 12
       };
-      var map = this.map = new google.maps.Map(this.mapNode, mapOptions); // const marker = new google.maps.Marker({
-      //     position: { lat: this.props.business.latitude, lng: this.props.business.longitude },
-      //     map: map,
-      //     gestureHandling: 'none',
-      //     zoomControl: false
-      // });
-
+      var map = this.map = new google.maps.Map(this.mapNode, mapOptions);
       var marker, i;
 
       for (i = 0; i < this.props.businesses.length; i++) {
-        debugger;
         marker = new google.maps.Marker({
           position: new google.maps.LatLng(this.props.businesses[i].latitude, this.props.businesses[i].longitude),
-          map: map
+          map: map,
+          title: this.props.businesses[i].business_name,
+          animation: google.maps.Animation.DROP
         });
         marker.setMap(map);
       }
@@ -2672,6 +2669,7 @@ __webpack_require__.r(__webpack_exports__);
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ERRORS"]:
+      debugger;
       return action.errors;
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:

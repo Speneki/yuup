@@ -33,8 +33,9 @@ class BusinessItem extends React.Component {
     }
 
     render() {
+        debugger
         return (
-            <li className="index-biz-list-item">
+            <li key={this.props.business.id} className="index-biz-list-item">
                 <Link to={`businesses/${this.props.business.id}`}><img src={this.props.business.photoUrl} /></Link>
                 <div className='splash-biz-reviews'>
                     <p id={this.stars()} className="splash-review-ratings"></p>

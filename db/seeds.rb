@@ -38,6 +38,20 @@ biz3.photos.attach(io: File.open("./app/assets/images/food-pix/food7.jpeg"), fil
 biz3.photos.attach(io: File.open("./app/assets/images/food-pix/food8.jpeg"), filename: 'food141412.jpeg')
 biz3.photos.attach(io: File.open("./app/assets/images/food-pix/food9.jpeg"), filename: 'food1412412.jpeg')
 
+biz4 = Business.create(business_name: "Shake Shack", address: "1333 Broadway, New York, NY 10018" , latitude: 40.7513684,
+    longitude: -73.9879468, number: "(646) 230-0696", website: "shakeshack.com", price: 1, category: 'food')
+biz4.photos.attach(io: File.open("./app/assets/images/food-pix/restaurant/restaurant4.png"), filename: 'food1020123.jpeg')
+biz4.photos.attach(io: File.open("./app/assets/images/food-pix/food10.jpeg"), filename: 'food12415.jpeg')
+biz4.photos.attach(io: File.open("./app/assets/images/food-pix/food11.jpeg"), filename: 'food141412.jpeg')
+biz4.photos.attach(io: File.open("./app/assets/images/food-pix/food12.jpeg"), filename: 'food1412412.jpeg')
+
+biz5 = Business.create(business_name: "Pokeworks", address: "63 W 37th St, New York, NY 10018" , latitude: 40.7516837,
+    longitude: -73.9859569, number: "(646) 230-0696", website: "pokeworks.com", price: 1, category: 'food')
+biz5.photos.attach(io: File.open("./app/assets/images/food-pix/restaurant/restaurant5.jpeg"), filename: 'food102013.jpeg')
+biz5.photos.attach(io: File.open("./app/assets/images/food-pix/food13.jpeg"), filename: 'food12415.jpeg')
+biz5.photos.attach(io: File.open("./app/assets/images/food-pix/food14.jpeg"), filename: 'food141412.jpeg')
+biz5.photos.attach(io: File.open("./app/assets/images/food-pix/food15.jpeg"), filename: 'food1412412.jpeg')
+
 
 user1 = User.create(firstName: Faker::Name.first_name, lastName: Faker::Name.last_name, email: Faker::Internet.email,
     location: Faker::Address.zip_code, password: 'password')
