@@ -1,15 +1,17 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import BusinessItem from './business_item'
+import BusinessIndexItem from './buisiness-index-item'
+import IndexMap from '../maps/indexMap'
 class BusinessIndex extends React.Component {
     componentDidMount() {
         this.props.fetchBusinesses()
+        window.scrollTo(0, 0)
     }
 
     render() {
         const allBusinesses = this.props.allBusinesses.map(business=> (
             <div className="biz-index">
-                <BusinessItem
+                <BusinessIndexItem
                     key={business.id}
                     business={business}
                 />
@@ -34,8 +36,15 @@ class BusinessIndex extends React.Component {
                     </form>
                 </div>
             </div>
-            <div >
-                {allBusinesses}
+            <div className="biz-and-map">
+                <div>
+                    {allBusinesses}
+                </div>
+                <div>
+                    <div className="index-map">
+                        
+                    </div>
+                </div>
             </div>
             </>
         )

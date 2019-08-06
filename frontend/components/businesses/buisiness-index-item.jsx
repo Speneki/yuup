@@ -7,7 +7,7 @@ class BusinessItem extends React.Component {
     }
 
     stars() {
-        const avg = Math.floor(this.props.business.avg_rating * 2)/2;
+        const avg = Math.floor(this.props.business.avg_rating * 2) / 2;
         switch (avg) {
             case 1:
                 return "uno"
@@ -33,8 +33,8 @@ class BusinessItem extends React.Component {
     }
 
     render() {
-        return(
-            <li key={this.props.business.id} className="splash-biz-list-item">
+        return (
+            <li className="index-biz-list-item">
                 <Link to={`api/businesses/${this.props.business.id}`}><img src={this.props.business.photoUrl} /></Link>
                 <div className='splash-biz-reviews'>
                     <p id={this.stars()} className="splash-review-ratings"></p>

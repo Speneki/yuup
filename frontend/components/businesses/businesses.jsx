@@ -29,7 +29,7 @@ class Businesses extends React.Component {
                 {businesses[1]}
                 {businesses[2]}
             </ul>
-            <Link to={{ pathname: "/businesses/all"}}>See more hot and new businesses</Link>
+            <Link className="link-to-index" to={{ pathname: "/businesses/all"}}>See more hot and new businesses</Link>
         </div>)
     }
 }

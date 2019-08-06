@@ -397,7 +397,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _business_item__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./business_item */ "./frontend/components/businesses/business_item.jsx");
+/* harmony import */ var _buisiness_index_item__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./buisiness-index-item */ "./frontend/components/businesses/buisiness-index-item.jsx");
+/* harmony import */ var _maps_indexMap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../maps/indexMap */ "./frontend/components/maps/indexMap.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -420,6 +421,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var BusinessIndex =
 /*#__PURE__*/
 function (_React$Component) {
@@ -435,6 +437,7 @@ function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchBusinesses();
+      window.scrollTo(0, 0);
     }
   }, {
     key: "render",
@@ -442,7 +445,7 @@ function (_React$Component) {
       var allBusinesses = this.props.allBusinesses.map(function (business) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "biz-index"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_item__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_buisiness_index_item__WEBPACK_IMPORTED_MODULE_2__["default"], {
           key: business.id,
           business: business
         }));
@@ -470,7 +473,11 @@ function (_React$Component) {
         className: "top-search-button"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-search"
-      }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, allBusinesses));
+      }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "biz-and-map"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, allBusinesses), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "index-map"
+      }))));
     }
   }]);
 
@@ -478,6 +485,118 @@ function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (BusinessIndex);
+
+/***/ }),
+
+/***/ "./frontend/components/businesses/buisiness-index-item.jsx":
+/*!*****************************************************************!*\
+  !*** ./frontend/components/businesses/buisiness-index-item.jsx ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var BusinessItem =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(BusinessItem, _React$Component);
+
+  function BusinessItem(props) {
+    _classCallCheck(this, BusinessItem);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(BusinessItem).call(this, props));
+  }
+
+  _createClass(BusinessItem, [{
+    key: "stars",
+    value: function stars() {
+      var avg = Math.floor(this.props.business.avg_rating * 2) / 2;
+
+      switch (avg) {
+        case 1:
+          return "uno";
+
+        case 1.5:
+          return 'uno-half';
+
+        case 2:
+          return 'dos';
+
+        case 2.5:
+          return 'dos-half';
+
+        case 3:
+          return 'tres';
+
+        case 3.5:
+          return 'tres-half';
+
+        case 4:
+          return 'quatro';
+
+        case 4.5:
+          return 'quatro-half';
+
+        case 5:
+          return 'cinco';
+
+        default:
+          return 'zero';
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: "index-biz-list-item"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "api/businesses/".concat(this.props.business.id)
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: this.props.business.photoUrl
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "splash-biz-reviews"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        id: this.stars(),
+        className: "splash-review-ratings"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "splash-reviews-count"
+      }, this.props.business.review_ids.length, " reviews")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "api/businesses/".concat(this.props.business.id)
+      }, this.props.business.business_name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "biz-address-splash"
+      }, this.props.business.address));
+    }
+  }]);
+
+  return BusinessItem;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (BusinessItem);
 
 /***/ }),
 
@@ -566,6 +685,7 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        key: this.props.business.id,
         className: "splash-biz-list-item"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "api/businesses/".concat(this.props.business.id)
@@ -870,6 +990,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Hot & New Businesses"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "splash-biz-list"
       }, businesses[0], businesses[1], businesses[2]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+        className: "link-to-index",
         to: {
           pathname: "/businesses/all"
         }
@@ -1999,6 +2120,91 @@ var mdp = function mdp(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/components/maps/indexMap.jsx":
+/*!***********************************************!*\
+  !*** ./frontend/components/maps/indexMap.jsx ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var Map =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Map, _React$Component);
+
+  function Map(props) {
+    _classCallCheck(this, Map);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Map).call(this, props));
+  }
+
+  _createClass(Map, [{
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      var mapOptions = {
+        center: {
+          lat: 0,
+          lng: 0
+        },
+        zoom: 15
+      };
+      var map = this.map = new google.maps.Map(this.mapNode, mapOptions);
+      var marker = new google.maps.Marker({
+        position: {
+          lat: this.props.business.latitude,
+          lng: this.props.business.longitude
+        },
+        map: map,
+        gestureHandling: 'none',
+        zoomControl: false
+      });
+      marker.setMap(map);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        ref: function ref(map) {
+          return _this.mapNode = map;
+        },
+        className: "index-map"
+      });
+    }
+  }]);
+
+  return Map;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (Map);
+
+/***/ }),
+
 /***/ "./frontend/components/maps/map.jsx":
 /*!******************************************!*\
   !*** ./frontend/components/maps/map.jsx ***!
@@ -2042,17 +2248,8 @@ function (_React$Component) {
   }
 
   _createClass(Map, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {// const mapOptions = {
-      //     center: { lat: this.props.business.latitude, lng: this.props.business.longitude},
-      //     zoom: 15
-      // };
-      // this.map = new google.maps.Map(this.mapNode, mapOptions);
-    }
-  }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate() {
-      // if (this.props.business.latitude !== prevProps.business.latitude) {
       var mapOptions = {
         center: {
           lat: this.props.business.latitude,
@@ -2070,7 +2267,19 @@ function (_React$Component) {
         gestureHandling: 'none',
         zoomControl: false
       });
-      marker.setMap(map); // }
+      marker.setMap(map);
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var mapOptions = {
+        center: {
+          lat: this.props.business.latitude,
+          lng: this.props.business.longitude
+        },
+        zoom: 15
+      };
+      var map = this.map = new google.maps.Map(this.mapNode, mapOptions);
     }
   }, {
     key: "render",

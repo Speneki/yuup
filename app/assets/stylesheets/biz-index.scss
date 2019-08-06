@@ -2,3 +2,32 @@
     margin-left: 300px;
     list-style: none;
 }
+
+.index-biz-list-item {
+    // display: flex;
+    width: 330px;
+    height: 320px;
+    // border: 1px solid #ccc;
+    margin: 15px;
+    border-radius: 6px;
+}
+.index-biz-list-item img {
+    width:100%;
+    height: 180px;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.biz-and-map {
+    display: flex;
+}
+
+.index-map {
+    position: sticky;
+    width: 400px;
+    height: 700px;
+    // background: blue;
+    top: 0;
+    margin-left: 60px;
+    padding: 20px;
+}
