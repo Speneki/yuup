@@ -1,4 +1,5 @@
-import { RECEIVE_CURRENT_USER, LOGOUT_USER } from "../actions/session_actions"
+import { RECEIVE_CURRENT_USER, LOGOUT_USER, RECEIVE_USERS } from "../actions/session_actions"
+import { merge } from 'lodash'
 
 const _nullUser = {
     id: null

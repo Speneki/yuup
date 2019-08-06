@@ -1,5 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+// const msp = state => {
+//     return ({
+//         allReviews: Object.values(state.entities.reviews)
+//     })
+// }
 
 class BusinessItem extends React.Component {
     constructor(props) {
@@ -33,16 +40,16 @@ class BusinessItem extends React.Component {
     }
 
     render() {
-        debugger
         return (
             <li key={this.props.business.id} className="index-biz-list-item">
-                <Link to={`businesses/${this.props.business.id}`}><img src={this.props.business.photoUrl} /></Link>
+                <Link to={`/businesses/${this.props.business.id}`}><img src={this.props.business.photoUrl} /></Link>
+                <Link to={`/businesses/${this.props.business.id}`}>{this.props.business.business_name}</Link>
                 <div className='splash-biz-reviews'>
                     <p id={this.stars()} className="splash-review-ratings"></p>
                     <p className="splash-reviews-count">{this.props.business.review_ids.length} reviews</p>
                 </div>
-                <p><Link to={`businesses/${this.props.business.id}`}>{this.props.business.business_name}</Link></p>
                 <p className="biz-address-splash" >{this.props.business.address}</p>
+                <p>{this.props.business.number}</p>
             </li>
         )
     }

@@ -228,6 +228,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "signup", function() { return signup; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logout", function() { return logout; });
 /* harmony import */ var _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/session_api_util */ "./frontend/util/session_api_util.js");
+/* harmony import */ var _util_users_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/users_util */ "./frontend/util/users_util.jsx");
+
 
 var RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 var LOGOUT_USER = "LOGOUT_USER";
@@ -284,6 +286,55 @@ var logout = function logout() {
 }; // export const clearErrors = () => dispatch => {
 //     return () => dispatch(emptyErrors())
 // }
+
+/***/ }),
+
+/***/ "./frontend/actions/user_actions.js":
+/*!******************************************!*\
+  !*** ./frontend/actions/user_actions.js ***!
+  \******************************************/
+/*! exports provided: RECEIVE_USERS, RECEIVE_USER, fetchUsers, fetchUser */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_USERS", function() { return RECEIVE_USERS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_USER", function() { return RECEIVE_USER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUsers", function() { return fetchUsers; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUser", function() { return fetchUser; });
+/* harmony import */ var _util_users_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/users_util */ "./frontend/util/users_util.jsx");
+
+var RECEIVE_USERS = "RECEIVE_USERS";
+var RECEIVE_USER = "RECEIVE_USER";
+
+var receiveUsers = function receiveUsers(users) {
+  return {
+    type: RECEIVE_USERS,
+    users: users
+  };
+};
+
+var receiveUser = function receiveUser(user) {
+  return {
+    type: RECEIVE_USER,
+    user: user
+  };
+};
+
+var fetchUsers = function fetchUsers() {
+  return function (dispatch) {
+    return _util_users_util__WEBPACK_IMPORTED_MODULE_0__["indexUsers"]().then(function (users) {
+      return dispatch(receiveUsers(users));
+    });
+  };
+};
+var fetchUser = function fetchUser(id) {
+  return function (dispatch) {
+    return _util_users_util__WEBPACK_IMPORTED_MODULE_0__["showUser"](id).then(function (user) {
+      return dispatch(receiveUser(user));
+    });
+  };
+};
 
 /***/ }),
 
@@ -369,7 +420,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var msp = function msp(state) {
   return {
-    allBusinesses: Object.values(state.entities.businesses)
+    allBusinesses: Object.values(state.entities.businesses),
+    allReviews: Object.values(state.entities.reviews)
   };
 };
 
@@ -444,6 +496,7 @@ function (_React$Component) {
     value: function render() {
       var allBusinesses = this.props.allBusinesses.map(function (business) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          key: business.id,
           className: "biz-index"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_buisiness_index_item__WEBPACK_IMPORTED_MODULE_2__["default"], {
           key: business.id,
@@ -500,6 +553,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -520,6 +574,11 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+ // const msp = state => {
+//     return ({
+//         allReviews: Object.values(state.entities.reviews)
+//     })
+// }
 
 var BusinessItem =
 /*#__PURE__*/
@@ -572,26 +631,25 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      debugger;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         key: this.props.business.id,
         className: "index-biz-list-item"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "businesses/".concat(this.props.business.id)
+        to: "/businesses/".concat(this.props.business.id)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: this.props.business.photoUrl
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/businesses/".concat(this.props.business.id)
+      }, this.props.business.business_name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "splash-biz-reviews"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         id: this.stars(),
         className: "splash-review-ratings"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "splash-reviews-count"
-      }, this.props.business.review_ids.length, " reviews")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "businesses/".concat(this.props.business.id)
-      }, this.props.business.business_name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, this.props.business.review_ids.length, " reviews")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "biz-address-splash"
-      }, this.props.business.address));
+      }, this.props.business.address), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.business.number));
     }
   }]);
 
@@ -1411,6 +1469,7 @@ function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1430,6 +1489,21 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 
+
+
+var msp = function msp(state, ownProps) {
+  return {
+    user: Object.values(state.entities.users).filter(function (user) {
+      if (user.id === ownProps.review.user_id) {
+        return user;
+      }
+    })
+  };
+};
+
+var mdp = function mdp(dispatch) {
+  return {};
+};
 
 var Review =
 /*#__PURE__*/
@@ -1480,9 +1554,16 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      debugger;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "rating-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.review.user_id), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "profile-pics",
+        src: this.props.user[0].photoUrl,
+        alt: ""
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "profile-deets"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.user[0].firstName), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.user[0].location)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "stars-and-body"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         id: this.rating(),
@@ -1496,7 +1577,7 @@ function (_React$Component) {
   return Review;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (Review);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(msp, mdp)(Review));
 
 /***/ }),
 
@@ -1958,7 +2039,8 @@ function (_React$Component) {
       password: "",
       firstName: "",
       lastName: "",
-      location: ""
+      location: "" // photo: 
+
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
@@ -2669,7 +2751,6 @@ __webpack_require__.r(__webpack_exports__);
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ERRORS"]:
-      debugger;
       return action.errors;
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
@@ -2692,6 +2773,9 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+
 
 var _nullUser = {
   id: null
@@ -2732,7 +2816,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/user_actions */ "./frontend/actions/user_actions.js");
+/* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../actions/business_actions */ "./frontend/actions/business_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 
@@ -2745,6 +2833,9 @@ var usersReducer = function usersReducer() {
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_CURRENT_USER"]:
       return Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, state, _defineProperty({}, action.currentUser.id, action.currentUser));
+
+    case _actions_business_actions__WEBPACK_IMPORTED_MODULE_3__["RECEIVE_BUSINESS"]:
+      return Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, state, action.payload.users);
 
     default:
       return state;
@@ -2971,6 +3062,37 @@ var logout = function logout() {
   return $.ajax({
     url: "/api/session",
     method: "DELETE"
+  });
+};
+
+/***/ }),
+
+/***/ "./frontend/util/users_util.jsx":
+/*!**************************************!*\
+  !*** ./frontend/util/users_util.jsx ***!
+  \**************************************/
+/*! exports provided: indexUsers, showUser */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "indexUsers", function() { return indexUsers; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showUser", function() { return showUser; });
+var indexUsers = function indexUsers() {
+  return $.ajax({
+    type: 'GET',
+    url: "/api/users"
+  });
+};
+var showUser = function showUser(id) {
+  return $.ajax({
+    type: 'GET',
+    url: "/api/users/".concat(id),
+    data: {
+      users: {
+        id: id
+      }
+    }
   });
 };
 

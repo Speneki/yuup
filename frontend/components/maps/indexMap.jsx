@@ -9,8 +9,8 @@ class indexMap extends React.Component {
         const mapOptions = {
             center: { lat: 40.7621937, lng: -73.9775307 },
             zoom: 12
-
         };
+        
         const map = this.map = new google.maps.Map(this.mapNode, mapOptions);
 
         let marker, i;

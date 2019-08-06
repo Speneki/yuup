@@ -55,12 +55,16 @@ biz5.photos.attach(io: File.open("./app/assets/images/food-pix/food15.jpeg"), fi
 
 user1 = User.create(firstName: Faker::Name.first_name, lastName: Faker::Name.last_name, email: Faker::Internet.email,
     location: Faker::Address.zip_code, password: 'password')
+user1.photo.attach(io: File.open("./app/assets/images/people/pic3.jpeg"), filename: "profpic.jpeg")
 user2 = User.create(firstName: Faker::Name.first_name, lastName: Faker::Name.last_name, email: Faker::Internet.email,
     location: Faker::Address.zip_code, password: 'password')
+user2.photo.attach(io: File.open("./app/assets/images/people/pic4.jpeg"), filename: "profpic.jpeg")
 user3 = User.create(firstName: Faker::Name.first_name, lastName: Faker::Name.last_name, email: Faker::Internet.email,
     location: Faker::Address.zip_code, password: 'password')
+user3.photo.attach(io: File.open("./app/assets/images/people/pic5.jpeg"), filename: "profpic.jpeg")
 user4 = User.create(firstName: Faker::Name.first_name, lastName: Faker::Name.last_name, email: Faker::Internet.email,
     location: Faker::Address.zip_code, password: 'password')
+user4.photo.attach(io: File.open("./app/assets/images/people/pic3.jpeg"), filename: "profpic.jpeg")
 
 
 Review.create!(user_id: user1.id, business_id: biz1.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))

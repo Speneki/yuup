@@ -5,7 +5,8 @@ import { fetchBusiness, fetchBusinesses } from '../../actions/business_actions'
 
 
 const msp = state => ({
-    allBusinesses: Object.values(state.entities.businesses)
+    allBusinesses: Object.values(state.entities.businesses),
+    allReviews: Object.values(state.entities.reviews)
 })
 
 const mdp = dispatch => ({

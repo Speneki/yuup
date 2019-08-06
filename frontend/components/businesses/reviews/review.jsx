@@ -1,9 +1,28 @@
 import React from 'react';
+import {connect} from 'react-redux'
 
+
+const msp = (state, ownProps) => {
+    return ({
+        user: Object.values(state.entities.users).filter(user => {
+            if (user.id === ownProps.review.user_id) {
+                return user;
+            }
+        }
+        )
+    })
+}
+const mdp = dispatch => {
+    return ({
+        
+    })
+}
 
 class Review extends React.Component {
     
+
     rating() {
+
         switch(this.props.review.rating) {
             case 1:
                 return "uno"
@@ -29,9 +48,14 @@ class Review extends React.Component {
     }
 
     render() {
+        debugger
         return (
             <div className="rating-container">
-                <p>{this.props.review.user_id}</p>
+                <img className="profile-pics" src={this.props.user[0].photoUrl} alt=""/>
+                <div className="profile-deets">
+                    <p>{this.props.user[0].firstName}</p>
+                    <p>{this.props.user[0].location}</p>
+                </div>
                 <div className="stars-and-body">
                     <p id={this.rating()} className="review-ratings"></p>
                     <p className="review-body">{this.props.review.body}</p>
@@ -41,4 +65,4 @@ class Review extends React.Component {
     }
 }
 
-export default Review;
+export default connect(msp, mdp)(Review);

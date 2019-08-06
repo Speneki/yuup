@@ -9,7 +9,8 @@ class SessionForm extends React.Component {
             password: "",
             firstName: "",
             lastName: "",
-            location: ""
+            location: "",
+            // photo: 
         };
         this.handleSubmit = this.handleSubmit.bind(this)
     }
