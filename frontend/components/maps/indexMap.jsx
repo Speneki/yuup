@@ -20,21 +20,14 @@ class indexMap extends React.Component {
         // });
 
 
-        var marker, i;
+        let marker, i;
 
         for (i = 0; i < this.props.businesses.length; i++) {
             debugger
             marker = new google.maps.Marker({
-                // position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-                // map: map
+                position: new google.maps.LatLng(this.props.businesses[0].latitude, this.props.businesses[0].longitude),
+                map: map
             });
-
-            // google.maps.event.addListener(marker, 'click', (function (marker, i) {
-            //     return function () {
-            //         infowindow.setContent(locations[i][0]);
-            //         infowindow.open(map, marker);
-            //     }
-            // })(marker, i));
         }
 
 

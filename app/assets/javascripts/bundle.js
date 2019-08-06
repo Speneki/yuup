@@ -1119,7 +1119,7 @@ var msp = function msp(state, ownProps) {
   // debugger
   var reviews = Object.values(state.entities.reviews);
   var reviewCount = reviews.filter(function (review) {
-    debugger;
+    // debugger
     return review.business_id === ownProps.business.id;
   }).length;
   return {
@@ -1481,6 +1481,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      debugger;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "rating-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.review.user_id), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2199,14 +2200,10 @@ function (_React$Component) {
 
       for (i = 0; i < this.props.businesses.length; i++) {
         debugger;
-        marker = new google.maps.Marker({// position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-          // map: map
-        }); // google.maps.event.addListener(marker, 'click', (function (marker, i) {
-        //     return function () {
-        //         infowindow.setContent(locations[i][0]);
-        //         infowindow.open(map, marker);
-        //     }
-        // })(marker, i));
+        marker = new google.maps.Marker({
+          position: new google.maps.LatLng(this.props.businesses[0].latitude, this.props.businesses[0].longitude),
+          map: map
+        });
       }
 
       marker.setMap(map);
