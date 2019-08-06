@@ -3,10 +3,8 @@ import { connect } from 'react-redux';
 // import {withRouter} from 'react-router-dom';
 
 const msp = (state, ownProps) => {
-    // debugger
     const reviews = Object.values(state.entities.reviews)
     const reviewCount = reviews.filter(review => {
-        // debugger
         return review.business_id === ownProps.business.id
     }).length
     return {reviewCount}

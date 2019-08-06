@@ -575,7 +575,7 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "index-biz-list-item"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/businesses/".concat(this.props.business.id)
+        to: "businesses/".concat(this.props.business.id)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: this.props.business.photoUrl
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -586,7 +586,7 @@ function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "splash-reviews-count"
       }, this.props.business.review_ids.length, " reviews")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/businesses/".concat(this.props.business.id)
+        to: "businesses/".concat(this.props.business.id)
       }, this.props.business.business_name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "biz-address-splash"
       }, this.props.business.address));
@@ -984,7 +984,6 @@ function (_React$Component) {
           business: business
         });
       });
-      debugger;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "under-splash"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Hot & New Businesses"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
@@ -1116,10 +1115,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
  // import {withRouter} from 'react-router-dom';
 
 var msp = function msp(state, ownProps) {
-  // debugger
   var reviews = Object.values(state.entities.reviews);
   var reviewCount = reviews.filter(function (review) {
-    // debugger
     return review.business_id === ownProps.business.id;
   }).length;
   return {
@@ -1481,7 +1478,6 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      debugger;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "rating-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.review.user_id), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2201,19 +2197,17 @@ function (_React$Component) {
       for (i = 0; i < this.props.businesses.length; i++) {
         debugger;
         marker = new google.maps.Marker({
-          position: new google.maps.LatLng(this.props.businesses[0].latitude, this.props.businesses[0].longitude),
+          position: new google.maps.LatLng(this.props.businesses[i].latitude, this.props.businesses[i].longitude),
           map: map
         });
+        marker.setMap(map);
       }
-
-      marker.setMap(map);
     }
   }, {
     key: "render",
     value: function render() {
       var _this = this;
 
-      debugger;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         ref: function ref(map) {
           return _this.mapNode = map;

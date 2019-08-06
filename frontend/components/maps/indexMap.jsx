@@ -25,17 +25,17 @@ class indexMap extends React.Component {
         for (i = 0; i < this.props.businesses.length; i++) {
             debugger
             marker = new google.maps.Marker({
-                position: new google.maps.LatLng(this.props.businesses[0].latitude, this.props.businesses[0].longitude),
+                position: new google.maps.LatLng(this.props.businesses[i].latitude, this.props.businesses[i].longitude),
                 map: map
             });
+
+            marker.setMap(map);
         }
 
 
-        marker.setMap(map);
     }
 
     render() {
-        debugger
         return (
             <div ref={map => this.mapNode = map} className="index-map" />
         )

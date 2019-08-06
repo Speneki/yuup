@@ -20,7 +20,6 @@ class Businesses extends React.Component {
                 />
             )
         })
-        debugger
         return(
         <div className="under-splash">
             <h3>Hot & New Businesses</h3>
