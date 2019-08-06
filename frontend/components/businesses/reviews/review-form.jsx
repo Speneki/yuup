@@ -14,14 +14,12 @@ class ReviewForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault()
-        debugger
         const newReview = {
             body: this.state.body,
             rating: this.state.rating,
             user_id: this.props.currentUser.id,
             business_id: this.props.location.biz.id
         }
-
         this.props.action(newReview).then(this.props.history.push(`api/businesses/${this.props.location.biz.id}`))
     }
 
@@ -64,7 +62,7 @@ class ReviewForm extends React.Component {
                             <div>
                                 <ul className="rating-stars">
                                     <li>
-                                        <input type="radio" onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave} value="1" ononChange={this.handleUpdate('rating')} />
+                                        <input type="radio" onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave} value="1" onChange={this.handleUpdate('rating')} />
                                     </li>
                                     <li>
                                         <input type="radio" onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave} value="2" onChange={this.handleUpdate('rating')} />
@@ -84,7 +82,7 @@ class ReviewForm extends React.Component {
                         <textarea className="reviewFormBody" value={this.state.body} 
                             cols="40" wrap="hard" rows="5"
                             placeholder= {placeHolder} onChange={this.handleUpdate('body')}/>
-                        <input type="submit"/>
+                        <input type="submit" className="review-submit-button" value={this.props.formType}/>
                     </form>
                 </div>
             </div>

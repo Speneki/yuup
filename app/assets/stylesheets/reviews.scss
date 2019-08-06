@@ -48,6 +48,7 @@
 .rating-container {
     margin-top: 15px;
     display:flex;
+    width: 700px;
 }
 
 .review-body {
@@ -84,6 +85,7 @@
 .bizTitle:hover {
     text-decoration: underline;
 }
+
 .reviewFormfillout {
     padding: 10px 100px;
     border: 1px solid #ccc;
@@ -106,4 +108,27 @@
 
 .rating-stars {
     display:flex;
+}
+
+.review-submit-button {
+    background-color: #D32323;
+    text-decoration: none;
+    border: 1px solid black;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    color: white;
+    width: 240px;
+    height: 48px;
+    padding: 5px 10px;
+    border: 0;
+    margin: 0;
+}
+
+.splash-review-ratings {
+    background-image: image-url("all_stars.png");
+    height: 28px;
+    width: 166px;
+    margin-top: 10px;
+    margin-left: 8px;
 }

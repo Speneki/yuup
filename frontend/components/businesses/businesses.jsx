@@ -1,5 +1,6 @@
 import React from 'react';
 import BusinessItem from './business_item'
+import {Link} from 'react-router-dom';
 
 class Businesses extends React.Component {
     constructor(props) {
@@ -19,13 +20,16 @@ class Businesses extends React.Component {
                 />
             )
         })
+        debugger
         return(
         <div className="under-splash">
             <h3>Hot & New Businesses</h3>
             <ul className="splash-biz-list">
-                {businesses}
+                {businesses[0]}
+                {businesses[1]}
+                {businesses[2]}
             </ul>
-            <a href="">See more hot and new businesses</a>
+            <Link to={{ pathname: "businesses/all"}}>See more hot and new businesses</Link>
         </div>)
     }
 }

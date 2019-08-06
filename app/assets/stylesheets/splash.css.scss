@@ -78,13 +78,15 @@
 }
 
 .splash-biz-list-item p {
-    padding: 10px;
+    // padding: 10px;
 }
 
 
 .splash-biz-list-item a {
     color: blue;
     text-decoration: none;
+    padding: 10px;
+    // margin-top: 40px;
 }
 
 .splash-biz-list-item a:hover {
@@ -92,9 +94,10 @@
 }
 
 .splash-biz-list-item img {
-    width: 100%;
+    width:93%;
     height: 180px;
     text-decoration: none;
+    margin-top: 10px;
 }
 .splash-biz-list {
     display:flex;
@@ -115,4 +118,20 @@
     font-size: 16px;
     line-height: 1.3125em;
     color: #d32323;
+}
+
+.splash-biz-reviews {
+    display:flex;
+}
+
+.splash-reviews-count {
+    color: #bbb;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-left: 12px;
+    padding: 10px;
+}
+
+.biz-address-splash {
+    margin: 10px
 }

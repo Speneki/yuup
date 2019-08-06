@@ -24,7 +24,8 @@ class Map extends React.Component {
             const marker = new google.maps.Marker({
                 position: { lat: this.props.business.latitude, lng: this.props.business.longitude },
                 map: map,
-                // icon: icon
+                gestureHandling: 'none',
+                zoomControl: false
             });
 
             marker.setMap(map);

@@ -8,6 +8,7 @@ import Footer from "./footer/footer";
 import Splash from "./splash/splash_container";
 import BusinessShow from './businesses/business_show_container';
 import ReviewForm from './businesses/reviews/create_review_container';
+import BusinessIndex from './businesses/allBusiness_container'
 
 const App = () => (
     <div>
@@ -19,6 +20,7 @@ const App = () => (
             < AuthRoute exact path="/signup" component={SignupFormContainer} />
             < Route path="/reviews" component={ReviewForm} />
             < Route path='/api/businesses/:id' component={BusinessShow} />
+            < Route path='/businesses/all' component={BusinessIndex} />
             < Route exact to="/" component={Splash} />
         </Switch>
         < Footer />

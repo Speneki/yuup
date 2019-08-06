@@ -4,9 +4,9 @@ import ReviewForm from "../reviews/review-form"
 import { connect } from 'react-redux';
 
 const msp = (state, ownProps) => {
-    debugger
     return ({
-        currentUser: state.entities.users[state.session.id]
+        currentUser: state.entities.users[state.session.id],
+        formType: "Create Review"
     })  
 }
 
