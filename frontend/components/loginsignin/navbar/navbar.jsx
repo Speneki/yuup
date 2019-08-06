@@ -5,13 +5,8 @@ import UserNav from './usernav'
 class Navbar extends React.Component {
     constructor(props) {
         super(props)
-        this.state
-        //todo set up dropdown
     }
     
-    componentDidMount() {
-
-    }
 
     render() {    
         const appearOrNah = (this.props.location.pathname != '/') ? ("makeItRed") : ("keepItClear")
@@ -22,7 +17,6 @@ class Navbar extends React.Component {
                     < UserNav 
                         currentUser={this.props.currentUser}
                         logout={this.props.logout}
-                        // onClick={dropdown}
                     />
                 </div>  
             </div>

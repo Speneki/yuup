@@ -1852,20 +1852,12 @@ function (_React$Component) {
   _inherits(Navbar, _React$Component);
 
   function Navbar(props) {
-    var _this;
-
     _classCallCheck(this, Navbar);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Navbar).call(this, props));
-    _this.state; //todo set up dropdown
-
-    return _this;
+    return _possibleConstructorReturn(this, _getPrototypeOf(Navbar).call(this, props));
   }
 
   _createClass(Navbar, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {}
-  }, {
     key: "render",
     value: function render() {
       var appearOrNah = this.props.location.pathname != '/' ? "makeItRed" : "keepItClear";
@@ -1873,8 +1865,7 @@ function (_React$Component) {
         className: "nav-bar-objects"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_usernav__WEBPACK_IMPORTED_MODULE_2__["default"], {
         currentUser: this.props.currentUser,
-        logout: this.props.logout // onClick={dropdown}
-
+        logout: this.props.logout
       }))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "nav-bar-objects"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
