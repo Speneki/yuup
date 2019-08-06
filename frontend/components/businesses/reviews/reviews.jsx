@@ -24,7 +24,6 @@ class ReviewsShow extends React.Component {
 
     render() {
         if (this.props.reviews.length === 0) return  (null)
-        debugger
         const reviews = this.props.reviews.map(review => {
             return (
                 <li>

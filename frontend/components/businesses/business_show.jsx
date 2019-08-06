@@ -13,7 +13,6 @@ class Business extends React.Component {
     }
 
     render() {
-        const {business} = this.props
         return(
             <div>
                 {/* from here --- */}
@@ -42,12 +41,10 @@ class Business extends React.Component {
                                     <RatingStars business={this.props.business}/>
                                 </div>
                                 <div className="businessButtons">
-                                  <Link to={{pathname: "/reviews",
-                                            state: {
-                                                business: business
-                                            } }}
-                                        bizId={this.props.match.params.id} ><button className="review-button"> ★ Write a review</button>
-                                        </Link>
+                                    <Link to={{ pathname: "/reviews",
+                                             biz: this.props.business }}>
+                                        <button className="review-button"> ★ Write a review</button>
+                                    </Link>
                                     <button className="secondary-buttons"><i className="fas fa-camera"></i>  Add Photo</button>
                                     <button className="secondary-buttons"><i className="fas fa-share-square"></i>  Share</button>
                                 </div>

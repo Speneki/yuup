@@ -464,7 +464,6 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var business = this.props.business;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "showPageNav"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -507,11 +506,8 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
         to: {
           pathname: "/reviews",
-          state: {
-            business: business
-          }
-        },
-        bizId: this.props.match.params.id
+          biz: this.props.business
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "review-button"
       }, " \u2605 Write a review")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -740,24 +736,33 @@ var mdp = function mdp(dispatch) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../actions/review_actions */ "./frontend/actions/review_actions.js");
-/* harmony import */ var _reviews_review_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../reviews/review-form */ "./frontend/components/businesses/reviews/review-form.jsx");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../actions/business_actions */ "./frontend/actions/business_actions.js");
+/* harmony import */ var _reviews_review_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../reviews/review-form */ "./frontend/components/businesses/reviews/review-form.jsx");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 
 
 
 
-var msp = function msp(state, ownProps) {// debugger
+
+var msp = function msp(state, ownProps) {
+  debugger;
+  return {
+    currentUser: state.entities.users[state.session.id]
+  };
 };
 
 var mdp = function mdp(dispatch) {
   return {
     action: function action(review) {
       return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_0__["createReview"])(review));
+    },
+    fetchBusiness: function fetchBusiness(id) {
+      return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_1__["fetchBusiness"])(id));
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(null, mdp)(_reviews_review_form__WEBPACK_IMPORTED_MODULE_1__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])(msp, mdp)(_reviews_review_form__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 
@@ -900,6 +905,7 @@ function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -919,6 +925,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -947,6 +954,24 @@ function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
+      debugger;
+      var newReview = {
+        body: this.state.body,
+        rating: this.state.rating,
+        user_id: this.props.currentUser.id,
+        business_id: this.props.location.biz.id
+      };
+      this.props.action(newReview).then(this.props.history.push("api/businesses/".concat(this.props.location.biz.id)));
+    }
+  }, {
+    key: "mouseEnter",
+    value: function mouseEnter() {
+      console.log('mouse enter');
+    }
+  }, {
+    key: "mouseLeave",
+    value: function mouseLeave() {
+      console.log('mouse leave');
     }
   }, {
     key: "handleUpdate",
@@ -960,7 +985,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      debugger;
+      var placeHolder = "Your review helps others learn about great local businesses.\n\n Please don't review this business if you received a freebie for writing this review, or are connected in any way to the owner or employees.";
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "showPageNav"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -984,42 +1009,57 @@ function (_React$Component) {
         className: "top-search-button"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-search"
-      }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "reviewForm"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "api/businesses/".concat(this.props.location.biz.id),
+        className: "bizTitle"
+      }, this.props.location.biz.business_name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        className: "reviewFormfillout",
         onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "rating-stars"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
-        name: "rating",
-        onChange: this.handleUpdate('rating'),
-        checked: true
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onMouseEnter: this.mouseEnter,
+        onMouseLeave: this.mouseLeave,
+        value: "1",
+        ononChange: this.handleUpdate('rating')
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
-        name: "rating",
+        onMouseEnter: this.mouseEnter,
+        onMouseLeave: this.mouseLeave,
+        value: "2",
         onChange: this.handleUpdate('rating')
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
-        name: "rating",
+        onMouseEnter: this.mouseEnter,
+        onMouseLeave: this.mouseLeave,
+        value: "3",
         onChange: this.handleUpdate('rating')
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
-        name: "rating",
+        onMouseEnter: this.mouseEnter,
+        onMouseLeave: this.mouseLeave,
+        value: "4",
         onChange: this.handleUpdate('rating')
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
-        name: "rating",
+        onMouseEnter: this.mouseEnter,
+        onMouseLeave: this.mouseLeave,
+        value: "5",
         onChange: this.handleUpdate('rating')
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "radio",
-        name: "rating",
-        onChange: this.handleUpdate('rating')
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         className: "reviewFormBody",
-        type: "textarea",
         value: this.state.body,
-        placeholder: "Your review helps others learn about great local businesses \\n  Please don\\'t review this business if you received a freebie for writing this review,  or are connected in any way to the owner or employees.",
+        cols: "40",
+        wrap: "hard",
+        rows: "5",
+        placeholder: placeHolder,
         onChange: this.handleUpdate('body')
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit"
-      }))));
+      })))));
     }
   }]);
 
@@ -1214,7 +1254,6 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       if (this.props.reviews.length === 0) return null;
-      debugger;
       var reviews = this.props.reviews.map(function (review) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review__WEBPACK_IMPORTED_MODULE_3__["default"], {
           key: review.id,
@@ -1678,7 +1717,9 @@ function (_React$Component) {
       }, "Demo User"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "or"
       }, "------------------ OR ------------------"));
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "brokeassbackground"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "wholepage"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "entryform"
@@ -1701,7 +1742,7 @@ function (_React$Component) {
         value: this.props.formType
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "errors"
-      }, this.renderErrors())), loginLink), image);
+      }, this.renderErrors())), loginLink), image));
     }
   }]);
 

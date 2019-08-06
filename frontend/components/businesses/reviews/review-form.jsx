@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 class ReviewForm extends React.Component {
     constructor(props) {
         super(props)
@@ -14,16 +14,32 @@ class ReviewForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault()
+        debugger
+        const newReview = {
+            body: this.state.body,
+            rating: this.state.rating,
+            user_id: this.props.currentUser.id,
+            business_id: this.props.location.biz.id
+        }
+
+        this.props.action(newReview).then(this.props.history.push(`api/businesses/${this.props.location.biz.id}`))
+    }
+
+    mouseEnter() {
+        console.log('mouse enter')
+    }
+
+    mouseLeave() {
+        console.log('mouse leave')
     }
 
     handleUpdate(field) {
-
         return e => this.setState({ [field]: e.target.value })
     }
 
     render() {
-        debugger
-        return(
+        const placeHolder = "Your review helps others learn about great local businesses.\n\n Please don't review this business if you received a freebie for writing this review, or are connected in any way to the owner or employees."
+        return( 
             <>
             <div className="showPageNav">
                 <div className="showBizSearch">
@@ -40,20 +56,37 @@ class ReviewForm extends React.Component {
                     </form>
                 </div>
             </div>
+
             <div>   
-                <form onSubmit={this.handleSubmit}>
-                    <input type="radio" name="rating" onChange={this.handleUpdate('rating')} checked/>
-                    <input type="radio" name="rating" onChange={this.handleUpdate('rating')}/>
-                    <input type="radio" name="rating" onChange={this.handleUpdate('rating')}/>
-                    <input type="radio" name="rating" onChange={this.handleUpdate('rating')}/>
-                    <input type="radio" name="rating" onChange={this.handleUpdate('rating')}/>
-                    <input type="radio" name="rating" onChange={this.handleUpdate('rating')}/>
-                    <input className="reviewFormBody" type="textarea" value={this.state.body} 
-                        placeholder="Your review helps others learn about great local businesses \n 
-                            Please don\'t review this business if you received a freebie for writing this review, 
-                            or are connected in any way to the owner or employees." onChange={this.handleUpdate('body')}/>
-                    <input type="submit"/>
-                </form>
+                <div className="reviewForm">
+                <Link to={`api/businesses/${this.props.location.biz.id}`} className="bizTitle">{this.props.location.biz.business_name}</Link>
+                    <form className="reviewFormfillout" onSubmit={this.handleSubmit}>
+                            <div>
+                                <ul className="rating-stars">
+                                    <li>
+                                        <input type="radio" onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave} value="1" ononChange={this.handleUpdate('rating')} />
+                                    </li>
+                                    <li>
+                                        <input type="radio" onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave} value="2" onChange={this.handleUpdate('rating')} />
+                                    </li>
+                                    <li>
+                                        <input type="radio" onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave} value="3" onChange={this.handleUpdate('rating')} />
+                                    </li>
+                                    <li>
+                                        <input type="radio" onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave} value="4" onChange={this.handleUpdate('rating')} />
+                                    </li>
+                                    <li>
+                                        <input type="radio" onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave} value="5" onChange={this.handleUpdate('rating')} />
+                                    </li>
+                                </ul>
+                                <p></p>
+                            </div>
+                        <textarea className="reviewFormBody" value={this.state.body} 
+                            cols="40" wrap="hard" rows="5"
+                            placeholder= {placeHolder} onChange={this.handleUpdate('body')}/>
+                        <input type="submit"/>
+                    </form>
+                </div>
             </div>
             </>
         )

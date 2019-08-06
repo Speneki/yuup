@@ -105,29 +105,34 @@ class SessionForm extends React.Component {
         ) 
 
         return (
-            <div className="wholepage">
-                <div className="entryform">
-                        {demoUser}
-                    <form onSubmit={this.handleSubmit}>
-                        {topPart}
-                        {names}
-                        <label>
-                            <input className="email" type="email" placeholder="Email" onChange={this.handleChange('email')} required />
-                        </label>
-                        <label>
-                            <input className="password" type="password" placeholder="Password" onChange={this.handleChange("password")} required />
-                        </label>
-                        {location}
-                        <br/>
-                        {bottomPart}
-                        <input type="submit" value={this.props.formType} />
-                        <div className="errors">
-                            {this.renderErrors()}
-                        </div>
-                    </form>
-                    {loginLink}
+            <div>
+                <div className="brokeassbackground">
+
                 </div>
-                {image}
+                <div className="wholepage">
+                    <div className="entryform">
+                            {demoUser}
+                        <form onSubmit={this.handleSubmit}>
+                            {topPart}
+                            {names}
+                            <label>
+                                <input className="email" type="email" placeholder="Email" onChange={this.handleChange('email')} required />
+                            </label>
+                            <label>
+                                <input className="password" type="password" placeholder="Password" onChange={this.handleChange("password")} required />
+                            </label>
+                            {location}
+                            <br/>
+                            {bottomPart}
+                            <input type="submit" value={this.props.formType} />
+                            <div className="errors">
+                                {this.renderErrors()}
+                            </div>
+                        </form>
+                        {loginLink}
+                    </div>
+                    {image}
+                </div>
             </div>
         )
     }

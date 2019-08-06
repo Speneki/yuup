@@ -38,3 +38,10 @@
     color: #ccc;
     padding-bottom: 75px;
 }
+
+.brokeassbackground {
+    display: absolute;
+    background: #d32323;
+    width: 100%;
+    height: 65px;
+}
