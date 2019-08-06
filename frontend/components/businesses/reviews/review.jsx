@@ -20,7 +20,6 @@ const mdp = dispatch => {
 
 class Review extends React.Component {
     
-
     rating() {
 
         switch(this.props.review.rating) {
@@ -45,6 +44,10 @@ class Review extends React.Component {
             default: 
                 return 'zero'
         }
+    }
+
+    getCityName() {
+        $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address=' + $zip + '&key=' +  + '&type=json&_=')
     }
 
     render() {

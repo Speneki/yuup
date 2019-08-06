@@ -19,12 +19,15 @@
 
 .biz-and-map {
     display: flex;
+    margin-left: 200px;
 }
 
 .index-map {
+    display: float;
     position: sticky;
     width: 400px;
     height: 520px;
     top: 0;
     padding: 20px;
+    margin-left: 100px;
 }

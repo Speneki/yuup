@@ -53,49 +53,56 @@ biz5.photos.attach(io: File.open("./app/assets/images/food-pix/food14.jpeg"), fi
 biz5.photos.attach(io: File.open("./app/assets/images/food-pix/food15.jpeg"), filename: 'food1412412.jpeg')
 
 
-user1 = User.create(firstName: Faker::Name.first_name, lastName: Faker::Name.last_name, email: Faker::Internet.email,
+user1 = User.create(firstName: "Lillian", lastName: Faker::Name.last_name, email: Faker::Internet.email,
+    location: 73301 , password: 'password')
+user1.photo.attach(io: File.open("./app/assets/images/people/pic2.jpeg"), filename: "profpic.jpeg")
+user2 = User.create(firstName: "George", lastName: Faker::Name.last_name, email: Faker::Internet.email,
+    location: 10025, password: 'password')
+user2.photo.attach(io: File.open("./app/assets/images/people/pic3.jpeg"), filename: "profpic.jpeg")
+user3 = User.create(firstName: "Connor", lastName: Faker::Name.last_name, email: Faker::Internet.email,
     location: Faker::Address.zip_code, password: 'password')
-user1.photo.attach(io: File.open("./app/assets/images/people/pic3.jpeg"), filename: "profpic.jpeg")
-user2 = User.create(firstName: Faker::Name.first_name, lastName: Faker::Name.last_name, email: Faker::Internet.email,
+user3.photo.attach(io: File.open("./app/assets/images/people/pic4.jpeg"), filename: "profpic.jpeg")
+user4 = User.create(firstName: "Brandon", lastName: Faker::Name.last_name, email: Faker::Internet.email,
     location: Faker::Address.zip_code, password: 'password')
-user2.photo.attach(io: File.open("./app/assets/images/people/pic4.jpeg"), filename: "profpic.jpeg")
-user3 = User.create(firstName: Faker::Name.first_name, lastName: Faker::Name.last_name, email: Faker::Internet.email,
+user4.photo.attach(io: File.open("./app/assets/images/people/pic5.jpeg"), filename: "profpic.jpeg")
+user5 = User.create(firstName: "Daniel", lastName: Faker::Name.last_name, email: Faker::Internet.email,
     location: Faker::Address.zip_code, password: 'password')
-user3.photo.attach(io: File.open("./app/assets/images/people/pic5.jpeg"), filename: "profpic.jpeg")
-user4 = User.create(firstName: Faker::Name.first_name, lastName: Faker::Name.last_name, email: Faker::Internet.email,
+user5.photo.attach(io: File.open("./app/assets/images/people/pic6.jpg"), filename: "profpic.jpeg")
+user6 = User.create(firstName: "Bryan", lastName: Faker::Name.last_name, email: Faker::Internet.email,
     location: Faker::Address.zip_code, password: 'password')
-user4.photo.attach(io: File.open("./app/assets/images/people/pic3.jpeg"), filename: "profpic.jpeg")
+user6.photo.attach(io: File.open("./app/assets/images/people/pic7.png"), filename: "profpic.jpeg")
 
 
 Review.create!(user_id: user1.id, business_id: biz1.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
 Review.create!(user_id: user1.id, business_id: biz2.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
-Review.create!(user_id: user1.id, business_id: biz2.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
-Review.create!(user_id: user1.id, business_id: biz2.id, rating: Faker::Number.between(from: 1, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
 Review.create!(user_id: user1.id, business_id: biz3.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
-Review.create!(user_id: user1.id, business_id: biz3.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
-Review.create!(user_id: user1.id, business_id: biz3.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
+Review.create!(user_id: user1.id, business_id: biz4.id, rating: Faker::Number.between(from: 1, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
+Review.create!(user_id: user1.id, business_id: biz5.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
 
-Review.create!(user_id: user2.id, business_id: biz1.id, rating: Faker::Number.between(from: 3, to: 5), body: "I had a dream last night that a hamburger was eating me.")
+Review.create!(user_id: user2.id, business_id: biz3.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
 Review.create!(user_id: user2.id, business_id: biz2.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
-Review.create!(user_id: user2.id, business_id: biz2.id, rating: Faker::Number.between(from: 1, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
-Review.create!(user_id: user2.id, business_id: biz2.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
-Review.create!(user_id: user2.id, business_id: biz3.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
-Review.create!(user_id: user2.id, business_id: biz3.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
-Review.create!(user_id: user2.id, business_id: biz3.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
-Review.create!(user_id: user2.id, business_id: biz3.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
+Review.create!(user_id: user2.id, business_id: biz1.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
+Review.create!(user_id: user2.id, business_id: biz5.id, rating: Faker::Number.between(from: 1, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
+Review.create!(user_id: user2.id, business_id: biz4.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
 
 Review.create!(user_id: user3.id, business_id: biz1.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
+Review.create!(user_id: user3.id, business_id: biz4.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
 Review.create!(user_id: user3.id, business_id: biz2.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
 Review.create!(user_id: user3.id, business_id: biz3.id, rating: Faker::Number.between(from: 1, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
-Review.create!(user_id: user3.id, business_id: biz3.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
-Review.create!(user_id: user3.id, business_id: biz3.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
-Review.create!(user_id: user3.id, business_id: biz3.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
+Review.create!(user_id: user3.id, business_id: biz5.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
 
-Review.create!(user_id: user4.id, business_id: biz3.id, rating: Faker::Number.between(from: 1, to: 5), body: Faker::Hipster.sentence(word_count: 300, supplemental: true, random_words_to_add: 4))
-Review.create!(user_id: user4.id, business_id: biz2.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 300, supplemental: true, random_words_to_add: 4))
-Review.create!(user_id: user4.id, business_id: biz2.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 300, supplemental: true, random_words_to_add: 4))
-Review.create!(user_id: user4.id, business_id: biz2.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 300, supplemental: true, random_words_to_add: 4))
-Review.create!(user_id: user4.id, business_id: biz1.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 300, supplemental: true, random_words_to_add: 4))
-Review.create!(user_id: user4.id, business_id: biz1.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 300, supplemental: true, random_words_to_add: 4))
-Review.create!(user_id: user4.id, business_id: biz2.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 300, supplemental: true, random_words_to_add: 4))
+Review.create!(user_id: user4.id, business_id: biz5.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
+Review.create!(user_id: user4.id, business_id: biz2.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
+Review.create!(user_id: user4.id, business_id: biz2.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
+Review.create!(user_id: user4.id, business_id: biz3.id, rating: Faker::Number.between(from: 1, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
+Review.create!(user_id: user4.id, business_id: biz1.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
 
+Review.create!(user_id: user5.id, business_id: biz1.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
+Review.create!(user_id: user5.id, business_id: biz2.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
+Review.create!(user_id: user5.id, business_id: biz3.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
+
+Review.create!(user_id: user6.id, business_id: biz1.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
+Review.create!(user_id: user6.id, business_id: biz2.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
+Review.create!(user_id: user6.id, business_id: biz3.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
+Review.create!(user_id: user6.id, business_id: biz4.id, rating: Faker::Number.between(from: 1, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
+Review.create!(user_id: user6.id, business_id: biz5.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))

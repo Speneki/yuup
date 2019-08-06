@@ -1552,6 +1552,11 @@ function (_React$Component) {
       }
     }
   }, {
+    key: "getCityName",
+    value: function getCityName() {
+      $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address=' + $zip + '&key=' + +'&type=json&_=');
+    }
+  }, {
     key: "render",
     value: function render() {
       debugger;
@@ -2034,13 +2039,14 @@ function (_React$Component) {
     _classCallCheck(this, SessionForm);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(SessionForm).call(this, props));
+    debugger;
     _this.state = {
       email: "",
       password: "",
       firstName: "",
       lastName: "",
-      location: "" // photo: 
-
+      location: "",
+      photoUrl: window.noImage
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
