@@ -17,7 +17,6 @@ class Business extends React.Component {
             Object.values(this.props.business.reviews).filter(review => review.userId === this.props.currentUser.id)
         ) : (null)
 
-        debugger 
 
         return(
             <div>

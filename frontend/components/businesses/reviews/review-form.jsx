@@ -9,19 +9,19 @@ class ReviewForm extends React.Component {
             user_id: "",
             rating: ""
         }
-        
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleSubmit(e) {
         e.preventDefault()
+        this.props.currentUser ? null : this.props.history.push('/login')
         const newReview = {
             body: this.state.body,
             rating: this.state.rating,
             user_id: this.props.currentUser.id,
             business_id: this.props.location.biz.id
         }
-        this.props.action(newReview).then(this.props.history.push(`businesses/${this.props.location.biz.id}`))
+        this.props.action(newReview).then(() => this.props.history.push(`businesses/${this.props.location.biz.id}`))
     }
 
     mouseEnter(num) {
@@ -37,6 +37,17 @@ class ReviewForm extends React.Component {
         return e => this.setState({ [field]: e.target.value })
     }
 
+    renderErrors() {
+        return (
+            <ul>
+                {this.props.errors.map((error, i) => (
+                    <li key={`error-${i}`}>
+                        {error}
+                    </li>
+                ))}
+            </ul>
+        );
+    }
     
     render() {
         debugger
@@ -126,6 +137,9 @@ class ReviewForm extends React.Component {
                                 cols="40" wrap="hard" rows="5"
                                 placeholder= {placeHolder} onChange={this.handleUpdate('body')}/>
                             <input type="submit" className="review-submit-button" value={this.props.formType}/>
+                            <div className="errors">
+                                {this.renderErrors()}
+                            </div>
                         </form>
                     </div>
                 </div>

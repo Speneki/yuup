@@ -21,11 +21,6 @@ const receiveErrors = (errors) => ({
     errors
 })
 
-
-// const emptyErrors = () => ({
-//     type: CLEAR_ERRORS
-// })
-
 export const login = (user) => dispatch => {
     return (
         APIUtil.login(user).then(

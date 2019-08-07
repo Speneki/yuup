@@ -6,7 +6,8 @@ import { connect } from 'react-redux';
 const msp = (state, ownProps) => {
     return ({
         currentUser: state.entities.users[state.session.id],
-        formType: "Create Review"
+        formType: "Create Review",
+        errors: state.errors.reviews
     })  
 }
 

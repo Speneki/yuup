@@ -5,20 +5,14 @@ class Api::ReviewsController < ApplicationController
         if @review.save
             render 'api/reviews/show'
         else 
-            render json: @review.errors.full_messages, status: 422
+            render json: ["Review body or rating empty"], status: 422
         end
-
     end
 
     def index 
         @reviews = Review.all
         render :index
-        # render 'api/reviews/show'
     end
-
-    # def show
-    #     @review = Review.find
-    # end
 
     def update
         @review = Review.find_by(id: params[:id])
