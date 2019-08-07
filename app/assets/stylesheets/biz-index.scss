@@ -15,6 +15,7 @@
     height: 180px;
     text-decoration: none;
     border-radius: 6px;
+    z-index: 20;
 }
 
 .biz-and-map {
@@ -23,6 +24,7 @@
 }
 
 .index-map {
+    z-index: 1;
     display: float;
     position: sticky;
     width: 400px;

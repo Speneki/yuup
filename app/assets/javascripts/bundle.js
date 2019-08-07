@@ -1351,8 +1351,10 @@ function (_React$Component) {
     }
   }, {
     key: "mouseEnter",
-    value: function mouseEnter() {
+    value: function mouseEnter(num) {
       console.log('mouse enter');
+      var number = num;
+      console.log(number);
     }
   }, {
     key: "mouseLeave",
@@ -1371,7 +1373,9 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var options = ["Select your rating", "Eek! Me thinks not.", "Meh. I've experienced better.", "A-OK", "Yay! I'm a fan.", "Woohoo! As good as it gets!"];
       var placeHolder = "Your review helps others learn about great local businesses.\n\n Please don't review this business if you received a freebie for writing this review, or are connected in any way to the owner or employees.";
+      var number = 0;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "showPageNav"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1403,39 +1407,55 @@ function (_React$Component) {
       }, this.props.location.biz.business_name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "reviewFormfillout",
         onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        className: "rating-stars"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "stars-and-words"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "review-form-stars-ul"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: "review-form-stars-li",
+        onMouseEnter: this.mouseEnter(1),
+        onMouseLeave: this.mouseLeave
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
-        onMouseEnter: this.mouseEnter,
-        onMouseLeave: this.mouseLeave,
         value: "1",
         onChange: this.handleUpdate('rating')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: "review-form-stars-li",
+        onMouseEnter: this.mouseEnter(2),
+        onMouseLeave: this.mouseLeave
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
-        onMouseEnter: this.mouseEnter,
-        onMouseLeave: this.mouseLeave,
         value: "2",
         onChange: this.handleUpdate('rating')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: "review-form-stars-li",
+        onMouseEnter: this.mouseEnter(3),
+        onMouseLeave: this.mouseLeave
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
-        onMouseEnter: this.mouseEnter,
-        onMouseLeave: this.mouseLeave,
         value: "3",
         onChange: this.handleUpdate('rating')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: "review-form-stars-li",
+        onMouseEnter: this.mouseEnter(4),
+        onMouseLeave: this.mouseLeave
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
-        onMouseEnter: this.mouseEnter,
-        onMouseLeave: this.mouseLeave,
         value: "4",
         onChange: this.handleUpdate('rating')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: "review-form-stars-li",
+        onMouseEnter: this.mouseEnter(5),
+        onMouseLeave: this.mouseLeave
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
-        onMouseEnter: this.mouseEnter,
-        onMouseLeave: this.mouseLeave,
         value: "5",
         onChange: this.handleUpdate('rating')
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "review-form-stars-desctiprion"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "review-text"
+      }, options[this.state.rating]))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         className: "reviewFormBody",
         value: this.state.body,
         cols: "40",
@@ -1960,15 +1980,11 @@ var UserNav = function UserNav(props) {
     href: "https://www.linkedin.com/in/spencer-tassone-80a6218b/"
   }, "LinkedIn")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "rightSide"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: ""
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-comment-alt"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: ""
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-bell"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "user-nav"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "profile-icon",

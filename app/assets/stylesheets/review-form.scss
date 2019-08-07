@@ -1,0 +1,20 @@
+.review-form-stars-ul {
+    display: flex;
+    background-image: image-url("stars.png");
+    margin: 15px;
+    overflow: hidden;
+    height: 48px;
+    width: 265px;
+}
+.review-form-stars-li {
+    margin-left: 15px;
+    width: 39px;
+    height: 48px;
+    margin-top: 15px;
+}
+
+.stars-and-words {
+    display: flex;
+    /* justify-content: space-between; */
+}
+
