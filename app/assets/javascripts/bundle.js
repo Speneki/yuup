@@ -638,7 +638,10 @@ function (_React$Component) {
         to: "/businesses/".concat(this.props.business.id)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: this.props.business.photoUrl
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "biz-index-deets"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "biz-link",
         to: "/businesses/".concat(this.props.business.id)
       }, this.props.business.business_name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "splash-biz-reviews"
@@ -649,7 +652,7 @@ function (_React$Component) {
         className: "splash-reviews-count"
       }, this.props.business.review_ids.length, " reviews")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "biz-address-splash"
-      }, this.props.business.address), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.business.number));
+      }, this.props.business.address), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.business.number)));
     }
   }]);
 

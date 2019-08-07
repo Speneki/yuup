@@ -43,13 +43,16 @@ class BusinessItem extends React.Component {
         return (
             <li key={this.props.business.id} className="index-biz-list-item">
                 <Link to={`/businesses/${this.props.business.id}`}><img src={this.props.business.photoUrl} /></Link>
-                <Link to={`/businesses/${this.props.business.id}`}>{this.props.business.business_name}</Link>
-                <div className='splash-biz-reviews'>
-                    <p id={this.stars()} className="splash-review-ratings"></p>
-                    <p className="splash-reviews-count">{this.props.business.review_ids.length} reviews</p>
+                <div className="biz-index-deets">
+                    <Link className="biz-link" to={`/businesses/${this.props.business.id}`}>{this.props.business.business_name}</Link>
+                    <div className='splash-biz-reviews'>
+                        <p id={this.stars()} className="splash-review-ratings"></p>
+                        <p className="splash-reviews-count">{this.props.business.review_ids.length} reviews</p>
+                    </div>
+                    <p className="biz-address-splash" >{this.props.business.address}</p>
+                    <p>{this.props.business.number}</p>
+
                 </div>
-                <p className="biz-address-splash" >{this.props.business.address}</p>
-                <p>{this.props.business.number}</p>
             </li>
         )
     }
