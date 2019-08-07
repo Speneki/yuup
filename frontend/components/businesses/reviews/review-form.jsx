@@ -9,6 +9,7 @@ class ReviewForm extends React.Component {
             user_id: "",
             rating: ""
         }
+        const ratingStarClass = "not-a-star";
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
@@ -26,7 +27,6 @@ class ReviewForm extends React.Component {
 
     mouseEnter(num) {
         console.log('mouse enter')
-
     }
 
     mouseLeave() {
@@ -73,7 +73,7 @@ class ReviewForm extends React.Component {
 
                 <div>   
                     <div className="reviewForm">
-                    <Link to={`/businesses/${this.props.location.biz.id}`} className="bizTitle">{this.props.location.biz.business_name}</Link>
+                    {/* <Link to={`/businesses/${this.props.location.biz.id}`} className="bizTitle">{this.props.location.biz.business_name}</Link> */}
                         <form className="reviewFormfillout" onSubmit={this.handleSubmit}>
                                 <div className="stars-and-words">
                                     <ul 

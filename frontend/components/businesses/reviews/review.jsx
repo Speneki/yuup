@@ -1,27 +1,26 @@
 import React from 'react';
-import {connect} from 'react-redux'
-
+import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
+import {deleteReview} from '../../../actions/review_actions' 
 
 const msp = (state, ownProps) => {
     return ({
         user: Object.values(state.entities.users).filter(user => {
             if (user.id === ownProps.review.user_id) {
                 return user;
-            }
-        }
-        )
+            }}),
+        currentUser: state.entities.users[state.session.id]
     })
 }
 const mdp = dispatch => {
     return ({
-        
+        deleteReview: (id) => dispatch(deleteReview(id))
     })
 }
 
 class Review extends React.Component {
     
     rating() {
-
         switch(this.props.review.rating) {
             case 1:
                 return "uno"
@@ -50,7 +49,20 @@ class Review extends React.Component {
         $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address=' + $zip + '&key=' +  + '&type=json&_=')
     }
 
+    deleteMine() {
+        this.props.deleteReview(this.props.review.id).then(this.props.history.push(`/businesses`))
+    }
+
     render() {
+        const thisMine = this.props.currentUser ? (
+            this.props.currentUser.id === this.props.user[0].id ? (
+                <div className="user-review-buttons">
+                    <p><Link to={`/reviews/${this.props.review.id}`}><i class="fas fa-edit"></i></Link></p>
+                    <p onClick={this.props.deleteMine}><i class="fas fa-trash-alt"></i></p>
+                </div>
+            ) : (null)
+        ) : (null)
+
         return (
             <div className="rating-container">
                 <img className="profile-pics" src={this.props.user[0].photoUrl} alt=""/>
@@ -62,6 +74,7 @@ class Review extends React.Component {
                     <p id={this.rating()} className="review-ratings"></p>
                     <p className="review-body">{this.props.review.body}</p>
                 </div>
+                {thisMine}
             </div>
         )
     }

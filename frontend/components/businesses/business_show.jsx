@@ -17,7 +17,7 @@ class Business extends React.Component {
             Object.values(this.props.business.reviews).filter(review => review.userId === this.props.currentUser.id)
         ) : (null)
 
-
+        debugger
         return(
             <div>
                 {/* from here --- */}
@@ -84,7 +84,8 @@ class Business extends React.Component {
                 <div className="actual-biz-content">
                     <ReviewsShow 
                         review_ids = {this.props.business.review_ids} 
-                        />
+                        biz= {this.props.business}
+                    />
                 </div>
             </div>
         )
