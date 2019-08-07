@@ -4,22 +4,46 @@
     margin: 15px;
     overflow: hidden;
     height: 48px;
-    width: 265px;
+    width: 264px;
 }
-.review-form-stars-li {
-    margin-left: 15px;
-    width: 39px;
-    height: 48px;
-    margin-top: 15px;
+.review-form-stars-ul li{
+    opacity: 0
 }
-
 .stars-and-words {
     display: flex;
-    /* justify-content: space-between; */
 }
 
 .review-text{
-    // font-weight: bold;
     margin-top: 35px;
     margin-left: 10px;
+}
+
+#rating-of-0 {
+    background-position: 0 0px;
+}
+
+#rating-of-1 {
+    background-position: 0 -48px;
+}
+
+#rating-of-2 {
+    background-position: 0 -144px;
+}
+
+#rating-of-3 {
+    background-position: 0 -240px;
+}
+
+#rating-of-4 {
+    background-position: 0 -336px;
+}
+
+#rating-of-5 {
+    background-position: 0 -432px;
+}
+
+#radio-button{
+    width: 48px;
+    // padding-left:
+    height: 48px;
 }

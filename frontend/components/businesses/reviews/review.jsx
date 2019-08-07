@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {deleteReview} from '../../../actions/review_actions' 
+import { withRouter } from "react-router";
 
 const msp = (state, ownProps) => {
     return ({
@@ -9,9 +10,15 @@ const msp = (state, ownProps) => {
             if (user.id === ownProps.review.user_id) {
                 return user;
             }}),
-        currentUser: state.entities.users[state.session.id]
+        currentUser: state.entities.users[state.session.id],
+        currentBusiness: Object.values(state.entities.businesses).filter(business => {
+            if (business.id === ownProps.review.business_id) {
+                return business;
+            }
+        })
     })
 }
+
 const mdp = dispatch => {
     return ({
         deleteReview: (id) => dispatch(deleteReview(id))
@@ -19,7 +26,11 @@ const mdp = dispatch => {
 }
 
 class Review extends React.Component {
-    
+    constructor(props) {
+        super(props)
+        this.deleteMine = this.deleteMine.bind(this)
+    }
+
     rating() {
         switch(this.props.review.rating) {
             case 1:
@@ -50,15 +61,17 @@ class Review extends React.Component {
     }
 
     deleteMine() {
-        this.props.deleteReview(this.props.review.id).then(this.props.history.push(`/businesses`))
+        this.props.deleteReview(this.props.review.id)
+        // .then(() => this.props.history.push(`/businesses/${this.props.review.business_id}`))
     }
 
     render() {
+        // debugger
         const thisMine = this.props.currentUser ? (
             this.props.currentUser.id === this.props.user[0].id ? (
                 <div className="user-review-buttons">
                     <p><Link to={`/reviews/${this.props.review.id}`}><i class="fas fa-edit"></i></Link></p>
-                    <p onClick={this.props.deleteMine}><i class="fas fa-trash-alt"></i></p>
+                    <p onClick={this.deleteMine}><i class="fas fa-trash-alt"></i></p>
                 </div>
             ) : (null)
         ) : (null)
@@ -80,4 +93,4 @@ class Review extends React.Component {
     }
 }
 
-export default connect(msp, mdp)(Review);
+export default withRouter(connect(msp, mdp)(Review));

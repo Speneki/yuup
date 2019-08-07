@@ -174,6 +174,14 @@ var recieveReview = function recieveReview(review) {
   };
 };
 
+var removeReview = function removeReview(review) {
+  debugger;
+  return {
+    type: DELETE_REVIEW,
+    payload: review
+  };
+};
+
 var receiveReviewErrors = function receiveReviewErrors(errors) {
   return {
     type: RECEIVE_REVIEW_ERRORS,
@@ -216,7 +224,7 @@ var editReview = function editReview(review) {
 var deleteReview = function deleteReview(reviewId) {
   return function (dispatch) {
     return _util_review_util__WEBPACK_IMPORTED_MODULE_0__["deleteReview"](reviewId).then(function (review) {
-      return dispatch(recieveReview(reviewId));
+      return dispatch(removeReview(reviewId));
     });
   };
 };
@@ -848,7 +856,11 @@ function (_React$Component) {
     value: function componentDidMount() {
       this.props.fetchBusiness(this.props.match.params.id);
       window.scrollTo(0, 0);
-    }
+    } // componentDidUpdate(prevProps) {
+    //     prevProps !== this.props {
+    //     }
+    // }
+
   }, {
     key: "render",
     value: function render() {
@@ -857,7 +869,6 @@ function (_React$Component) {
       var currentUserReviewed = this.props.business.reviews && this.props.currentUser ? Object.values(this.props.business.reviews).filter(function (review) {
         return review.userId === _this.props.currentUser.id;
       }) : null;
-      debugger;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "showPageNav"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1399,9 +1410,8 @@ function (_React$Component) {
       body: "",
       business_id: "",
       user_id: "",
-      rating: ""
+      rating: 0
     };
-    var ratingStarClass = "not-a-star";
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
@@ -1425,8 +1435,8 @@ function (_React$Component) {
     }
   }, {
     key: "mouseEnter",
-    value: function mouseEnter(num) {
-      console.log('mouse enter');
+    value: function mouseEnter() {
+      console.log('mouse enter'); // this.setState()
     }
   }, {
     key: "mouseLeave",
@@ -1454,7 +1464,6 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      debugger;
       var options = ["Select your rating", "Eek! Me thinks not.", "Meh. I've experienced better.", "A-OK.", "Yay! I'm a fan.", "Woohoo! As good as it gets!"];
       var placeHolder = "Your review helps others learn about great local businesses.\n\n Please don't review this business if you received a freebie for writing this review, or are connected in any way to the owner or employees.";
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1482,52 +1491,66 @@ function (_React$Component) {
         className: "fas fa-search"
       }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "reviewForm"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/businesses/".concat(this.props.location.biz.id),
+        className: "bizTitle"
+      }, this.props.location.biz.business_name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "reviewFormfillout",
         onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "stars-and-words"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        id: "rating-of-".concat(this.state.rating),
         className: "review-form-stars-ul"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "review-form-stars-li",
-        onMouseEnter: this.mouseEnter(1),
-        onMouseLeave: this.mouseLeave
+        className: "review-form-stars-li-1"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "radio-button",
         type: "radio",
         value: "1",
+        name: "rating-stars",
+        onMouseEnter: this.mouseEnter,
+        onMouseLeave: this.mouseLeave,
         onChange: this.handleUpdate('rating')
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "review-form-stars-li",
-        onMouseEnter: this.mouseEnter(2),
-        onMouseLeave: this.mouseLeave
+        className: "review-form-stars-li-2"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "radio-button",
         type: "radio",
         value: "2",
+        onMouseEnter: this.mouseEnter,
+        onMouseLeave: this.mouseLeave,
+        name: "rating-stars",
         onChange: this.handleUpdate('rating')
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "review-form-stars-li",
-        onMouseEnter: this.mouseEnter(3),
-        onMouseLeave: this.mouseLeave
+        className: "review-form-stars-li-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "radio-button",
         type: "radio",
         value: "3",
+        onMouseEnter: this.mouseEnter,
+        onMouseLeave: this.mouseLeave,
+        name: "rating-stars",
         onChange: this.handleUpdate('rating')
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "review-form-stars-li",
-        onMouseEnter: this.mouseEnter(4),
-        onMouseLeave: this.mouseLeave
+        className: "review-form-stars-li-4"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "radio-button",
         type: "radio",
+        onMouseEnter: this.mouseEnter,
+        onMouseLeave: this.mouseLeave,
         value: "4",
+        name: "rating-stars",
         onChange: this.handleUpdate('rating')
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "review-form-stars-li",
-        onMouseEnter: this.mouseEnter(5),
-        onMouseLeave: this.mouseLeave
+        className: "review-form-stars-li-5"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "radio-button",
         type: "radio",
         value: "5",
+        onMouseEnter: this.mouseEnter,
+        onMouseLeave: this.mouseLeave,
+        name: "rating-stars",
         onChange: this.handleUpdate('rating')
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "review-form-stars-desctiprion"
@@ -1572,6 +1595,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../actions/review_actions */ "./frontend/actions/review_actions.js");
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1582,13 +1606,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -1602,7 +1627,12 @@ var msp = function msp(state, ownProps) {
         return user;
       }
     }),
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id],
+    currentBusiness: Object.values(state.entities.businesses).filter(function (business) {
+      if (business.id === ownProps.review.business_id) {
+        return business;
+      }
+    })
   };
 };
 
@@ -1619,10 +1649,14 @@ var Review =
 function (_React$Component) {
   _inherits(Review, _React$Component);
 
-  function Review() {
+  function Review(props) {
+    var _this;
+
     _classCallCheck(this, Review);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Review).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Review).call(this, props));
+    _this.deleteMine = _this.deleteMine.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(Review, [{
@@ -1668,11 +1702,12 @@ function (_React$Component) {
   }, {
     key: "deleteMine",
     value: function deleteMine() {
-      this.props.deleteReview(this.props.review.id).then(this.props.history.push("/businesses"));
+      this.props.deleteReview(this.props.review.id); // .then(() => this.props.history.push(`/businesses/${this.props.review.business_id}`))
     }
   }, {
     key: "render",
     value: function render() {
+      // debugger
       var thisMine = this.props.currentUser ? this.props.currentUser.id === this.props.user[0].id ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-review-buttons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
@@ -1680,7 +1715,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         "class": "fas fa-edit"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        onClick: this.props.deleteMine
+        onClick: this.deleteMine
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         "class": "fas fa-trash-alt"
       }))) : null : null;
@@ -1706,7 +1741,7 @@ function (_React$Component) {
   return Review;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(msp, mdp)(Review));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router__WEBPACK_IMPORTED_MODULE_4__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(msp, mdp)(Review)));
 
 /***/ }),
 
@@ -2652,7 +2687,7 @@ function (_React$Component) {
       }, " Near", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "location-search",
         type: "text",
-        placeholder: "".concat(window.currentUser === 'undefined' ? '' : "New York, NY")
+        placeholder: "".concat(window.currentUser ? '' : "New York, NY")
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         to: {
           pathname: "/businesses/all"
@@ -2718,7 +2753,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/business_actions */ "./frontend/actions/business_actions.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/review_actions */ "./frontend/actions/review_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -2733,6 +2770,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     case _actions_business_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_BUSINESSES"]:
       return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, state, action.payload.business);
+
+    case _actions_review_actions__WEBPACK_IMPORTED_MODULE_2__["DELETE_REVIEW"]:
+      var newState = Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, state);
+      var business_id = Object.keys(newState)[0];
+      var biz = Object.values(newState)[0];
+      var newReviews = biz.review_ids.filter(function (id) {
+        return id !== action.payload;
+      });
+      biz.review_ids = newReviews;
+
+      var test = _defineProperty({}, business_id, biz);
+
+      debugger;
+      return _defineProperty({}, business_id, biz);
 
     default:
       return state;
@@ -2852,8 +2903,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return Object(lodash__WEBPACK_IMPORTED_MODULE_2__["merge"])({}, state, _defineProperty({}, action.payload.id, action.payload));
 
     case _actions_review_actions__WEBPACK_IMPORTED_MODULE_0__["DELETE_REVIEW"]:
-      newState = Object(lodash__WEBPACK_IMPORTED_MODULE_2__["merge"])({}, state);
-      delete newState[action.reviewId];
+      debugger;
+      var newState = Object(lodash__WEBPACK_IMPORTED_MODULE_2__["merge"])({}, state);
+      delete newState[action.payload];
       return newState;
 
     default:

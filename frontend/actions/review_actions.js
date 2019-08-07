@@ -19,6 +19,14 @@ const recieveReview = (review) => {
     })
 }
 
+const removeReview = (review) => {
+    debugger
+    return ({
+        type: DELETE_REVIEW,
+        payload: review
+    })
+}
+
 const receiveReviewErrors = (errors) => ({
     type: RECEIVE_REVIEW_ERRORS,
     errors
@@ -46,5 +54,6 @@ export const editReview = (review) => dispatch => (
 )
 
 export const deleteReview = (reviewId) => dispatch => (
-    ReviewApiUtil.deleteReview(reviewId).then(review => dispatch(recieveReview(reviewId)))
+    ReviewApiUtil.deleteReview(reviewId).then(review => {
+        return dispatch(removeReview(reviewId))})
 )

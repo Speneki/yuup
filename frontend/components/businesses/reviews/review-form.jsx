@@ -7,9 +7,8 @@ class ReviewForm extends React.Component {
             body: "", 
             business_id: "",
             user_id: "",
-            rating: ""
+            rating: 0
         }
-        const ratingStarClass = "not-a-star";
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
@@ -25,8 +24,9 @@ class ReviewForm extends React.Component {
         this.props.action(newReview).then(() => this.props.history.push(`businesses/${this.props.location.biz.id}`))
     }
 
-    mouseEnter(num) {
+    mouseEnter() {
         console.log('mouse enter')
+        // this.setState()
     }
 
     mouseLeave() {
@@ -50,9 +50,10 @@ class ReviewForm extends React.Component {
     }
     
     render() {
-        debugger
         const options = ["Select your rating", "Eek! Me thinks not.", "Meh. I've experienced better.", "A-OK.", "Yay! I'm a fan.", "Woohoo! As good as it gets!"];
         const placeHolder = "Your review helps others learn about great local businesses.\n\n Please don't review this business if you received a freebie for writing this review, or are connected in any way to the owner or employees."
+    
+
         return( 
             <>
                 <div className="showPageNav">
@@ -73,59 +74,70 @@ class ReviewForm extends React.Component {
 
                 <div>   
                     <div className="reviewForm">
-                    {/* <Link to={`/businesses/${this.props.location.biz.id}`} className="bizTitle">{this.props.location.biz.business_name}</Link> */}
+                    <Link to={`/businesses/${this.props.location.biz.id}`} className="bizTitle">{this.props.location.biz.business_name}</Link>
                         <form className="reviewFormfillout" onSubmit={this.handleSubmit}>
                                 <div className="stars-and-words">
                                     <ul 
+                                        id={`rating-of-${this.state.rating}`}
                                         className="review-form-stars-ul">
                                         <li 
-                                            className="review-form-stars-li"
-                                            onMouseEnter={this.mouseEnter(1)} 
-                                            onMouseLeave={this.mouseLeave}
+                                            className="review-form-stars-li-1"
                                             >
                                             <input 
+                                                id="radio-button"
                                                 type="radio" 
                                                 value="1"
+                                                name="rating-stars"
+                                                onMouseEnter={this.mouseEnter} 
+                                                onMouseLeave={this.mouseLeave}
                                                 onChange={this.handleUpdate('rating')} />
                                         </li>
                                         <li 
-                                            className="review-form-stars-li"
-                                            onMouseEnter={this.mouseEnter(2)} 
-                                            onMouseLeave={this.mouseLeave}
+                                            className="review-form-stars-li-2"
                                             >
                                             <input 
+                                                id="radio-button"
                                                 type="radio" 
                                                 value="2" 
+                                                onMouseEnter={this.mouseEnter} 
+                                                onMouseLeave={this.mouseLeave}
+                                                name="rating-stars"
                                                 onChange={this.handleUpdate('rating')} />
                                         </li>
                                         <li 
-                                            className="review-form-stars-li"
-                                            onMouseEnter={this.mouseEnter(3)} 
-                                            onMouseLeave={this.mouseLeave}
+                                            className="review-form-stars-li-3"
                                             >
                                             <input 
+                                            id="radio-button"
                                                 type="radio" 
                                                 value="3" 
+                                                onMouseEnter={this.mouseEnter} 
+                                                onMouseLeave={this.mouseLeave}
+                                                name="rating-stars"
                                                 onChange={this.handleUpdate('rating')} />
                                         </li>
                                         <li 
-                                            className="review-form-stars-li"
-                                            onMouseEnter={this.mouseEnter(4)} 
-                                            onMouseLeave={this.mouseLeave} 
+                                            className="review-form-stars-li-4"
                                             >
                                             <input 
+                                            id="radio-button"
                                                 type="radio" 
+                                                onMouseEnter={this.mouseEnter}
+                                                onMouseLeave={this.mouseLeave}                                                 
                                                 value="4" 
+                                                name="rating-stars"
                                                 onChange={this.handleUpdate('rating')} />
                                         </li>
                                         <li 
-                                            className="review-form-stars-li"
-                                            onMouseEnter={this.mouseEnter(5)}
-                                            onMouseLeave={this.mouseLeave} 
+                                            className="review-form-stars-li-5"
                                             >
                                             <input 
+                                            id="radio-button"
                                                 type="radio" 
                                                 value="5" 
+                                                onMouseEnter={this.mouseEnter}
+                                                onMouseLeave={this.mouseLeave} 
+                                                name="rating-stars"
                                                 onChange={this.handleUpdate('rating')} />
                                         </li>
                                     </ul>

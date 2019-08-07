@@ -12,8 +12,9 @@ export default (state={}, action) => {
         case RECEIVE_REVIEW: 
             return merge({}, state, {[action.payload.id]: action.payload})
         case DELETE_REVIEW:
-            newState = merge({}, state);
-            delete newState[action.reviewId];
+            debugger
+            const newState = merge({}, state);
+            delete newState[action.payload];
             return newState;
         default: 
             return state

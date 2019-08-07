@@ -5,7 +5,7 @@ class Api::ReviewsController < ApplicationController
         if @review.save
             render 'api/reviews/show'
         else 
-            render json: ["Review body or rating empty"], status: 422
+            render json: ["Please write a review"], status: 422
         end
     end
 
@@ -27,7 +27,8 @@ class Api::ReviewsController < ApplicationController
     def destroy
         @review = Review.find_by(id: params[:id])
         @review.destroy!
-        render 'api/reviews/show'
+        @business = @review.business
+        render 'api/businesses/show'
     end 
 
 
