@@ -38,9 +38,9 @@ export const createReview = (review) => dispatch => (
     ReviewApiUtil.postReview(review).then(review => dispatch(recieveReview(review)))
 )
 
-// export const editReview = (review) => dispatch => (
-//     ReviewApiUtil.editReview(review).then(review => dispatch(recieveReview(review)))
-// )
+export const editReview = (review) => dispatch => (
+    ReviewApiUtil.patchReview(review).then(review => dispatch(recieveReview(review)))
+)
 
 export const deleteReview = (reviewId) => dispatch => (
     ReviewApiUtil.deleteReview(reviewId).then(review => dispatch(recieveReview(reviewId)))

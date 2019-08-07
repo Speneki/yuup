@@ -9,10 +9,16 @@ class Business extends React.Component {
 
     componentDidMount() {
         this.props.fetchBusiness(this.props.match.params.id)
-        window.scrollTo(0, 0)
+        window.scrollTo(0, 0);
     }
 
     render() {
+        const currentUserReviewed = (this.props.business.reviews && this.props.currentUser) ? (
+            Object.values(this.props.business.reviews).filter(review => review.userId === this.props.currentUser.id)
+        ) : (null)
+
+        debugger 
+
         return(
             <div>
                 {/* from here --- */}

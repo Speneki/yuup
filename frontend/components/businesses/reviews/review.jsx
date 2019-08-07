@@ -51,7 +51,6 @@ class Review extends React.Component {
     }
 
     render() {
-        debugger
         return (
             <div className="rating-container">
                 <img className="profile-pics" src={this.props.user[0].photoUrl} alt=""/>

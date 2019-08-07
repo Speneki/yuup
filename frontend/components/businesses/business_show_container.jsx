@@ -5,6 +5,7 @@ import {fetchBusiness} from '../../actions/business_actions'
 
 const msp = (state, ownProps) => {
     return ({
+        currentUser: state.entities.users[state.session.id],
         business: state.entities.businesses[ownProps.match.params.id] || 
         {
             business_name:  "",
@@ -17,8 +18,8 @@ const msp = (state, ownProps) => {
             category: "",
             photoUrl: `${window.logo}`,
             rating: '',
-            photos: ['', ''],
-            reviews: {}
+            photos: ['', '']
+            // reviews: {}
         }
     })}
 

@@ -139,7 +139,7 @@ var fetchBusiness = function fetchBusiness(id) {
 /*!********************************************!*\
   !*** ./frontend/actions/review_actions.js ***!
   \********************************************/
-/*! exports provided: RECEIVE_REVIEWS, RECEIVE_REVIEW, DELETE_REVIEW, fetchReviews, fetchReview, createReview, deleteReview */
+/*! exports provided: RECEIVE_REVIEWS, RECEIVE_REVIEW, DELETE_REVIEW, fetchReviews, fetchReview, createReview, editReview, deleteReview */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -150,6 +150,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchReviews", function() { return fetchReviews; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchReview", function() { return fetchReview; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createReview", function() { return createReview; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editReview", function() { return editReview; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteReview", function() { return deleteReview; });
 /* harmony import */ var _util_review_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/review_util */ "./frontend/util/review_util.jsx");
 
@@ -197,10 +198,14 @@ var createReview = function createReview(review) {
       return dispatch(recieveReview(review));
     });
   };
-}; // export const editReview = (review) => dispatch => (
-//     ReviewApiUtil.editReview(review).then(review => dispatch(recieveReview(review)))
-// )
-
+};
+var editReview = function editReview(review) {
+  return function (dispatch) {
+    return _util_review_util__WEBPACK_IMPORTED_MODULE_0__["patchReview"](review).then(function (review) {
+      return dispatch(recieveReview(review));
+    });
+  };
+};
 var deleteReview = function deleteReview(reviewId) {
   return function (dispatch) {
     return _util_review_util__WEBPACK_IMPORTED_MODULE_0__["deleteReview"](reviewId).then(function (review) {
@@ -762,6 +767,7 @@ function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "splash-reviews-count"
       }, this.props.business.review_ids.length, " reviews")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "biz-link",
         to: "businesses/".concat(this.props.business.id)
       }, this.props.business.business_name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "biz-address-splash"
@@ -837,6 +843,12 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this = this;
+
+      var currentUserReviewed = this.props.business.reviews && this.props.currentUser ? Object.values(this.props.business.reviews).filter(function (review) {
+        return review.userId === _this.props.currentUser.id;
+      }) : null;
+      debugger;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "showPageNav"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -958,6 +970,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var msp = function msp(state, ownProps) {
   return {
+    currentUser: state.entities.users[state.session.id],
     business: state.entities.businesses[ownProps.match.params.id] || {
       business_name: "",
       address: "",
@@ -969,8 +982,8 @@ var msp = function msp(state, ownProps) {
       category: "",
       photoUrl: "".concat(window.logo),
       rating: '',
-      photos: ['', ''],
-      reviews: {}
+      photos: ['', ''] // reviews: {}
+
     }
   };
 };
@@ -1356,8 +1369,6 @@ function (_React$Component) {
     key: "mouseEnter",
     value: function mouseEnter(num) {
       console.log('mouse enter');
-      var number = num;
-      console.log(number);
     }
   }, {
     key: "mouseLeave",
@@ -1376,9 +1387,9 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var options = ["Select your rating", "Eek! Me thinks not.", "Meh. I've experienced better.", "A-OK", "Yay! I'm a fan.", "Woohoo! As good as it gets!"];
+      debugger;
+      var options = ["Select your rating", "Eek! Me thinks not.", "Meh. I've experienced better.", "A-OK.", "Yay! I'm a fan.", "Woohoo! As good as it gets!"];
       var placeHolder = "Your review helps others learn about great local businesses.\n\n Please don't review this business if you received a freebie for writing this review, or are connected in any way to the owner or employees.";
-      var number = 0;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "showPageNav"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1582,7 +1593,6 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      debugger;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "rating-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -2049,7 +2059,6 @@ function (_React$Component) {
     _classCallCheck(this, SessionForm);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(SessionForm).call(this, props));
-    debugger;
     _this.state = {
       email: "",
       password: "",
@@ -2671,11 +2680,36 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./session_errors_reducer */ "./frontend/reducers/session_errors_reducer.js");
+/* harmony import */ var _review_form_errors_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./review_form_errors_reducer */ "./frontend/reducers/review_form_errors_reducer.js");
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  session: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+  session: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  reviews: _review_form_errors_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
 }));
+
+/***/ }),
+
+/***/ "./frontend/reducers/review_form_errors_reducer.js":
+/*!*********************************************************!*\
+  !*** ./frontend/reducers/review_form_errors_reducer.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  switch (action.type) {
+    default:
+      return state;
+  }
+});
 
 /***/ }),
 
