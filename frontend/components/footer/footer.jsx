@@ -11,7 +11,12 @@ class Footer extends React.Component {
                         <li><a href="https://github.com/Speneki/yuup">About Yuup</a></li>
                         <li><a href="">Get a reservation</a></li>
                     </ul> 
-                    <ul>Discover</ul>
+
+                    <ul className="fooooter">Discover
+                        <li><a href="mailto:spencerwilliamtassone@gmail.com">Email me</a></li>
+                        <li><a href="">Phone</a></li>
+                    </ul>
+
                     <ul>Other</ul>
                     <ul>Stuff</ul>
                 </div>

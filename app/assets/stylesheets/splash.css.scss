@@ -54,11 +54,16 @@
     position: relative;
     width: 20%;
     margin-top: 250px;
-    padding: 12px;
-    border-radius: 10px;
+    padding: 8px;
+    // border-radius: 10px;
     background-color: transparent;
     border: 0px solid;
     outline: none;
+    border-right: 1px solid #ccc;
+}
+
+.splash-form-fillout {
+    padding: 15px
 }
 
 .location-search {

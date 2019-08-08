@@ -7,10 +7,13 @@
 .top-search-food {
     height: 20px;
     margin-left: 10px;
+    border: none;
 }
 .top-search-location {
     height: 20px;
     margin-left: 10px;
+    border: none;
+    z-index: 1000;
 }
 
 .top-search-find {

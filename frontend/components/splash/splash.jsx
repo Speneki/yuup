@@ -4,11 +4,17 @@ import {Link } from 'react-router-dom'
 class Splash extends React.Component {
     constructor(props) {
         super(props)
+        this.state = { cityName: "" };
     }
 
     handleSubmit(e){
         e.preveventDefault();
+    }
 
+    componentDidMount() {
+        this.props.currentUser ? $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address=' + this.props.currentUser.location + '&key=' + window.key + '&sonsor=true').then((response) => {
+            this.setState({ cityName: response.results[0].address_components[2].long_name })
+        }) : (null)
     }
 
     render() {
@@ -16,12 +22,12 @@ class Splash extends React.Component {
         <div>
             <div className='splish-splash'> 
                 <img className="title-icon" src={window.logo} alt="logo"/>
-                <form className="" action="">
+                <form className="splash-form-fillout" action="">
                     <label className="food-label"> Food
                         <input className="food-search" type="text" placeholder="burgers, pizza, bagels, pizza-bagels..."/>    
                     </label>
                     <label className="location-label"> Near
-                        <input className="location-search" type="text" placeholder={`${window.currentUser ? '' : `New York, NY`}`}/>
+                        <input className="location-search" type="text" placeholder={this.state.cityName}/>
                     </label>
                     <Link to={{ pathname: "/businesses/all" }}><button type="submit" className="splash-search"><i className="fas fa-search"></i></button></Link>
                 </form>

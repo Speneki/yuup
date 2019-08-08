@@ -441,7 +441,8 @@ __webpack_require__.r(__webpack_exports__);
 var msp = function msp(state) {
   return {
     allBusinesses: Object.values(state.entities.businesses),
-    allReviews: Object.values(state.entities.reviews)
+    allReviews: Object.values(state.entities.reviews),
+    currentUser: state.entities.users[state.session.id]
   };
 };
 
@@ -499,17 +500,30 @@ var BusinessIndex =
 function (_React$Component) {
   _inherits(BusinessIndex, _React$Component);
 
-  function BusinessIndex() {
+  function BusinessIndex(props) {
+    var _this;
+
     _classCallCheck(this, BusinessIndex);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(BusinessIndex).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(BusinessIndex).call(this, props));
+    _this.state = {
+      cityName: ""
+    };
+    return _this;
   }
 
   _createClass(BusinessIndex, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      var _this2 = this;
+
       this.props.fetchBusinesses();
       window.scrollTo(0, 0);
+      this.props.currentUser ? $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address=' + this.props.currentUser.location + '&key=' + window.key + '&sonsor=true').then(function (response) {
+        _this2.setState({
+          cityName: response.results[0].address_components[2].long_name
+        });
+      }) : null;
     }
   }, {
     key: "render",
@@ -540,7 +554,7 @@ function (_React$Component) {
       }, "Near", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         className: "top-search-location",
-        placeholder: "New York, NY"
+        placeholder: this.state.location
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
         className: "top-search-button"
@@ -843,25 +857,38 @@ var Business =
 function (_React$Component) {
   _inherits(Business, _React$Component);
 
-  function Business() {
+  function Business(props) {
+    var _this;
+
     _classCallCheck(this, Business);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Business).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Business).call(this, props));
+    _this.state = {
+      cityName: ""
+    };
+    return _this;
   }
 
   _createClass(Business, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      var _this2 = this;
+
       this.props.fetchBusiness(this.props.match.params.id);
       window.scrollTo(0, 0);
+      this.props.currentUser ? $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address=' + this.props.currentUser.location + '&key=' + window.key + '&sonsor=true').then(function (response) {
+        _this2.setState({
+          cityName: response.results[0].address_components[2].long_name
+        });
+      }) : null;
     }
   }, {
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this3 = this;
 
       var currentUserReviewed = this.props.business.reviews && this.props.currentUser ? Object.values(this.props.business.reviews).filter(function (review) {
-        return review.userId === _this.props.currentUser.id;
+        return review.userId === _this3.props.currentUser.id;
       }) : null;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "showPageNav"
@@ -880,7 +907,7 @@ function (_React$Component) {
       }, "Near", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         className: "top-search-location",
-        placeholder: "New York, NY"
+        placeholder: this.state.cityName
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
         className: "top-search-button"
@@ -1917,7 +1944,13 @@ function (_React$Component) {
         href: "https://github.com/Speneki/yuup"
       }, "About Yuup")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: ""
-      }, "Get a reservation"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, "Discover"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, "Other"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, "Stuff")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      }, "Get a reservation"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "fooooter"
+      }, "Discover", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "mailto:spencerwilliamtassone@gmail.com"
+      }, "Email me")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: ""
+      }, "Phone"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, "Other"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, "Stuff")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "footer",
         src: window.footer
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -2662,15 +2695,32 @@ function (_React$Component) {
   _inherits(Splash, _React$Component);
 
   function Splash(props) {
+    var _this;
+
     _classCallCheck(this, Splash);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Splash).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Splash).call(this, props));
+    _this.state = {
+      cityName: ""
+    };
+    return _this;
   }
 
   _createClass(Splash, [{
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preveventDefault();
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      this.props.currentUser ? $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address=' + this.props.currentUser.location + '&key=' + window.key + '&sonsor=true').then(function (response) {
+        _this2.setState({
+          cityName: response.results[0].address_components[2].long_name
+        });
+      }) : null;
     }
   }, {
     key: "render",
@@ -2682,7 +2732,7 @@ function (_React$Component) {
         src: window.logo,
         alt: "logo"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        className: "",
+        className: "splash-form-fillout",
         action: ""
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "food-label"
@@ -2695,7 +2745,7 @@ function (_React$Component) {
       }, " Near", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "location-search",
         type: "text",
-        placeholder: "".concat(window.currentUser ? '' : "New York, NY")
+        placeholder: this.state.cityName
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         to: {
           pathname: "/businesses/all"

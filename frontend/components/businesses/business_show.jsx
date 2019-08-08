@@ -7,9 +7,16 @@ import ReviewForm from '../businesses/reviews/create_review_container'
 
 class Business extends React.Component {
 
+    constructor(props) {
+        super(props)
+        this.state = {cityName: ""} 
+    }
     componentDidMount() {
         this.props.fetchBusiness(this.props.match.params.id)
         window.scrollTo(0, 0);
+        this.props.currentUser ? $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address=' + this.props.currentUser.location + '&key=' + window.key + '&sonsor=true').then((response) => {
+            this.setState({ cityName: response.results[0].address_components[2].long_name })
+        }) : (null)
     }
 
     render() {
@@ -29,7 +36,7 @@ class Business extends React.Component {
                             </label>
                             <label className="top-search-near">
                                 Near
-                                <input type="text" className="top-search-location" placeholder="New York, NY"/>
+                                <input type="text" className="top-search-location" placeholder={this.state.cityName}/>
                             </label>
                             <button type="submit" className="top-search-button"><i className="fas fa-search"></i></button>
                         </form>
