@@ -1710,11 +1710,7 @@ function (_React$Component) {
       // debugger
       var thisMine = this.props.currentUser ? this.props.currentUser.id === this.props.user[0].id ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-review-buttons"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-        to: "/reviews/".concat(this.props.review.id)
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        "class": "fas fa-edit"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         onClick: this.deleteMine
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         "class": "fas fa-trash-alt"
