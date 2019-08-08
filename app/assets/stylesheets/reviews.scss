@@ -153,9 +153,19 @@
     border-radius: 6px;
 }
 
+.user-review-buttons p:hover {
+    cursor: pointer;
+    
+}
+
 .personsName {
     font-size: 14px;
     color: #0073bb;
+}
+
+.personsName:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .nameOfCity {

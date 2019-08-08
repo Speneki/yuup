@@ -6,6 +6,34 @@
     min-width: 1100px !important;
     background-position: 0 -100px;
 }
+
+.splish-splash ul{
+    text-align: center;
+    margin-top: 210px;
+    font-size: 13px;
+}
+
+.splish-splash ul li{
+    color: white;
+}
+
+.photo-title {
+    font-weight: bold;
+    padding:6px;
+}
+
+.photo-title:hover {
+    text-decoration: underline;
+}
+
+.photo-cred {
+    font-weight: bold;
+}
+
+.photo-cred:hover {
+    text-decoration: underline;
+}
+
 .food-label {
     margin-left: 22%;
     background: white;
@@ -67,7 +95,7 @@
     height: 300px;
     width: 300px;
     justify-content: center;
-    padding-left: 40%;
+    padding-left: 38%;
 }
 
 .splash-biz-list-item {

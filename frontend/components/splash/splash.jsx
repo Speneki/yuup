@@ -25,7 +25,14 @@ class Splash extends React.Component {
                     </label>
                     <Link to={{ pathname: "/businesses/all" }}><button type="submit" className="splash-search"><i className="fas fa-search"></i></button></Link>
                 </form>
+                
+                    <ul>
+                        <li className="photo-title">Briarpatch Restaurant</li>
+                        <li>Photo by <span className="photo-cred">Kerry H.</span></li>
+                    </ul>
+
             </div>
+
             <Businesses/>
         </div>
         )

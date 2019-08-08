@@ -81,7 +81,7 @@ class Review extends React.Component {
             this.props.currentUser.id === this.props.user[0].id ? (
                 <div className="user-review-buttons">
                     {/* <p><Link to={`/reviews/${this.props.review.id}`}><i class="fas fa-edit"></i></Link></p> */}
-                    <p onClick={this.deleteMine}><i className="fas fa-trash-alt"></i></p>
+                    <p className="trashcan" onClick={this.deleteMine}><i className="fas fa-trash-alt"></i></p>
                 </div>
             ) : (null)
         ) : (null)

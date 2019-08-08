@@ -27,9 +27,16 @@
 .footer-info ul {
     width: 300px;
 }
-
-.footer-info ul li {
+.fooooter li {
+    padding-top: 2px;
+}
+.fooooter li a {
     text-decoration: none;
+    font-size: 14px;
+    color: #0073bb;
+}
+.fooooter li a:hover  {
+    text-decoration: underline;
 }
 
 .copythat {
@@ -44,4 +51,14 @@
     background: #d32323;
     width: 100%;
     height: 65px;
+}
+.trashcan {
+    transition-duration: 2s;
+    transition: .3s ease-in-out;
+
+}
+.trashcan:hover {
+    /* transform: scale(1.1); */
+    background: #f15c00;
+    color: white;
 }

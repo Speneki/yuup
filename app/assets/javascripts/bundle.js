@@ -1723,6 +1723,7 @@ function (_React$Component) {
       var thisMine = this.props.currentUser ? this.props.currentUser.id === this.props.user[0].id ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-review-buttons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "trashcan",
         onClick: this.deleteMine
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-trash-alt"
@@ -1917,7 +1918,9 @@ function (_React$Component) {
         className: "footer-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "footer-info"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, "About", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "fooooter"
+      }, "About", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "https://github.com/Speneki/yuup"
       }, "About Yuup")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: ""
@@ -2713,7 +2716,11 @@ function (_React$Component) {
         className: "splash-search"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-search"
-      }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_businesses_businesses_container__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: "photo-title"
+      }, "Briarpatch Restaurant"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Photo by ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "photo-cred"
+      }, "Kerry H.")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_businesses_businesses_container__WEBPACK_IMPORTED_MODULE_1__["default"], null));
     }
   }]);
 

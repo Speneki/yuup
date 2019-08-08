@@ -8,7 +8,7 @@ class Footer extends React.Component {
             <br/>
             <div className="footer-container">
                 <div className="footer-info">
-                    <ul>About
+                    <ul className="fooooter">About
                         <li><a href="https://github.com/Speneki/yuup">About Yuup</a></li>
                         <li><a href="">Get a reservation</a></li>
                     </ul> 
