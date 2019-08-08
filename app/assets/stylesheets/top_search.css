@@ -1,7 +1,7 @@
 .top-search {
     padding-top: 18px;
     height: 15px;
-    
+    z-index:10000 !important;
 }
 
 .top-search-food {
@@ -30,3 +30,4 @@
     padding-bottom: 6px;
     color: white;
 }
+

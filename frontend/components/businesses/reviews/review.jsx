@@ -29,6 +29,7 @@ class Review extends React.Component {
     constructor(props) {
         super(props)
         this.deleteMine = this.deleteMine.bind(this)
+        this.state = {cityName: ""};
     }
 
     rating() {
@@ -56,8 +57,10 @@ class Review extends React.Component {
         }
     }
 
-    getCityName() {
-        $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address=' + $zip + '&key=' +  + '&type=json&_=')
+    componentDidMount () {
+        $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address=' + this.props.user[0].location + '&key=' + window.key + '&sonsor=true').then((response) => {
+            this.setState({cityName: response.results[0].address_components[2].long_name})
+        })
     }
 
     deleteMine() {
@@ -66,12 +69,19 @@ class Review extends React.Component {
     }
 
     render() {
-        // debugger
+
+
+        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+        const days = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28"]
+        const nums = ["2019", "2018", "2016"]
+        //Brayn Developed this
+
+
         const thisMine = this.props.currentUser ? (
             this.props.currentUser.id === this.props.user[0].id ? (
                 <div className="user-review-buttons">
                     {/* <p><Link to={`/reviews/${this.props.review.id}`}><i class="fas fa-edit"></i></Link></p> */}
-                    <p onClick={this.deleteMine}><i class="fas fa-trash-alt"></i></p>
+                    <p onClick={this.deleteMine}><i className="fas fa-trash-alt"></i></p>
                 </div>
             ) : (null)
         ) : (null)
@@ -80,12 +90,18 @@ class Review extends React.Component {
             <div className="rating-container">
                 <img className="profile-pics" src={this.props.user[0].photoUrl} alt=""/>
                 <div className="profile-deets">
-                    <p>{this.props.user[0].firstName}</p>
-                    <p>{this.props.user[0].location}</p>
+                    <p className="personsName">{this.props.user[0].firstName} {this.props.user[0].lastName[0]}.</p>
+                    <p className="nameOfCity">{this.state.cityName}</p>
                 </div>
                 <div className="stars-and-body">
-                    <p id={this.rating()} className="review-ratings"></p>
-                    <p className="review-body">{this.props.review.body}</p>
+                    <div>
+                        <p id={this.rating()} className="review-ratings"></p>
+                         <p className="review-body">{this.props.review.body}</p>
+                    </div>
+                        <p className="timeOfReview">
+                            {months[Math.floor(Math.random() * months.length)]}&nbsp;{days[Math.floor(Math.random() * days.length)]}&nbsp;&#183;&nbsp;{nums[Math.floor(Math.random() * nums.length)]}    
+                        </p>
+
                 </div>
                 {thisMine}
             </div>

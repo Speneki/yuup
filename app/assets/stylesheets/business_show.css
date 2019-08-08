@@ -23,6 +23,7 @@
 .showPageNav {
     height: 65px;
     background-color: #d32323;
+        z-index:10000 !important;
 }
 
 .showBizSearch {
@@ -157,4 +158,16 @@ button:focus {
 .biz_pic {
     width: 200px;
     height: 200px;
+}
+
+.nameOfCity {
+    width: 60px;
+}
+
+.timeOfReview {
+    position: absolute;
+    color: #ccc;
+    left: 55%; 
+    font-size: 14px;
+    /* top: 10px; */
 }

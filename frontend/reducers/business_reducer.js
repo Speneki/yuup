@@ -6,7 +6,7 @@ export default (state = {}, action) => {
     Object.freeze(state)
     switch (action.type) {
         case RECEIVE_BUSINESS:
-            return merge({}, state, {[action.payload.id]: action.payload})
+            return merge({}, state, {[action.payload.business.id]: action.payload.business})
         case RECEIVE_BUSINESSES:
             return merge({}, state, action.payload.business);
         case DELETE_REVIEW: 

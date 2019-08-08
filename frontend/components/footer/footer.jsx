@@ -10,6 +10,7 @@ class Footer extends React.Component {
                 <div className="footer-info">
                     <ul>About
                         <li><a href="https://github.com/Speneki/yuup">About Yuup</a></li>
+                        <li><a href="">Get a reservation</a></li>
                     </ul> 
                     <ul>Discover</ul>
                     <ul>Other</ul>

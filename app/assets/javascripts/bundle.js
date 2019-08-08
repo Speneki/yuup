@@ -1656,6 +1656,9 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Review).call(this, props));
     _this.deleteMine = _this.deleteMine.bind(_assertThisInitialized(_this));
+    _this.state = {
+      cityName: ""
+    };
     return _this;
   }
 
@@ -1695,9 +1698,15 @@ function (_React$Component) {
       }
     }
   }, {
-    key: "getCityName",
-    value: function getCityName() {
-      $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address=' + $zip + '&key=' + +'&type=json&_=');
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address=' + this.props.user[0].location + '&key=' + window.key + '&sonsor=true').then(function (response) {
+        _this2.setState({
+          cityName: response.results[0].address_components[2].long_name
+        });
+      });
     }
   }, {
     key: "deleteMine",
@@ -1707,13 +1716,16 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      // debugger
+      var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      var days = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28"];
+      var nums = ["2019", "2018", "2016"]; //Brayn Developed this
+
       var thisMine = this.props.currentUser ? this.props.currentUser.id === this.props.user[0].id ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-review-buttons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         onClick: this.deleteMine
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        "class": "fas fa-trash-alt"
+        className: "fas fa-trash-alt"
       }))) : null : null;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "rating-container"
@@ -1723,14 +1735,20 @@ function (_React$Component) {
         alt: ""
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-deets"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.user[0].firstName), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.user[0].location)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "stars-and-body"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "personsName"
+      }, this.props.user[0].firstName, " ", this.props.user[0].lastName[0], "."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "nameOfCity"
+      }, this.state.cityName)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "stars-and-body"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         id: this.rating(),
         className: "review-ratings"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "review-body"
-      }, this.props.review.body)), thisMine);
+      }, this.props.review.body)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "timeOfReview"
+      }, months[Math.floor(Math.random() * months.length)], "\xA0", days[Math.floor(Math.random() * days.length)], "\xA0\xB7\xA0", nums[Math.floor(Math.random() * nums.length)])), thisMine);
     }
   }]);
 
@@ -1901,7 +1919,9 @@ function (_React$Component) {
         className: "footer-info"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, "About", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "https://github.com/Speneki/yuup"
-      }, "About Yuup"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, "Discover"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, "Other"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, "Stuff")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      }, "About Yuup")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: ""
+      }, "Get a reservation"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, "Discover"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, "Other"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, "Stuff")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "footer",
         src: window.footer
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -2762,7 +2782,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
   switch (action.type) {
     case _actions_business_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_BUSINESS"]:
-      return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, state, _defineProperty({}, action.payload.id, action.payload));
+      return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, state, _defineProperty({}, action.payload.business.id, action.payload.business));
 
     case _actions_business_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_BUSINESSES"]:
       return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, state, action.payload.business);
@@ -2899,7 +2919,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return Object(lodash__WEBPACK_IMPORTED_MODULE_2__["merge"])({}, state, _defineProperty({}, action.payload.id, action.payload));
 
     case _actions_review_actions__WEBPACK_IMPORTED_MODULE_0__["DELETE_REVIEW"]:
-      debugger;
       var newState = Object(lodash__WEBPACK_IMPORTED_MODULE_2__["merge"])({}, state);
       delete newState[action.payload];
       return newState;

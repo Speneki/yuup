@@ -12,7 +12,7 @@ class Map extends React.Component {
                 zoom: 15
             };
             const map = this.map = new google.maps.Map(this.mapNode, mapOptions);
-
+            
             const marker = new google.maps.Marker({
                 position: { lat: this.props.business.latitude, lng: this.props.business.longitude },
                 map: map,
