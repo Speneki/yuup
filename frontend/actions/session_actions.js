@@ -40,8 +40,3 @@ export const logout = () => dispatch => {
         APIUtil.logout().then(() => dispatch(logoutUser()))
     )
 }
-
-
-// export const clearErrors = () => dispatch => {
-//     return () => dispatch(emptyErrors())
-// }

@@ -12,12 +12,6 @@ class Business extends React.Component {
         window.scrollTo(0, 0);
     }
 
-    // componentDidUpdate(prevProps) {
-    //     prevProps !== this.props {
-
-    //     }
-    // }
-
     render() {
         const currentUserReviewed = (this.props.business.reviews && this.props.currentUser) ? (
             Object.values(this.props.business.reviews).filter(review => review.userId === this.props.currentUser.id)

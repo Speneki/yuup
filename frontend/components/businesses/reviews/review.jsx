@@ -65,7 +65,6 @@ class Review extends React.Component {
 
     deleteMine() {
         this.props.deleteReview(this.props.review.id)
-        // .then(() => this.props.history.push(`/businesses/${this.props.review.business_id}`))
     }
 
     render() {

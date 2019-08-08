@@ -38,11 +38,7 @@ class SessionForm extends React.Component {
             </ul>
         );
     }
-
-    // componentWillUnmount() {
-    //      this.props.clearErrors()
-    // }
-
+    
     render() {
         const names = this.props.formType === "Sign up" ? (
         <>

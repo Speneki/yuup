@@ -19,13 +19,5 @@ document.addEventListener("DOMContentLoaded", () => {
         store = configureStore();
     }
 
-    // TESTIN
-    
-    window.dispatch = store.dispatch
-    window.getState = store.getState
-    window.fetchBusiness = fetchBusiness;
-    window.fetchBusinesses = fetchBusinesses
-
-    // TESTIN 
     ReactDOM.render(<Root store={store} />, document.getElementById('root'))
 })

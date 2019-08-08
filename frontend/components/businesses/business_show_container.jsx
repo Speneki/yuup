@@ -19,7 +19,6 @@ const msp = (state, ownProps) => {
             photoUrl: `${window.logo}`,
             rating: '',
             photos: ['', '']
-            // reviews: {}
         }
     })}
 

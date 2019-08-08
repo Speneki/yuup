@@ -300,9 +300,7 @@ var logout = function logout() {
       return dispatch(logoutUser());
     });
   };
-}; // export const clearErrors = () => dispatch => {
-//     return () => dispatch(emptyErrors())
-// }
+};
 
 /***/ }),
 
@@ -856,11 +854,7 @@ function (_React$Component) {
     value: function componentDidMount() {
       this.props.fetchBusiness(this.props.match.params.id);
       window.scrollTo(0, 0);
-    } // componentDidUpdate(prevProps) {
-    //     prevProps !== this.props {
-    //     }
-    // }
-
+    }
   }, {
     key: "render",
     value: function render() {
@@ -1003,8 +997,7 @@ var msp = function msp(state, ownProps) {
       category: "",
       photoUrl: "".concat(window.logo),
       rating: '',
-      photos: ['', ''] // reviews: {}
-
+      photos: ['', '']
     }
   };
 };
@@ -1711,7 +1704,7 @@ function (_React$Component) {
   }, {
     key: "deleteMine",
     value: function deleteMine() {
-      this.props.deleteReview(this.props.review.id); // .then(() => this.props.history.push(`/businesses/${this.props.review.business_id}`))
+      this.props.deleteReview(this.props.review.id);
     }
   }, {
     key: "render",
@@ -1898,7 +1891,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
- // import footer from '../../../app/assets/images/footer.png';
+
 
 var Footer =
 /*#__PURE__*/
@@ -2244,10 +2237,7 @@ function (_React$Component) {
           key: "error-".concat(i)
         }, error);
       }));
-    } // componentWillUnmount() {
-    //      this.props.clearErrors()
-    // }
-
+    }
   }, {
     key: "render",
     value: function render() {
@@ -2378,8 +2368,7 @@ var mdp = function mdp(dispatch) {
         email: 'Spencerwilliamtassone@gmail.com',
         password: "password"
       }));
-    } // clearErrors: () => dispatch(clearErrors())
-
+    }
   };
 };
 
@@ -3366,13 +3355,7 @@ document.addEventListener("DOMContentLoaded", function () {
     delete window.currentUser;
   } else {
     store = Object(_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])();
-  } // TESTIN
-
-
-  window.dispatch = store.dispatch;
-  window.getState = store.getState;
-  window.fetchBusiness = _actions_business_actions__WEBPACK_IMPORTED_MODULE_4__["fetchBusiness"];
-  window.fetchBusinesses = _actions_business_actions__WEBPACK_IMPORTED_MODULE_4__["fetchBusinesses"]; // TESTIN 
+  }
 
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_2__["default"], {
     store: store

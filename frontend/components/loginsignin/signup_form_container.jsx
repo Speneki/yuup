@@ -13,7 +13,6 @@ const msp = (state) => ({
 const mdp = dispatch => ({
     processForm: user => dispatch(signup(user)),
     demologin: () => dispatch(login({ email: 'Spencerwilliamtassone@gmail.com', password: "password" }))
-    // clearErrors: () => dispatch(clearErrors())
 })
 
 export default connect(msp, mdp)(SessionForm)
