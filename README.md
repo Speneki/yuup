@@ -31,4 +31,3 @@ Having enjoyed (or hated!) their experience, they can now become part of the com
 ![review](https://github.com/Speneki/yuup/blob/master/app/assets/images/yuup%20images/review.png)
 
 Now that a review is written, clicking submit adds that revierw to the database, and redirects the user to the page of the review that they had written. Dont fear if there are spelling errors or you no longer agree with what you stated! Its as easy as clicking the edit or delete buttons to change the review from what it was to what you may like it to be. 
-
