@@ -22,8 +22,6 @@ export default (state = {}, action) => {
             biz.review_ids = newReviews
             const test = { [business_id]: biz }
 
-            debugger
-            
             return {[business_id]: biz}
         default:
             return state

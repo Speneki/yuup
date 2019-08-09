@@ -175,7 +175,6 @@ var recieveReview = function recieveReview(review) {
 };
 
 var removeReview = function removeReview(review) {
-  debugger;
   return {
     type: DELETE_REVIEW,
     payload: review
@@ -2855,7 +2854,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       var test = _defineProperty({}, business_id, biz);
 
-      debugger;
       return _defineProperty({}, business_id, biz);
 
     default:

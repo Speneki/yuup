@@ -20,7 +20,6 @@ const recieveReview = (review) => {
 }
 
 const removeReview = (review) => {
-    debugger
     return ({
         type: DELETE_REVIEW,
         payload: review
