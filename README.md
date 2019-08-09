@@ -1,4 +1,4 @@
-Yuup.com
+[Yuup](https://yuup.herokuapp.com/#/)
 
 Hungry? Yuup! 
 
