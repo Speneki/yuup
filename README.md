@@ -17,3 +17,9 @@ Now that anything anyone could ever want is within reach, the only decision left
 Here, one can find several user uploaded photos, many user uploaded links and, the real meat and potatoes of Yuup, user reviews. 
 
 ![reviews](https://github.com/Speneki/yuup/blob/master/app/assets/images/yuup%20images/reviews.png)
+
+Each users individual icon of choice, and their home location is listed next to their review. One can get a sense of the kind of reviewer the person may be by their, soon to be implimented, user profile page. Now armed with all the information needed to make an informed decision, a customer can quickly find the path to their restaurant of choice.
+
+Having enjoyed (or hated!) thier experience, they can become part of the community at Yuup and assist the next hungry customer in their decisions by leaving a review! By clicking the easy to find "* Write a review" button on the top of each business show page, a user can leave their honest feedback in an incredibly user friendly way! 
+
+![review](https://github.com/Speneki/yuup/blob/master/app/assets/images/yuup%20images/review.png)
