@@ -52,5 +52,20 @@ componentDidMount () {
     }
  ```
    
-Another new challenge was getting the stars to render in the way they needed to. I had found the stars sprtie page in yelps source info
+Another new challenge was getting the stars to render in the way they needed to when writing a review. I had found the stars sprites image in yelps source, and written down the starting pixel location for each rating. Now, when reviewing a restaurant, I needed to make sure that clicking each radio buttons also set the state, which is what the html ID was reading from, and css the background location to the right space. Here is one of the stars radio buttons in it' entirity. This combination of using CSS, Javascript and HTML was  
+
+```
+<ul id={`rating-of-${this.state.rating}`} className="review-form-stars-ul">
+        <li className="review-form-stars-li-1">
+                <input 
+                id="radio-button"                                        
+                type="radio" 
+                value="1"
+                name="rating-stars"
+                onMouseEnter={this.mouseEnter} 
+                onMouseLeave={this.mouseLeave}
+                onChange={this.handleUpdate('rating')} />
+</li>
+        ...
+                                        ```
 
