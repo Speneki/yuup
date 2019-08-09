@@ -48,7 +48,7 @@ class BusinessItem extends React.Component {
                     <div className='splash-biz-reviews'>
                         <p id={this.stars()} className="splash-review-ratings"></p>
                         <p className="splash-reviews-count">{this.props.business.review_ids.length} reviews</p>
-                    </div>
+                    </div>-
                     <p className="biz-address-splash" >{this.props.business.address}</p>
                     <p>{this.props.business.number}</p>
 

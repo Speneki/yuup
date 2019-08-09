@@ -66,6 +66,34 @@ biz7.photos.attach(io: File.open("./app/assets/images/food-pix/food19.jpeg"), fi
 biz7.photos.attach(io: File.open("./app/assets/images/food-pix/food20.jpeg"), filename: 'food141412.jpeg')
 biz7.photos.attach(io: File.open("./app/assets/images/food-pix/food21.jpeg"), filename: 'food1412412.jpeg')
 
+biz8 = Business.create(business_name: "Cote", address: "16 W 22nd St, New York, NY 10010" , latitude: 40.741047699999996,
+    longitude: -73.9914288, number: "(212) 401-7986", website: "https://cotenyc.com", price: 3, category: 'food')
+biz8.photos.attach(io: File.open("./app/assets/images/food-pix/restaurant/restaurant8.jpeg"), filename: 'food102013.jpeg')
+biz8.photos.attach(io: File.open("./app/assets/images/food-pix/food19.jpeg"), filename: 'food12415.jpeg')
+biz8.photos.attach(io: File.open("./app/assets/images/food-pix/food20.jpeg"), filename: 'food141412.jpeg')
+biz8.photos.attach(io: File.open("./app/assets/images/food-pix/food21.jpeg"), filename: 'food1412412.jpeg')
+
+biz9 = Business.create(business_name: "Eleven Madison Park", address: "11 Madison Ave, New York, NY 10010" , latitude: 40.74642525,
+    longitude: -73.9944585, number: "(212) 401-7986", website: "https://elevenmadisonpark.com", price: 3, category: 'food')
+biz9.photos.attach(io: File.open("./app/assets/images/food-pix/restaurant/restaurant9.jpeg"), filename: 'food102013.jpeg')
+biz9.photos.attach(io: File.open("./app/assets/images/food-pix/food19.jpeg"), filename: 'food12415.jpeg')
+biz9.photos.attach(io: File.open("./app/assets/images/food-pix/food20.jpeg"), filename: 'food141412.jpeg')
+biz9.photos.attach(io: File.open("./app/assets/images/food-pix/food21.jpeg"), filename: 'food1412412.jpeg')
+
+biz10 = Business.create(business_name: "Mom's Kitchen & Bar", address: "33-01 31st Ave, Astoria, NY 11106" , latitude: 40.7636263,
+    longitude: -73.9216392, number: " (718) 267-0142", website: "https://moms.com", price: 1, category: 'food')
+biz10.photos.attach(io: File.open("./app/assets/images/food-pix/restaurant/restaurant10.jpeg"), filename: 'food102013.jpeg')
+biz10.photos.attach(io: File.open("./app/assets/images/food-pix/food19.jpeg"), filename: 'food12415.jpeg')
+biz10.photos.attach(io: File.open("./app/assets/images/food-pix/food20.jpeg"), filename: 'food141412.jpeg')
+biz10.photos.attach(io: File.open("./app/assets/images/food-pix/food21.jpeg"), filename: 'food1412412.jpeg')
+
+biz11 = Business.create(business_name: "VLife NYC", address: "348 7th Ave, New York, NY 10001" , latitude: 40.7457561,
+    longitude: -73.9956897, number: "(212) 760-1900", website: "vlifenyc.com", price: 2, category: 'food')
+biz11.photos.attach(io: File.open("./app/assets/images/food-pix/restaurant/restaurant11.jpeg"), filename: 'food102013.jpeg')
+biz11.photos.attach(io: File.open("./app/assets/images/food-pix/food19.jpeg"), filename: 'food12415.jpeg')
+biz11.photos.attach(io: File.open("./app/assets/images/food-pix/food20.jpeg"), filename: 'food141412.jpeg')
+biz11.photos.attach(io: File.open("./app/assets/images/food-pix/food21.jpeg"), filename: 'food1412412.jpeg')
+
 
 user1 = User.create(firstName: "Lillian", lastName: Faker::Name.last_name, email: Faker::Internet.email,
     location: 73301 , password: 'password')
@@ -95,6 +123,10 @@ Review.create!(user_id: user1.id, business_id: biz4.id, rating: Faker::Number.be
 Review.create!(user_id: user1.id, business_id: biz5.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::TvShows::Simpsons.quote )
 Review.create!(user_id: user1.id, business_id: biz6.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::TvShows::Simpsons.quote )
 Review.create!(user_id: user1.id, business_id: biz7.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::TvShows::Simpsons.quote )
+Review.create!(user_id: user1.id, business_id: biz8.id, rating: Faker::Number.between(from: 1, to: 5), body: Faker::TvShows::Simpsons.quote )
+Review.create!(user_id: user1.id, business_id: biz9.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::TvShows::Simpsons.quote )
+Review.create!(user_id: user1.id, business_id: biz10.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::TvShows::Simpsons.quote )
+Review.create!(user_id: user1.id, business_id: biz11.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::TvShows::Simpsons.quote )
 
 Review.create!(user_id: user2.id, business_id: biz3.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
 Review.create!(user_id: user3.id, business_id: biz2.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
@@ -103,6 +135,9 @@ Review.create!(user_id: user2.id, business_id: biz5.id, rating: Faker::Number.be
 Review.create!(user_id: user4.id, business_id: biz4.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
 Review.create!(user_id: user2.id, business_id: biz6.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
 Review.create!(user_id: user2.id, business_id: biz7.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
+Review.create!(user_id: user4.id, business_id: biz10.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
+Review.create!(user_id: user2.id, business_id: biz11.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
+Review.create!(user_id: user2.id, business_id: biz9.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
 
 Review.create!(user_id: user3.id, business_id: biz1.id, rating: 5, body: Faker::TvShows::Simpsons.quote)
 Review.create!(user_id: user3.id, business_id: biz4.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Hipster.sentence(word_count: 30, supplemental: true, random_words_to_add: 4))
@@ -125,6 +160,10 @@ Review.create!(user_id: user5.id, business_id: biz2.id, rating: Faker::Number.be
 Review.create!(user_id: user5.id, business_id: biz3.id, rating: Faker::Number.between(from: 1, to: 2), body: Faker::TvShows::HowIMetYourMother.quote)
 Review.create!(user_id: user5.id, business_id: biz6.id, rating: Faker::Number.between(from: 1, to: 2), body: Faker::TvShows::HowIMetYourMother.quote)
 Review.create!(user_id: user5.id, business_id: biz7.id, rating: Faker::Number.between(from: 1, to: 2), body: Faker::TvShows::HowIMetYourMother.quote)
+Review.create!(user_id: user5.id, business_id: biz8.id, rating: Faker::Number.between(from: 1, to: 2), body: Faker::TvShows::HowIMetYourMother.quote)
+Review.create!(user_id: user5.id, business_id: biz9.id, rating: Faker::Number.between(from: 1, to: 2), body: Faker::TvShows::HowIMetYourMother.quote)
+Review.create!(user_id: user5.id, business_id: biz10.id, rating: Faker::Number.between(from: 1, to: 2), body: Faker::TvShows::HowIMetYourMother.quote)
+Review.create!(user_id: user5.id, business_id: biz11.id, rating: Faker::Number.between(from: 1, to: 2), body: Faker::TvShows::HowIMetYourMother.quote)
 
 Review.create!(user_id: user6.id, business_id: biz1.id, rating: 5, body: Faker::Quotes::Shakespeare.king_richard_iii_quote)
 Review.create!(user_id: user6.id, business_id: biz2.id, rating: Faker::Number.between(from: 1, to: 2), body: Faker::Quotes::Shakespeare.king_richard_iii_quote)
@@ -133,4 +172,7 @@ Review.create!(user_id: user6.id, business_id: biz4.id, rating: Faker::Number.be
 Review.create!(user_id: user6.id, business_id: biz5.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Quotes::Shakespeare.king_richard_iii_quote)
 Review.create!(user_id: user6.id, business_id: biz6.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Quotes::Shakespeare.king_richard_iii_quote)
 Review.create!(user_id: user6.id, business_id: biz7.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Quotes::Shakespeare.king_richard_iii_quote)
-Review.create!(user_id: user6.id, business_id: biz7.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Quotes::Shakespeare.king_richard_iii_quote)
+Review.create!(user_id: user6.id, business_id: biz8.id, rating: Faker::Number.between(from: 1, to: 5), body: Faker::Quotes::Shakespeare.king_richard_iii_quote)
+Review.create!(user_id: user6.id, business_id: biz9.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Quotes::Shakespeare.king_richard_iii_quote)
+Review.create!(user_id: user6.id, business_id: biz10.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Quotes::Shakespeare.king_richard_iii_quote)
+Review.create!(user_id: user6.id, business_id: biz11.id, rating: Faker::Number.between(from: 3, to: 5), body: Faker::Quotes::Shakespeare.king_richard_iii_quote)

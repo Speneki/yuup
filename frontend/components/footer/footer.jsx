@@ -12,13 +12,11 @@ class Footer extends React.Component {
                         <li><a href="">Get a reservation</a></li>
                     </ul> 
 
-                    <ul className="fooooter">Discover
-                        <li><a href="mailto:spencerwilliamtassone@gmail.com">Email me</a></li>
-                        <li><a href="">Phone</a></li>
+                    <ul className="fooooter">Reach Me
+                        <li><a href="mailto:spencerwilliamtassone@gmail.com">Email</a></li>
+                        <li><a href="skype:+8457021643?call">Phone</a></li>
+                        <li><a href="https://twitter.com/spencer_tassone">Tweet</a></li>
                     </ul>
-
-                    <ul>Other</ul>
-                    <ul>Stuff</ul>
                 </div>
                 <img className="footer" src={window.footer} />
                 <p className="copythat">Many things on this site are inspired by or registered trademarks of Yelp ©.</p>

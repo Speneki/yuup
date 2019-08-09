@@ -37,7 +37,7 @@ class BusinessIndex extends React.Component {
                         </label>
                         <label className="top-search-near">
                             Near
-                            <input type="text" className="top-search-location" placeholder={this.state.location} />
+                            <input type="text" className="top-search-location" value={this.state.location} />
                         </label>
                         <button type="submit" className="top-search-button"><i className="fas fa-search"></i></button>
                     </form>

@@ -554,7 +554,7 @@ function (_React$Component) {
       }, "Near", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         className: "top-search-location",
-        placeholder: this.state.location
+        value: this.state.location
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
         className: "top-search-button"
@@ -684,7 +684,7 @@ function (_React$Component) {
         className: "splash-review-ratings"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "splash-reviews-count"
-      }, this.props.business.review_ids.length, " reviews")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, this.props.business.review_ids.length, " reviews")), "-", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "biz-address-splash"
       }, this.props.business.address), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.business.number)));
     }
@@ -907,7 +907,7 @@ function (_React$Component) {
       }, "Near", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         className: "top-search-location",
-        placeholder: this.state.cityName
+        defaultValue: this.state.cityName
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
         className: "top-search-button"
@@ -1878,7 +1878,9 @@ function (_React$Component) {
         className: "ask-the-community"
       }, "Ask the Community"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, reviews)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "hours"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Hours"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Mon"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "6:00 pm - 12:00 am"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Tue"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "6:00 pm - 12:00 am"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Wed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "6:00 pm - 12:00 am"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Thu"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "6:00 pm - 12:00 am"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Fri"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "6:00 pm - 4:00 am"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Sat"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "6:00 pm - 4:00 am"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Sun"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "6:00 pm - 12:00 am")));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "openNow"
+      }, "Open now"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Hours"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Mon"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "8:00 am - 6:00 pm"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Tue"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "8:00 am - 6:00 pm"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Wed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "8:00 am - 6:00 pm"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Thu"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "8:00 am - 6:00 pm"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Fri"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "10:00 am - 4:00 pm"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Sat"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "10:00 am - 4:00 pm"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Sun"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "8:00 am - 6:00 pm")));
     }
   }]);
 
@@ -1946,11 +1948,13 @@ function (_React$Component) {
         href: ""
       }, "Get a reservation"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "fooooter"
-      }, "Discover", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      }, "Reach Me", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "mailto:spencerwilliamtassone@gmail.com"
-      }, "Email me")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: ""
-      }, "Phone"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, "Other"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, "Stuff")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      }, "Email")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "skype:+8457021643?call"
+      }, "Phone")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://twitter.com/spencer_tassone"
+      }, "Tweet")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "footer",
         src: window.footer
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -2472,6 +2476,13 @@ function (_React$Component) {
           animation: google.maps.Animation.DROP
         });
         marker.setMap(map);
+        map.addListener('center_changed', function () {// 3 seconds after the center of the map has changed, pan back to the
+          // marker.
+        });
+        marker.addListener('click', function () {
+          map.setZoom(15);
+          map.setCenter(marker.getPosition());
+        });
       }
     }
   }, {
@@ -2745,7 +2756,7 @@ function (_React$Component) {
       }, " Near", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "location-search",
         type: "text",
-        placeholder: this.state.cityName
+        defaultValue: this.state.cityName
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         to: {
           pathname: "/businesses/all"

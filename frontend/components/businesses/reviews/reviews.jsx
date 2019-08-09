@@ -43,14 +43,16 @@ class ReviewsShow extends React.Component {
                 </ul>
             </div>
             <div className="hours">
+                <p className="openNow">Open now</p>
                 <h3>Hours</h3>
-                    <p>Mon</p><h2>6:00 pm - 12:00 am</h2>
-                    <p>Tue</p><h2>6:00 pm - 12:00 am</h2>
-                    <p>Wed</p><h2>6:00 pm - 12:00 am</h2>
-                    <p>Thu</p><h2>6:00 pm - 12:00 am</h2>
-                    <p>Fri</p><h2>6:00 pm - 4:00 am</h2>
-                    <p>Sat</p><h2>6:00 pm - 4:00 am</h2>
-                    <p>Sun</p><h2>6:00 pm - 12:00 am</h2>
+
+                    <p>Mon</p><h2>8:00 am - 6:00 pm</h2>
+                    <p>Tue</p><h2>8:00 am - 6:00 pm</h2>
+                    <p>Wed</p><h2>8:00 am - 6:00 pm</h2>
+                    <p>Thu</p><h2>8:00 am - 6:00 pm</h2>
+                    <p>Fri</p><h2>10:00 am - 4:00 pm</h2>
+                    <p>Sat</p><h2>10:00 am - 4:00 pm</h2>
+                    <p>Sun</p><h2>8:00 am - 6:00 pm</h2>
             </div>
         </div>
         )
