@@ -4,6 +4,8 @@
 
 #### Hungry? Yuup! 
 
+
+
 ![splash](https://github.com/Speneki/yuup/blob/master/app/assets/images/yuup%20images/splash.png)
 
 ## Google Maps and Geolocation
@@ -31,3 +33,25 @@ Having enjoyed (or hated!) their experience, they can now become part of the com
 ![review](https://github.com/Speneki/yuup/blob/master/app/assets/images/yuup%20images/review.png)
 
 Now that a review is written, clicking submit adds that revierw to the database, and redirects the user to the page of the review that they had written. Dont fear if there are spelling errors or you no longer agree with what you stated! Its as easy as clicking the edit or delete buttons to change the review from what it was to what you may like it to be. 
+
+
+## Challenges
+
+One of the more challenging things to impliment in this application was the user authentication. Maintaining a users image and profile upon refresh, encrypting their passwords, showing errors when invalid info was entered and using geolocation to get their city name was fun and difficult in ways I could not have predicted. As Yelp is a site of a different era in many ways, many of the sites features were outdated other than the user login/signup page. Here, I spent more time than anywhere else making sure that it was as pixel perfect as possible.
+
+![user auth](https://github.com/Speneki/yuup/blob/master/app/assets/images/yuup%20images/userauth.png)
+
+One of the more tricky parts of creating Yuup was finding ways to user geolocation in multiple spots around the page. As each user enters only their zip code, but each review show the users city name, I needed to use google maps api to return the right information. Setting the city name to each individual reviews slice of state, interpolating the zip into a request and indexing through the received geolocation response while encrypting my google maps key was a unique exercise in following the API requirements of external code. The docs became my dear friends, and this code snipped got me exactly the information I needed:
+
+
+``` 
+componentDidMount () {
+        $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address=' + this.props.user[0].location + '&key=' + window.key + '&sonsor=true').then((response) => {
+            this.setState({cityName: response.results[0].address_components[2].long_name})
+        })
+    }
+ ```
+   
+
+
+
