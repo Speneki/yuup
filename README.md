@@ -37,11 +37,11 @@ Now that a review is written, clicking submit adds that revierw to the database,
 
 ## Challenges
 
-One of the more challenging things to impliment in this application was the user authentication. Maintaining a users image and profile upon refresh, encrypting their passwords, showing errors when invalid info was entered and using geolocation to get their city name was fun and difficult in ways I could not have predicted. As Yelp is a site of a different era in many ways, many of the sites features were outdated other than the user login/signup page. Here, I spent more time than anywhere else making sure that it was as pixel perfect as possible.
+One of the more challenging things to impliment in this application was the user authentication. Maintaining a users image and profile upon refresh, encrypting their passwords, showing errors when invalid info was entered and using geolocation to get their city name was fun and difficult in ways I could not have predicted. As Yelp is a site of a different era in many ways, the sites style decisions were mostly outdated, other than the user login/signup page. Here, I spent more time than anywhere else making sure that it was as pixel perfect as possible.
 
 ![user auth](https://github.com/Speneki/yuup/blob/master/app/assets/images/yuup%20images/userAuth.png)
 
-One of the more tricky parts of creating Yuup was finding ways to user geolocation in multiple spots around the page. As each user enters only their zip code, but each review show the users city name, I needed to use google maps api to return the right information. Setting the city name to each individual reviews slice of state, interpolating the zip into a request and indexing through the received geolocation response while encrypting my google maps key was a unique exercise in following the API requirements of external code. The docs became my dear friends, and this code snipped got me exactly the information I needed:
+A tricky parts of creating Yuup was finding ways to show user city in multiple spots around the page. As each user enters only their zip codon sign up , but each review show the users city name, I needed to use google maps api to return the right information. Setting the city name to each individual reviews slice of state, interpolating the zip into a request and indexing through the received geolocation response while encrypting my google maps key was a unique exercise in following the API requirements of external code. The docs became my dear friends, and this code snipped got me exactly the information I needed:
 
 
 ``` 
@@ -52,6 +52,20 @@ componentDidMount () {
     }
  ```
    
+Another new challenge was getting the stars to render in the way they needed to when writing a review. I had found the stars sprites image in yelps source, and written down the starting pixel location for each rating. Now, when reviewing a restaurant, I needed to make sure that clicking each radio buttons also set the state, which is what the html ID was reading from, and css the background location to the right space. Here is one of the stars radio buttons in it' entirity. This combination of using CSS, Javascript and HTML was  
 
-
+```
+<ul id={`rating-of-${this.state.rating}`} className="review-form-stars-ul">
+        <li className="review-form-stars-li-1">
+                <input 
+                id="radio-button"                                        
+                type="radio" 
+                value="1"
+                name="rating-stars"
+                onMouseEnter={this.mouseEnter} 
+                onMouseLeave={this.mouseLeave}
+                onChange={this.handleUpdate('rating')} />
+</li>
+        ...
+                                        ```
 
