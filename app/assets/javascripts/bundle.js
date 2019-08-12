@@ -397,11 +397,12 @@ var App = function App() {
     path: "/signup",
     component: _loginsignin_signup_form_container__WEBPACK_IMPORTED_MODULE_2__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
-    path: "/reviews",
-    component: _businesses_reviews_create_review_container__WEBPACK_IMPORTED_MODULE_9__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
     path: "/reviews/:id",
     component: _businesses_reviews_edit_review_container__WEBPACK_IMPORTED_MODULE_11__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+    exact: true,
+    path: "/reviews",
+    component: _businesses_reviews_create_review_container__WEBPACK_IMPORTED_MODULE_9__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
     path: "/businesses/all",
     component: _businesses_allBusiness_container__WEBPACK_IMPORTED_MODULE_10__["default"]
@@ -886,9 +887,24 @@ function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      var currentUserReviewed = this.props.business.reviews && this.props.currentUser ? Object.values(this.props.business.reviews).filter(function (review) {
-        return review.userId === _this3.props.currentUser.id;
+      var currentUserReviewed = this.props.reviews && this.props.currentUser ? this.props.reviews.filter(function (review) {
+        return review.user_id === _this3.props.currentUser.id;
       }) : null;
+      var writeOrEdit = this.props.currentUser && currentUserReviewed.length > 0 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
+        to: {
+          pathname: "/reviews/".concat(currentUserReviewed[0].id),
+          biz: this.props.business
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "review-button"
+      }, " \u2605 Edit Your Review")) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
+        to: {
+          pathname: "/reviews",
+          biz: this.props.business
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "review-button"
+      }, " \u2605 Write A Review"));
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "showPageNav"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -928,14 +944,7 @@ function (_React$Component) {
         business: this.props.business
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "businessButtons"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
-        to: {
-          pathname: "/reviews",
-          biz: this.props.business
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "review-button"
-      }, " \u2605 Write a review")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, writeOrEdit, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "secondary-buttons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-camera"
@@ -1024,7 +1033,8 @@ var msp = function msp(state, ownProps) {
       photoUrl: "".concat(window.logo),
       rating: '',
       photos: ['', '']
-    }
+    },
+    reviews: Object.values(state.entities.reviews)
   };
 };
 
@@ -1178,7 +1188,7 @@ __webpack_require__.r(__webpack_exports__);
 var msp = function msp(state, ownProps) {
   return {
     currentUser: state.entities.users[state.session.id],
-    formType: "Create Review",
+    formType: " ★ Create Review",
     errors: state.errors.reviews
   };
 };
@@ -1219,8 +1229,9 @@ __webpack_require__.r(__webpack_exports__);
 var msp = function msp(state, ownProps) {
   return {
     currentUser: state.entities.users[state.session.id],
-    formType: "Edit Review",
-    errors: state.errors.reviews
+    formType: " ★ Edit Review",
+    errors: state.errors.reviews,
+    thisReview: state.entities.reviews[ownProps.match.params.id]
   };
 };
 
@@ -1228,9 +1239,6 @@ var mdp = function mdp(dispatch) {
   return {
     action: function action(review) {
       return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_0__["editReview"])(review));
-    },
-    fetchBusiness: function fetchBusiness(id) {
-      return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_1__["fetchBusiness"])(id));
     }
   };
 };
@@ -1442,25 +1450,18 @@ function (_React$Component) {
 
       e.preventDefault();
       this.props.currentUser ? null : this.props.history.push('/login');
+      var revId = this.props.formType === " ★ Edit Review" ? this.props.thisReview.id : 1;
       var newReview = {
         body: this.state.body,
         rating: this.state.rating,
         user_id: this.props.currentUser.id,
-        business_id: this.props.location.biz.id
+        business_id: this.props.location.biz.id,
+        review_id: revId
       };
+      debugger;
       this.props.action(newReview).then(function () {
         return _this2.props.history.push("businesses/".concat(_this2.props.location.biz.id));
       });
-    }
-  }, {
-    key: "mouseEnter",
-    value: function mouseEnter() {
-      console.log('mouse enter'); // this.setState()
-    }
-  }, {
-    key: "mouseLeave",
-    value: function mouseLeave() {
-      console.log('mouse leave');
     }
   }, {
     key: "handleUpdate",
@@ -1485,6 +1486,8 @@ function (_React$Component) {
     value: function render() {
       var options = ["Select your rating", "Eek! Me thinks not.", "Meh. I've experienced better.", "A-OK.", "Yay! I'm a fan.", "Woohoo! As good as it gets!"];
       var placeHolder = "Your review helps others learn about great local businesses.\n\n Please don't review this business if you received a freebie for writing this review, or are connected in any way to the owner or employees.";
+      var reviewBod = this.props.formType === " ★ Edit Review" ? this.props.thisReview.body : null;
+      debugger;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "showPageNav"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1528,8 +1531,6 @@ function (_React$Component) {
         type: "radio",
         value: "1",
         name: "rating-stars",
-        onMouseEnter: this.mouseEnter,
-        onMouseLeave: this.mouseLeave,
         onChange: this.handleUpdate('rating')
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "review-form-stars-li-2"
@@ -1537,8 +1538,6 @@ function (_React$Component) {
         id: "radio-button",
         type: "radio",
         value: "2",
-        onMouseEnter: this.mouseEnter,
-        onMouseLeave: this.mouseLeave,
         name: "rating-stars",
         onChange: this.handleUpdate('rating')
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
@@ -1547,8 +1546,6 @@ function (_React$Component) {
         id: "radio-button",
         type: "radio",
         value: "3",
-        onMouseEnter: this.mouseEnter,
-        onMouseLeave: this.mouseLeave,
         name: "rating-stars",
         onChange: this.handleUpdate('rating')
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
@@ -1556,8 +1553,6 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         id: "radio-button",
         type: "radio",
-        onMouseEnter: this.mouseEnter,
-        onMouseLeave: this.mouseLeave,
         value: "4",
         name: "rating-stars",
         onChange: this.handleUpdate('rating')
@@ -1567,8 +1562,6 @@ function (_React$Component) {
         id: "radio-button",
         type: "radio",
         value: "5",
-        onMouseEnter: this.mouseEnter,
-        onMouseLeave: this.mouseLeave,
         name: "rating-stars",
         onChange: this.handleUpdate('rating')
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1577,7 +1570,7 @@ function (_React$Component) {
         className: "review-text"
       }, options[this.state.rating]))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         className: "reviewFormBody",
-        value: this.state.body,
+        defaultValue: reviewBod,
         cols: "40",
         wrap: "hard",
         rows: "5",
@@ -2713,6 +2706,7 @@ function (_React$Component) {
     _this.state = {
       cityName: ""
     };
+    console.log("  \n    :::::::::::''  ''::'      '::::::  ::::::::::::: '.:::::::::::::::\n    ::::::::: ' :. :  :         ::::::  :::::::::::.:::':::::::::::::::\n    ::::::::::  :   :::.       :::::::::::::..:::: '     :::: : :::::::\n    ::::::::    : ':  \"::'     '\"::::::::::::: :'           '' ':::::::\n    : '        : '   :  ::    .:::::::: '    '.:\n    :               :  .:: .::. :::: '                              :::\n    :. .,.        ::: ':::::::::::.: '.: ...::::\n    :::::::.'     .::::::: '''                         :: :::::.\n    :::::::: ':::::::::  '',            '    '   .:::::::::\n    ::::::::.        :::::::::::: '':,: '    :         ''' :::::::::\n    ::::::::::      :::::::::::: '                        :::::::::::::\n    : .::::::::.   .: '':::::::: '         ::   :   '::.::::::::::::\n    :::::::::::::::.'  '::::::.'  '     :::::.:.:.:.:.:::::::::::::\n    :::::::::::::::: : ':::::::::   ',:::::::::: : :.: '::::::::::\n    ::::::::::::::::: '     :::::::::   . :':::::::::::::: ' ':::::::::\n    :::::::::::::::::: ''   :::::::::: : ' : ,:::::::::::'      ':::::::\n    ::::::::::::::::: '   .::::::::::::  ::::::::::::::::       :::::::\n    :::::::::::::::::. .::::::::::::::::::::::::::::::::::::.'::::::::\n    ::::::::::::::::: ' :::::::::::::::::::::::::::::::::::::::::::::::\n    ::::::::::::::::::.:::::::::::::::::::::::::::::::::::::::::::::::");
     return _this;
   }
 
@@ -46425,7 +46419,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

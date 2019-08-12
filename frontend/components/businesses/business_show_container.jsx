@@ -19,7 +19,8 @@ const msp = (state, ownProps) => {
             photoUrl: `${window.logo}`,
             rating: '',
             photos: ['', '']
-        }
+        },
+        reviews: Object.values(state.entities.reviews)
     })}
 
 const mdp = dispatch => ({

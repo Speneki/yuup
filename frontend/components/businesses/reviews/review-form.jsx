@@ -15,22 +15,18 @@ class ReviewForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault()
         this.props.currentUser ? null : this.props.history.push('/login')
+
+        const revId = (this.props.formType === " ★ Edit Review" ? (this.props.thisReview.id) : (1))
         const newReview = {
             body: this.state.body,
             rating: this.state.rating,
             user_id: this.props.currentUser.id,
-            business_id: this.props.location.biz.id
+            business_id: this.props.location.biz.id,
+            review_id: revId
         }
+
+        debugger
         this.props.action(newReview).then(() => this.props.history.push(`businesses/${this.props.location.biz.id}`))
-    }
-
-    mouseEnter() {
-        console.log('mouse enter')
-        // this.setState()
-    }
-
-    mouseLeave() {
-        console.log('mouse leave')
     }
 
     handleUpdate(field) {
@@ -52,9 +48,13 @@ class ReviewForm extends React.Component {
     render() {
         const options = ["Select your rating", "Eek! Me thinks not.", "Meh. I've experienced better.", "A-OK.", "Yay! I'm a fan.", "Woohoo! As good as it gets!"];
         const placeHolder = "Your review helps others learn about great local businesses.\n\n Please don't review this business if you received a freebie for writing this review, or are connected in any way to the owner or employees."
-    
 
-        return( 
+        const reviewBod = this.props.formType === " ★ Edit Review" ? (
+            this.props.thisReview.body
+        ) : (null)
+
+        debugger
+        return(  
             <>
                 <div className="showPageNav">
                     <div className="showBizSearch">
@@ -88,9 +88,8 @@ class ReviewForm extends React.Component {
                                                 type="radio" 
                                                 value="1"
                                                 name="rating-stars"
-                                                onMouseEnter={this.mouseEnter} 
-                                                onMouseLeave={this.mouseLeave}
-                                                onChange={this.handleUpdate('rating')} />
+                                                onChange={this.handleUpdate('rating')} 
+                                                />
                                         </li>
                                         <li 
                                             className="review-form-stars-li-2"
@@ -99,8 +98,6 @@ class ReviewForm extends React.Component {
                                                 id="radio-button"
                                                 type="radio" 
                                                 value="2" 
-                                                onMouseEnter={this.mouseEnter} 
-                                                onMouseLeave={this.mouseLeave}
                                                 name="rating-stars"
                                                 onChange={this.handleUpdate('rating')} />
                                         </li>
@@ -111,8 +108,6 @@ class ReviewForm extends React.Component {
                                             id="radio-button"
                                                 type="radio" 
                                                 value="3" 
-                                                onMouseEnter={this.mouseEnter} 
-                                                onMouseLeave={this.mouseLeave}
                                                 name="rating-stars"
                                                 onChange={this.handleUpdate('rating')} />
                                         </li>
@@ -121,9 +116,7 @@ class ReviewForm extends React.Component {
                                             >
                                             <input 
                                             id="radio-button"
-                                                type="radio" 
-                                                onMouseEnter={this.mouseEnter}
-                                                onMouseLeave={this.mouseLeave}                                                 
+                                                type="radio"                                               
                                                 value="4" 
                                                 name="rating-stars"
                                                 onChange={this.handleUpdate('rating')} />
@@ -135,8 +128,6 @@ class ReviewForm extends React.Component {
                                             id="radio-button"
                                                 type="radio" 
                                                 value="5" 
-                                                onMouseEnter={this.mouseEnter}
-                                                onMouseLeave={this.mouseLeave} 
                                                 name="rating-stars"
                                                 onChange={this.handleUpdate('rating')} />
                                         </li>
@@ -145,9 +136,9 @@ class ReviewForm extends React.Component {
                                         <p className="review-text">{options[this.state.rating]}</p>
                                     </div>
                                 </div>
-                            <textarea className="reviewFormBody" value={this.state.body} 
-                                cols="40" wrap="hard" rows="5"
-                                placeholder= {placeHolder} onChange={this.handleUpdate('body')}/>
+                            <textarea className="reviewFormBody" defaultValue={reviewBod}
+                                cols="40" wrap="hard" rows="5" placeholder= {placeHolder}
+                                onChange={this.handleUpdate('body')}/>
                             <input type="submit" className="review-submit-button" value={this.props.formType}/>
                             <div className="errors">
                                 {this.renderErrors()}

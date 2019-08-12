@@ -20,10 +20,28 @@ class Business extends React.Component {
     }
 
     render() {
-        const currentUserReviewed = (this.props.business.reviews && this.props.currentUser) ? (
-            Object.values(this.props.business.reviews).filter(review => review.userId === this.props.currentUser.id)
+        const currentUserReviewed = (this.props.reviews && this.props.currentUser) ? (
+            this.props.reviews.filter(review => review.user_id === this.props.currentUser.id)
         ) : (null)
 
+
+        const writeOrEdit = (this.props.currentUser && currentUserReviewed.length > 0) ? (
+            <Link to={{
+                pathname: `/reviews/${currentUserReviewed[0].id}`,
+                biz: this.props.business
+            }}>
+                <button className="review-button"> ★ Edit Your Review</button>
+            </Link>
+            ) :  (
+                    <Link to={{
+                        pathname: "/reviews",
+                        biz: this.props.business
+                    }}>
+                        <button className="review-button"> ★ Write A Review</button>
+                    </Link>
+                )
+
+        
         return(
             <div>
                 {/* from here --- */}
@@ -52,10 +70,7 @@ class Business extends React.Component {
                                     <RatingStars business={this.props.business}/>
                                 </div>
                                 <div className="businessButtons">
-                                    <Link to={{ pathname: "/reviews",
-                                             biz: this.props.business }}>
-                                        <button className="review-button"> ★ Write a review</button>
-                                    </Link>
+                                    {writeOrEdit}
                                     <button className="secondary-buttons"><i className="fas fa-camera"></i>  Add Photo</button>
                                     <button className="secondary-buttons"><i className="fas fa-share-square"></i>  Share</button>
                                 </div>

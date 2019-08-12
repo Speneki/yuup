@@ -30,7 +30,7 @@ class Review extends React.Component {
         super(props)
         this.deleteMine = this.deleteMine.bind(this)
         this.state = {cityName: ""};
-    }
+    }  
 
     rating() {
         switch(this.props.review.rating) {
@@ -79,7 +79,6 @@ class Review extends React.Component {
         const thisMine = this.props.currentUser ? (
             this.props.currentUser.id === this.props.user[0].id ? (
                 <div className="user-review-buttons">
-                    {/* <p><Link to={`/reviews/${this.props.review.id}`}><i class="fas fa-edit"></i></Link></p> */}
                     <p className="trashcan" onClick={this.deleteMine}><i className="fas fa-trash-alt"></i></p>
                 </div>
             ) : (null)
