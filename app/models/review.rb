@@ -10,9 +10,7 @@
 #
 
 class Review < ApplicationRecord
-    validates :user_id, :business_id, :rating, presence: true
-    validates :body, length: { minimum: 1}
-
+    validates :user_id, :body, :business_id, :rating, presence: true
     belongs_to :business
     belongs_to :user
 end

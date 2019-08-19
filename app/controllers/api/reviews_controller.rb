@@ -14,11 +14,10 @@ class Api::ReviewsController < ApplicationController
         render :index
     end
 
-    def update
-        debugger 
-
-        @review = Review.find_by(id: params[:id])
+    def update 
         
+        @review = Review.find_by(id: params[:review][:review_id].to_i)
+
         if @review.update(review_params)
             render 'api/reviews/show'
         else
@@ -28,7 +27,6 @@ class Api::ReviewsController < ApplicationController
     end
 
     def destroy
-        debugger
         @review = Review.find_by(id: params[:id])
         @review.destroy!
         @business = @review.business

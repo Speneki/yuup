@@ -25,8 +25,7 @@ class ReviewForm extends React.Component {
             review_id: revId
         }
 
-        debugger
-        this.props.action(newReview).then(() => this.props.history.push(`businesses/${this.props.location.biz.id}`))
+        this.props.action(newReview).then(() => this.props.history.push(`/businesses/${this.props.location.biz.id}`))
     }
 
     handleUpdate(field) {
@@ -53,7 +52,6 @@ class ReviewForm extends React.Component {
             this.props.thisReview.body
         ) : (null)
 
-        debugger
         return(  
             <>
                 <div className="showPageNav">
@@ -136,7 +134,7 @@ class ReviewForm extends React.Component {
                                         <p className="review-text">{options[this.state.rating]}</p>
                                     </div>
                                 </div>
-                            <textarea className="reviewFormBody" defaultValue={reviewBod}
+                            <textarea className="reviewFormBody" defaultvalue={reviewBod}
                                 cols="40" wrap="hard" rows="5" placeholder= {placeHolder}
                                 onChange={this.handleUpdate('body')}/>
                             <input type="submit" className="review-submit-button" value={this.props.formType}/>

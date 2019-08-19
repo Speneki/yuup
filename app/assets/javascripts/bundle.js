@@ -1458,9 +1458,8 @@ function (_React$Component) {
         business_id: this.props.location.biz.id,
         review_id: revId
       };
-      debugger;
       this.props.action(newReview).then(function () {
-        return _this2.props.history.push("businesses/".concat(_this2.props.location.biz.id));
+        return _this2.props.history.push("/businesses/".concat(_this2.props.location.biz.id));
       });
     }
   }, {
@@ -1487,7 +1486,6 @@ function (_React$Component) {
       var options = ["Select your rating", "Eek! Me thinks not.", "Meh. I've experienced better.", "A-OK.", "Yay! I'm a fan.", "Woohoo! As good as it gets!"];
       var placeHolder = "Your review helps others learn about great local businesses.\n\n Please don't review this business if you received a freebie for writing this review, or are connected in any way to the owner or employees.";
       var reviewBod = this.props.formType === " ★ Edit Review" ? this.props.thisReview.body : null;
-      debugger;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "showPageNav"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1570,7 +1568,7 @@ function (_React$Component) {
         className: "review-text"
       }, options[this.state.rating]))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         className: "reviewFormBody",
-        defaultValue: reviewBod,
+        defaultvalue: reviewBod,
         cols: "40",
         wrap: "hard",
         rows: "5",

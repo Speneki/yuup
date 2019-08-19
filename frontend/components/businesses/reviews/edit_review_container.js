@@ -13,7 +13,7 @@ const msp = (state, ownProps) => {
 }
 
 const mdp = dispatch => ({
-    action: (review) => dispatch(editReview(review)),
+    action: (review) => dispatch(editReview(review))
 })
 
 export default connect(msp, mdp)(ReviewForm);
