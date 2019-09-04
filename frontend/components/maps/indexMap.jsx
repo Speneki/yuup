@@ -16,7 +16,7 @@ class indexMap extends React.Component {
         let marker, i;
 
         for (i = 0; i < this.props.businesses.length; i++) {
-            marker = new google.maps.Marker({
+            marker = new google.maps.Marker({   
                 position: new google.maps.LatLng(this.props.businesses[i].latitude, this.props.businesses[i].longitude),
                 map: map,
                 title: this.props.businesses[i].business_name,

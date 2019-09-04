@@ -11,6 +11,7 @@ class Business extends React.Component {
         super(props)
         this.state = {cityName: ""} 
     }
+    
     componentDidMount() {
         this.props.fetchBusiness(this.props.match.params.id)
         window.scrollTo(0, 0);
