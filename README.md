@@ -5,7 +5,6 @@
 #### Hungry? Yuup! 
 
 
-
 ![splash](https://github.com/Speneki/yuup/blob/master/app/assets/images/yuup%20images/splash.png)
 
 ## Google Maps and Geolocation
@@ -67,5 +66,5 @@ Another new challenge was getting the stars to render in the way they needed to 
                 onChange={this.handleUpdate('rating')} />
 </li>
         ...
-                                        ```
+              ```
 
