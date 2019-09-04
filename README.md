@@ -66,5 +66,5 @@ Another new challenge was getting the stars to render in the way they needed to 
                 onChange={this.handleUpdate('rating')} />
 </li>
         ...
-                                        ```
+              ```
 
