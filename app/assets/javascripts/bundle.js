@@ -2470,13 +2470,6 @@ function (_React$Component) {
           animation: google.maps.Animation.DROP
         });
         marker.setMap(map);
-        map.addListener('center_changed', function () {// 3 seconds after the center of the map has changed, pan back to the
-          // marker.
-        });
-        marker.addListener('click', function () {
-          map.setZoom(15);
-          map.setCenter(marker.getPosition());
-        });
       }
     }
   }, {
@@ -46420,7 +46413,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

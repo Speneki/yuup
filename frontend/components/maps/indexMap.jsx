@@ -25,15 +25,6 @@ class indexMap extends React.Component {
 
             marker.setMap(map);
 
-            map.addListener('center_changed', function () {
-                // 3 seconds after the center of the map has changed, pan back to the
-                // marker.
-            });
-
-            marker.addListener('click', function () {
-                map.setZoom(15);
-                map.setCenter(marker.getPosition());
-            });
         }
 
 
