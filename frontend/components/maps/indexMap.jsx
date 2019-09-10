@@ -24,11 +24,7 @@ class indexMap extends React.Component {
             });
 
             marker.setMap(map);
-
         }
-
-
-
     }
 
     render() {
