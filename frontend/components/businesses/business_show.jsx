@@ -20,6 +20,10 @@ class Business extends React.Component {
         }) : (null)
     }
 
+    handleFile(e) {
+        debugger
+    }
+
     render() {
         const currentUserReviewed = (this.props.reviews && this.props.currentUser) ? (
             this.props.reviews.filter(review => review.user_id === this.props.currentUser.id)
@@ -45,6 +49,7 @@ class Business extends React.Component {
         
         return(
             <div>
+
                 {/* from here --- */}
                 <div className="showPageNav">
                     <div className="showBizSearch">
@@ -94,7 +99,7 @@ class Business extends React.Component {
                                 <div className="biz-pix">
                                     <img className="biz_pic" src={this.props.business.photos[1]} alt="restaurant"/>
                                     <img className="biz_pic" src={this.props.business.photos[2]} alt="restaurant"/>
-                                    <img className="biz_pic" src={this.props.business.photos[3]} alt="restaurant"/>
+                                    <img className="biz_pic" src={this.props.business.photos[this.props.business.photos.length - 1]} alt="restaurant"/>
                                 </div>
                             </div>
                         </div>

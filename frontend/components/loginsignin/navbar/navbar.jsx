@@ -6,7 +6,6 @@ class Navbar extends React.Component {
     constructor(props) {
         super(props)
     }
-    
 
     render() {    
         const appearOrNah = (this.props.location.pathname != '/') ? ("makeItRed") : ("keepItClear")
@@ -27,7 +26,7 @@ class Navbar extends React.Component {
         <div className="nav-bar-objects">
             <div className={`navBar ${appearOrNah}`}>
                 <div className="buttons">
-                    <a href="#">My Site</a>
+                    <a href="#">Yuup</a>
                     <a href="https://github.com/Speneki">Git Hub</a>
                     <a href="https://www.linkedin.com/in/spencer-tassone-80a6218b/">LinkedIn</a>
                 </div>

@@ -4,7 +4,7 @@ const UserNav = (props) => {
     return (
         <div className="navBar">
             <div className="buttons">
-                <a href="#">My Site</a>
+                <a href="#">Yuup</a>
                 <a href="https://github.com/Speneki">Git Hub</a>
                 <a href="https://www.linkedin.com/in/spencer-tassone-80a6218b/">LinkedIn</a>
             </div>

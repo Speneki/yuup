@@ -883,6 +883,11 @@ function (_React$Component) {
       }) : null;
     }
   }, {
+    key: "handleFile",
+    value: function handleFile(e) {
+      debugger;
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this3 = this;
@@ -982,7 +987,7 @@ function (_React$Component) {
         alt: "restaurant"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "biz_pic",
-        src: this.props.business.photos[3],
+        src: this.props.business.photos[this.props.business.photos.length - 1],
         alt: "restaurant"
       })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "actual-biz-content"
@@ -1728,8 +1733,7 @@ function (_React$Component) {
     value: function render() {
       var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
       var days = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28"];
-      var nums = ["2019", "2018", "2016"]; //Brayn Developed this
-
+      var nums = ["2019", "2018"];
       var thisMine = this.props.currentUser ? this.props.currentUser.id === this.props.user[0].id ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-review-buttons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -2072,7 +2076,7 @@ function (_React$Component) {
         className: "buttons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#"
-      }, "My Site"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      }, "Yuup"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "https://github.com/Speneki"
       }, "Git Hub"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "https://www.linkedin.com/in/spencer-tassone-80a6218b/"
@@ -2152,7 +2156,7 @@ var UserNav = function UserNav(props) {
     className: "buttons"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "#"
-  }, "My Site"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  }, "Yuup"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "https://github.com/Speneki"
   }, "Git Hub"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "https://www.linkedin.com/in/spencer-tassone-80a6218b/"
@@ -46416,7 +46420,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

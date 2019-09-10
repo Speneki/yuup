@@ -51,7 +51,6 @@ class BusinessItem extends React.Component {
                     </div>-
                     <p className="biz-address-splash" >{this.props.business.address}</p>
                     <p>{this.props.business.number}</p>
-
                 </div>
             </li>
         )
