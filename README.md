@@ -1,6 +1,6 @@
 
-
-## [Yuup](https://yuup.herokuapp.com/#/)
+## Yuup
+[Live Link](https://yuup.herokuapp.com/#/)
 
 
 #### Hungry? Yuup! 
