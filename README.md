@@ -66,5 +66,16 @@ Another new challenge was getting the stars to render in the way they needed to 
                 onChange={this.handleUpdate('rating')} />
 </li>
         ...
-              ```
+```
+## Architecture and Technologies:
+Yuup is built with:
 
+- ```React``` and ```Redux``` for front end visualization and screen manipulation
+- ```HTML5``` + ```CSS3``` for visualization and interactivity
+- ```Ruby on Rails``` for backend framework
+- ```Heroku``` for online hosting
+- ```AWS S3``` for image hosting
+- ```Google Maps API``` for restaurant data visualization
+- ```PostgreSQL``` for database management
+
+Enjoy!
