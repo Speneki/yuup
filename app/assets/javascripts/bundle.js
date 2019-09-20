@@ -2678,9 +2678,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -2703,8 +2703,11 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Splash).call(this, props));
     _this.state = {
       query: "",
-      cityName: ""
+      cityName: "",
+      location: ""
     };
+    _this.queryChange = _this.queryChange.bind(_assertThisInitialized(_this));
+    _this.locationChange = _this.locationChange.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -2727,15 +2730,21 @@ function (_React$Component) {
   }, {
     key: "queryChange",
     value: function queryChange(e) {
-      console.log(e.target.value);
       this.setState({
         query: e.target.value
       });
     }
   }, {
+    key: "locationChange",
+    value: function locationChange(e) {
+      this.setState({
+        cityName: e.target.value
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "splish-splash"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "title-icon",
@@ -2757,10 +2766,11 @@ function (_React$Component) {
       }, " Near", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "location-search",
         type: "text",
-        defaultValue: this.state.cityName
+        defaultValue: this.state.cityName,
+        onChange: this.locationChange
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         to: {
-          pathname: "/businesses/search/" + this.state.query
+          pathname: "/businesses/search/" + this.state.cityName + '/' + this.state.query
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",

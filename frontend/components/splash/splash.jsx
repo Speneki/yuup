@@ -6,7 +6,10 @@ class Splash extends React.Component {
         super(props)
         this.state = { 
             query: "",
-            cityName: "" };
+            cityName: "",
+            location: ""};
+        this.queryChange = this.queryChange.bind(this)
+        this.locationChange = this.locationChange.bind(this)
     }
 
     handleSubmit(e){
@@ -20,13 +23,16 @@ class Splash extends React.Component {
     }
 
     queryChange(e) {
-        console.log(e.target.value)
         this.setState({ query: e.target.value})
+    }
+
+    locationChange(e) {
+        this.setState({ cityName: e.target.value})
     }
 
     render() {
         return (
-        <div>
+        <>
             <div className='splish-splash'> 
                 <img className="title-icon" src={window.logo} alt="logo"/>
                 <form className="splash-form-fillout" action="">
@@ -34,11 +40,10 @@ class Splash extends React.Component {
                         <input className="food-search" type="text" placeholder="burgers, pizza, bagels, pizza-bagels..." value={this.state.query} onChange={this.queryChange}/>    
                     </label>
                     <label className="location-label"> Near
-                        <input className="location-search" type="text" defaultValue={this.state.cityName}/>
+                        <input className="location-search" type="text" defaultValue={this.state.cityName} onChange={this.locationChange} />
                     </label>
-                    <Link to={{ pathname: "/businesses/search/" + this.state.query }}><button type="submit" className="splash-search"><i className="fas fa-search"></i></button></Link>
+                    <Link to={{ pathname: "/businesses/search/" + this.state.cityName + '/' + this.state.query }}><button type="submit" className="splash-search"><i className="fas fa-search"></i></button></Link>
                 </form>
-                
                     <ul>
                         <li className="photo-title">Briarpatch Restaurant</li>
                         <li>Photo by <span className="photo-cred">Kerry H.</span></li>
@@ -47,7 +52,7 @@ class Splash extends React.Component {
             </div>
 
             <Businesses/>
-        </div>
+        </>
         )
     }
 }
