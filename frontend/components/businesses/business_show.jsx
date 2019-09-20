@@ -21,7 +21,7 @@ class Business extends React.Component {
     }
 
     handleFile(e) {
-        debugger
+        
     }
 
     render() {

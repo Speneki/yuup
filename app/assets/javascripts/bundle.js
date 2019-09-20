@@ -407,6 +407,9 @@ var App = function App() {
     path: "/businesses/all",
     component: _businesses_allBusiness_container__WEBPACK_IMPORTED_MODULE_10__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+    path: "/businesses/search",
+    component: _businesses_allBusiness_container__WEBPACK_IMPORTED_MODULE_10__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
     path: "/businesses/:id",
     component: _businesses_business_show_container__WEBPACK_IMPORTED_MODULE_8__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
@@ -884,9 +887,7 @@ function (_React$Component) {
     }
   }, {
     key: "handleFile",
-    value: function handleFile(e) {
-      debugger;
-    }
+    value: function handleFile(e) {}
   }, {
     key: "render",
     value: function render() {
@@ -2701,6 +2702,7 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Splash).call(this, props));
     _this.state = {
+      query: "",
       cityName: ""
     };
     return _this;
@@ -2723,6 +2725,14 @@ function (_React$Component) {
       }) : null;
     }
   }, {
+    key: "queryChange",
+    value: function queryChange(e) {
+      console.log(e.target.value);
+      this.setState({
+        query: e.target.value
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2739,7 +2749,9 @@ function (_React$Component) {
       }, " Food", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "food-search",
         type: "text",
-        placeholder: "burgers, pizza, bagels, pizza-bagels..."
+        placeholder: "burgers, pizza, bagels, pizza-bagels...",
+        value: this.state.query,
+        onChange: this.queryChange
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "location-label"
       }, " Near", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -2748,7 +2760,7 @@ function (_React$Component) {
         defaultValue: this.state.cityName
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         to: {
-          pathname: "/businesses/all"
+          pathname: "/businesses/search/" + this.state.query
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",

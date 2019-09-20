@@ -4,7 +4,9 @@ import {Link } from 'react-router-dom'
 class Splash extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { cityName: "" };
+        this.state = { 
+            query: "",
+            cityName: "" };
     }
 
     handleSubmit(e){
@@ -17,6 +19,11 @@ class Splash extends React.Component {
         }) : (null)
     }
 
+    queryChange(e) {
+        console.log(e.target.value)
+        this.setState({ query: e.target.value})
+    }
+
     render() {
         return (
         <div>
@@ -24,12 +31,12 @@ class Splash extends React.Component {
                 <img className="title-icon" src={window.logo} alt="logo"/>
                 <form className="splash-form-fillout" action="">
                     <label className="food-label"> Food
-                        <input className="food-search" type="text" placeholder="burgers, pizza, bagels, pizza-bagels..."/>    
+                        <input className="food-search" type="text" placeholder="burgers, pizza, bagels, pizza-bagels..." value={this.state.query} onChange={this.queryChange}/>    
                     </label>
                     <label className="location-label"> Near
                         <input className="location-search" type="text" defaultValue={this.state.cityName}/>
                     </label>
-                    <Link to={{ pathname: "/businesses/all" }}><button type="submit" className="splash-search"><i className="fas fa-search"></i></button></Link>
+                    <Link to={{ pathname: "/businesses/search/" + this.state.query }}><button type="submit" className="splash-search"><i className="fas fa-search"></i></button></Link>
                 </form>
                 
                     <ul>

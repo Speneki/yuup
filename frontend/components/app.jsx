@@ -22,6 +22,7 @@ const App = () => (
             < Route path="/reviews/:id" component={EditReviewForm} />
             < Route exact path="/reviews" component={ReviewForm} />
             < Route path='/businesses/all' component={BusinessIndex} />
+            < Route path='/businesses/search' component={BusinessIndex} />
             < Route path='/businesses/:id' component={BusinessShow} />
             < Route exact to="/" component={Splash} />
         </Switch>
