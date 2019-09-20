@@ -77,8 +77,8 @@ class Business extends React.Component {
                                 </div>
                                 <div className="businessButtons">
                                     {writeOrEdit}
-                                    <button className="secondary-buttons"><i className="fas fa-camera"></i>  Add Photo</button>
-                                    <button className="secondary-buttons"><i className="fas fa-share-square"></i>  Share</button>
+                                    {/* <button className="secondary-buttons"><i className="fas fa-camera"></i>  Add Photo</button>
+                                    <button className="secondary-buttons"><i className="fas fa-share-square"></i>  Share</button> */}
                                 </div>
                             </div>
 

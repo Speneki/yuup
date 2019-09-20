@@ -27,8 +27,9 @@ class Navbar extends React.Component {
             <div className={`navBar ${appearOrNah}`}>
                 <div className="buttons">
                     <a href="#">Yuup</a>
-                    <a href="https://github.com/Speneki">Git Hub</a>
-                    <a href="https://www.linkedin.com/in/spencer-tassone-80a6218b/">LinkedIn</a>
+                    <a target="_blank" href="https://speneki.github.io/">Portfolio</a>
+                    <a target="_blank" href="https://github.com/Speneki">Git Hub</a>
+                    <a target="_blank" href="https://www.linkedin.com/in/spencer-tassone-80a6218b/">LinkedIn</a>
                 </div>
                 <div className='buttons'>
                     <Link className="login" to="/login">Log In</Link>

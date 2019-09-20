@@ -949,15 +949,7 @@ function (_React$Component) {
         business: this.props.business
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "businessButtons"
-      }, writeOrEdit, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "secondary-buttons"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-camera"
-      }), "  Add Photo"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "secondary-buttons"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-share-square"
-      }), "  Share"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, writeOrEdit)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "middle-business-show"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "map-container",
@@ -2077,8 +2069,13 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#"
       }, "Yuup"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        target: "_blank",
+        href: "https://speneki.github.io/"
+      }, "Portfolio"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        target: "_blank",
         href: "https://github.com/Speneki"
       }, "Git Hub"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        target: "_blank",
         href: "https://www.linkedin.com/in/spencer-tassone-80a6218b/"
       }, "LinkedIn")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "buttons"
@@ -2157,8 +2154,13 @@ var UserNav = function UserNav(props) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "#"
   }, "Yuup"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    target: "_blank",
+    href: "https://speneki.github.io/"
+  }, "Portfolio"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    target: "_blank",
     href: "https://github.com/Speneki"
   }, "Git Hub"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    target: "_blank",
     href: "https://www.linkedin.com/in/spencer-tassone-80a6218b/"
   }, "LinkedIn")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "rightSide"
