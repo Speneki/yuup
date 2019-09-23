@@ -8,6 +8,19 @@
 
 ![splash](https://github.com/Speneki/yuup/blob/master/app/assets/images/yuup-gif.gif)
 
+## Architecture and Technologies:
+Yuup is built with:
+
+- ```React``` and ```Redux``` for front end visualization and screen manipulation
+- ```HTML5``` + ```CSS3``` for visualization and interactivity
+- ```Ruby on Rails``` for backend framework
+- ```Heroku``` for online hosting
+- ```AWS S3``` for image hosting
+- ```Google Maps API``` for restaurant data visualization
+- ```PostgreSQL``` for database management
+
+Enjoy!
+
 ## Google Maps and Geolocation
 
 Yuup is a restaurant listings site that assists users in finding a dining experience that best fits their needs. From price and photos, to location and average user experience, Yuup stylishly lists out everything a hungry person is looking for. Upon logging in, the splash page search bar is auto filled with the users home location to assist in the searching process. Should one be looking for a hot spot that they may be new or trending, a user can also go to one of the multiple randomly generated restaurants around the users location. Should that not be enough, simply clicking on the "find more" link on the bottom or entering their parameters in the search bar brings them to a page with more restaurants and their locations. 
@@ -68,15 +81,3 @@ Another new challenge was getting the stars to render in the way they needed to 
 </li>
         ...
 ```
-## Architecture and Technologies:
-Yuup is built with:
-
-- ```React``` and ```Redux``` for front end visualization and screen manipulation
-- ```HTML5``` + ```CSS3``` for visualization and interactivity
-- ```Ruby on Rails``` for backend framework
-- ```Heroku``` for online hosting
-- ```AWS S3``` for image hosting
-- ```Google Maps API``` for restaurant data visualization
-- ```PostgreSQL``` for database management
-
-Enjoy!
