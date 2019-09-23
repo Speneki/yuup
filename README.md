@@ -6,7 +6,7 @@
 #### Hungry? Yuup! 
 
 
-![splash](https://github.com/Speneki/yuup/blob/master/app/assets/images/yuup%20images/splash.png)
+![splash](https://github.com/Speneki/yuup/blob/master/app/assets/images/Screen%20Shot%202019-09-22%20at%208.06.41%20PM.png)
 
 ## Google Maps and Geolocation
 
